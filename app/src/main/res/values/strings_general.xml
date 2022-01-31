@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="server_error">Ошибка в ответе сервера, попробуйте позже</string>
+
+    <string name="tariff_error_not_enough_money">На вашем счёте недостаточно средств для подключения пакета</string>
+    <string name="tariff_error_account_blocked">На счёте имеются ограничения</string>
+    <string name="general_error">Произошла ошибка, попробуйте еще раз</string>
+</resources>

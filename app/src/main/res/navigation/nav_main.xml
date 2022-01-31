@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/navigation_search">
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="kz.busjol.ui.search.SearchFragment"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_cityPickerDialog"
+            app:destination="@id/cityPickerDialog" />
+        <action
+            android:id="@+id/action_navigation_search_to_nav_buy_tickets"
+            app:destination="@id/navigation_trip_fragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_tickets"
+        android:name="kz.busjol.ui.tickets.TicketsFragment"
+        tools:layout="@layout/fragment_tickets" />
+
+    <fragment
+        android:id="@+id/navigation_contacts"
+        android:name="kz.busjol.ui.contacts.ContactsFragment"
+        tools:layout="@layout/fragment_contacts" />
+
+    <fragment
+        android:id="@+id/navigation_user"
+        android:name="kz.busjol.ui.user.UserFragment"
+        tools:layout="@layout/fragment_user" />
+
+    <dialog
+        android:id="@+id/cityPickerDialog"
+        android:name="kz.busjol.ui.search.CityPickerDialog"
+        tools:layout="@layout/dialog_city_selector" />
+
+    <fragment
+        android:id="@+id/navigation_trip_fragment"
+        android:name="kz.busjol.ui.trip.TripFragment"
+        android:label="TripFragment" >
+
+        <argument
+            android:name="cities"
+            app:argType="string[]" />
+
+    </fragment>
+</navigation>

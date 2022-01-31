@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/gray_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_button_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="21dp"
+            android:layout_marginStart="24dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_passenger_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_passenger_data"
+            app:layout_constraintStart_toEndOf="@id/back_button"
+            app:layout_constraintTop_toTopOf="@id/back_button"
+            app:layout_constraintBottom_toBottomOf="@id/back_button"
+            android:layout_marginStart="16dp"
+            android:textSize="20sp"
+            android:textColor="@color/bolder_text"
+            android:textStyle="bold"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/trip_layout"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/ic_details_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_passenger_data">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/trip_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/trip_number"
+                app:layout_constraintTop_toTopOf="@id/trip_layout"
+                app:layout_constraintStart_toStartOf="@id/trip_layout"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/black"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/trip_destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Алматы - НурСултан"
+                app:layout_constraintTop_toTopOf="@id/trip_details_button"
+                app:layout_constraintStart_toStartOf="@id/trip_layout"
+                app:layout_constraintBottom_toBottomOf="@id/trip_details_button"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/bolder_text"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/trip_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="24.12.2021"
+                app:layout_constraintTop_toBottomOf="@id/trip_destination"
+                app:layout_constraintStart_toStartOf="@id/trip_layout"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:textSize="11sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/trip_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="09:00"
+                app:layout_constraintTop_toBottomOf="@id/trip_destination"
+                app:layout_constraintStart_toEndOf="@id/trip_date"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="4dp"
+                android:textSize="11sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/trip_details_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="@string/details"
+                android:textColor="@color/blue_text"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_passenger_data"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="15dp"
+            tools:listitem="@layout/item_passenger_data"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/trip_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

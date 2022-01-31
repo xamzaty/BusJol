@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_icon_search_menu"
+        android:menuCategory="secondary"
+        android:title="@string/title_search" />
+
+    <item
+        android:id="@+id/navigation_tickets"
+        android:icon="@drawable/ic_icon_tickets_menu"
+        android:menuCategory="secondary"
+        android:title="@string/title_tickets" />
+
+    <item
+        android:id="@+id/navigation_contacts"
+        android:icon="@drawable/ic_icon_contacts_menu"
+        android:menuCategory="secondary"
+        android:title="@string/title_contacts" />
+
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/ic_icon_user_menu"
+        android:menuCategory="secondary"
+        android:title="@string/title_user" />
+
+</menu>

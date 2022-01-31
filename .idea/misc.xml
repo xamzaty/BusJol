@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/ic_bus_plan.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_details_layout.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_frame_trip.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_icon_bus.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/layout_button.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/test.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.28541666666666665" />
+        <entry key="app/src/main/res/layout/dialog_city_selector.xml" value="0.28541666666666665" />
+        <entry key="app/src/main/res/layout/dialog_trip_details.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/fragment_bus_plan.xml" value="0.35074308202391286" />
+        <entry key="app/src/main/res/layout/fragment_choose_seats.xml" value="0.3454956660131403" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28541666666666665" />
+        <entry key="app/src/main/res/layout/fragment_passenger_data.xml" value="0.3414433351902939" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.49393203883495146" />
+        <entry key="app/src/main/res/layout/fragment_ticket_scanner.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/fragment_tickets.xml" value="0.2296875" />
+        <entry key="app/src/main/res/layout/fragment_trip.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_user.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/item_city_selector.xml" value="0.28541666666666665" />
+        <entry key="app/src/main/res/layout/item_passenger_data.xml" value="0.4928522804628999" />
+        <entry key="app/src/main/res/layout/item_trip.xml" value="0.7843986998916577" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.5082958627334911" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.13020833333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
