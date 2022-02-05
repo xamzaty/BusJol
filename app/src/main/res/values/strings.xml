@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">BusJol</string>
-
+    <string name="main_subtitle">Поиск и продажа\nбилетов на автобусы</string>
 
     <string name="alert_title">Выход</string>
     <string name="alert_are_you_want_to_exit">Вы уверены, что хотите выйти?</string>
@@ -16,6 +16,12 @@
 
     <string name="enter">Вход</string>
 
+    <string name="loading">Загрузка</string>
+
+    <string name="error">Ошибка</string>
+    <string name="fill_all_the_fields">Пожалуйста, заполните все поля.</string>
+    <string name="similar_cities">Вы выбрали два одинаковых города.</string>
+
     <string name="error_field_required">Это поле обязательное</string>
 
     <string name="filled">Заполнено:</string>
@@ -27,6 +33,10 @@
     <string name="where">Куда</string>
     <string name="date">Дата</string>
     <string name="passengers">Пассажиры</string>
+    <string name="passengers_tariffs">Выберете тарифы пассажиров</string>
+    <string name="passengers_tariffs_adult">Взрослый</string>
+    <string name="passengers_tariffs_child_person">Детский</string>
+    <string name="passengers_tariffs_disable_person">Инвалидный</string>
     <string name="search_button">Искать</string>
 
     <string name="trip_number">Рейс №%1$d</string>
@@ -88,4 +98,7 @@
     <string name="valid_ticket">Билет действителен</string>
     <string name="invalid_ticket">Билет недействителен</string>
     <string name="let_us_know_button">Сообщите нам</string>
+    
+    <string name="one_person">человек</string>
+    <string name="two_person">человека</string>
 </resources>

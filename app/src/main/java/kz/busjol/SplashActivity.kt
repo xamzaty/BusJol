@@ -1,5 +1,6 @@
 package kz.busjol
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -23,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
         }, 2500)
     }
 

@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_navigation_search_to_cityPickerDialog"
-            app:destination="@id/cityPickerDialog" />
+            app:destination="@id/navigation_city_picker_dialog" />
         <action
             android:id="@+id/action_navigation_search_to_nav_buy_tickets"
             app:destination="@id/navigation_trip_fragment"
@@ -19,6 +19,10 @@
             app:popExitAnim="@anim/slide_out_right"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_quantity_dialog"
+            app:destination="@id/navigation_quantity_dialog" />
+
     </fragment>
 
     <fragment
@@ -37,13 +41,20 @@
         tools:layout="@layout/fragment_user" />
 
     <dialog
-        android:id="@+id/cityPickerDialog"
+        android:id="@+id/navigation_city_picker_dialog"
         android:name="kz.busjol.ui.search.CityPickerDialog"
-        tools:layout="@layout/dialog_city_selector" />
+        tools:layout="@layout/dialog_city_selector">
+
+        <argument
+            android:name="fromOrToCity"
+            app:argType="string"/>
+
+    </dialog>
 
     <fragment
         android:id="@+id/navigation_trip_fragment"
         android:name="kz.busjol.ui.trip.TripFragment"
+        tools:layout="@layout/fragment_trip"
         android:label="TripFragment" >
 
         <argument
@@ -51,4 +62,11 @@
             app:argType="string[]" />
 
     </fragment>
+
+    <dialog
+        android:id="@+id/navigation_quantity_dialog"
+        android:name="kz.busjol.ui.search.PassengerQuantityDialog"
+        tools:layout="@layout/dialog_passenger_quantity"
+        android:label="PassengerQuantityDialog" />
+
 </navigation>

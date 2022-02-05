@@ -4,7 +4,7 @@ import android.view.View
 
 interface AdapterListener {
 
-    fun onItemClick(item: Any) {}
+    fun onItemClick(position: Int) {}
 
     fun onItemActionClick(item: Any) {}
 

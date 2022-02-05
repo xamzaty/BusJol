@@ -31,12 +31,23 @@
             android:id="@+id/search_banner"
             android:layout_width="match_parent"
             android:layout_height="190dp"
-            android:src="@drawable/banner"
+            android:src="@drawable/banner2"
             android:scaleType="fitCenter"
             app:layout_constraintTop_toBottomOf="@id/search_title"
             android:layout_marginTop="32dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/search_banner"
+            app:layout_constraintStart_toStartOf="@id/search_banner"
+            android:text="@string/main_subtitle"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"/>
 
         <FrameLayout
             android:id="@+id/from_city_layout"
@@ -61,6 +72,7 @@
                     android:textColor="@color/black"
                     android:cursorVisible="false"
                     app:boxBackgroundMode="none"
+                    android:inputType="textNoSuggestions"
                     android:textSize="16sp"
                     android:background="#00000000"/>
 
@@ -96,6 +108,7 @@
                     android:textColor="@color/black"
                     android:cursorVisible="false"
                     app:boxBackgroundMode="none"
+                    android:inputType="textNoSuggestions"
                     android:textSize="16sp"
                     android:background="#00000000"/>
 
@@ -142,6 +155,7 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/black"
                     app:boxBackgroundMode="none"
+                    android:inputType="textNoSuggestions"
                     android:textSize="16sp"
                     android:background="#00000000"/>
 
@@ -189,6 +203,7 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/black"
                     app:boxBackgroundMode="none"
+                    android:inputType="textNoSuggestions"
                     android:textSize="16sp"
                     android:background="#00000000"/>
 

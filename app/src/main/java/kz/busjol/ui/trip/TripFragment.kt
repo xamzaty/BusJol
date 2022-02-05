@@ -1,5 +1,6 @@
 package kz.busjol.ui.trip
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +40,10 @@ class TripFragment : Fragment() {
 
         setTitle()
         setupButtons()
+
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            requireActivity().window.statusBarColor = requireActivity().getColor(R.color.gray_background)
+//        }
     }
 
     override fun onDestroyView() {
