@@ -7,6 +7,25 @@
     <string name="alert_ok">OK</string>
     <string name="alert_cancel">Отмена</string>
 
+    <string name="today">Сегодня</string>
+    <string name="yesterday">Вчера</string>
+    <string name="tomorrow">Завтра</string>
+
+    <string-array name="months">
+        <item>Январь</item>
+        <item>Февраль</item>
+        <item>Март</item>
+        <item>Апрель</item>
+        <item>Май</item>
+        <item>Июнь</item>
+        <item>Июль</item>
+        <item>Август</item>
+        <item>Сентябрь</item>
+        <item>Октябрь</item>
+        <item>Ноябрь</item>
+        <item>Декабрь</item>
+    </string-array>
+
     <string name="error_unknown">Произошла непредвиденная ошибка. Пожалуйста попробуйте еще раз</string>
     <string name="error_on_server">Запрос не обработан, попробуйте позднее</string>
     <string name="error_incorrect_phone">Указанный номер телефона не принадлежит пользователю</string>

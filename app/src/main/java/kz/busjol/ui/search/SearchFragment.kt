@@ -2,27 +2,23 @@ package kz.busjol.ui.search
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.github.razir.progressbutton.showProgress
-import kotlinx.android.synthetic.main.dialog_city_selector.*
+import dagger.hilt.android.AndroidEntryPoint
 import kz.busjol.R
 import kz.busjol.databinding.FragmentSearchBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
 class SearchFragment : Fragment() {
 
-    private lateinit var searchViewModel: SearchViewModel
+    private val searchViewModel: SearchViewModel by viewModels()
     private var _binding: FragmentSearchBinding? = null
 
     private val binding get() = _binding!!
@@ -32,7 +28,6 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        searchViewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
 

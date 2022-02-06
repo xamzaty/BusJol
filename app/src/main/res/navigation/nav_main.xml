@@ -69,4 +69,10 @@
         tools:layout="@layout/dialog_passenger_quantity"
         android:label="PassengerQuantityDialog" />
 
+    <fragment
+        android:id="@+id/navigation_bus_plan"
+        android:name="kz.busjol.ui.bus_plan.BusPlanFragment"
+        tools:layout="@layout/fragment_bus_plan"
+        android:label="BusPlanFragment"/>
+
 </navigation>

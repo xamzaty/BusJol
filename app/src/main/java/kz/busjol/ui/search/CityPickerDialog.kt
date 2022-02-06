@@ -2,10 +2,13 @@ package kz.busjol.ui.search
 
 import android.app.Dialog
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -15,12 +18,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.dialog_city_selector.*
 import kz.busjol.R
-import kz.busjol.base.AdapterListener
 import kz.busjol.data.City
 import kz.busjol.databinding.DialogCitySelectorBinding
 
 class CityPickerDialog : BottomSheetDialogFragment(), CityListAdapter.OnItemClickListener {
-    private lateinit var cityPickerViewModel: SearchViewModel
+    private val cityPickerViewModel: SearchViewModel by viewModels()
     private var _binding: DialogCitySelectorBinding? = null
 
     private val binding get() = _binding!!
@@ -32,7 +34,6 @@ class CityPickerDialog : BottomSheetDialogFragment(), CityListAdapter.OnItemClic
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        cityPickerViewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
         _binding = DialogCitySelectorBinding.inflate(inflater, container, false)
 
@@ -62,6 +63,7 @@ class CityPickerDialog : BottomSheetDialogFragment(), CityListAdapter.OnItemClic
         }
 
         setupObservers()
+        setupFields()
         loadData()
     }
 
@@ -95,6 +97,23 @@ class CityPickerDialog : BottomSheetDialogFragment(), CityListAdapter.OnItemClic
             citiesList.observe(viewLifecycleOwner) { citiesList ->
                 cityAdapter.submitList(citiesList)
             }
+        }
+    }
+
+    private fun setupFields() {
+        binding.apply {
+            findCityEt.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
+
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    cityPickerViewModel.onAction(SearchFragmentAction.SearchCity(p0.toString()))
+                }
+
+                override fun afterTextChanged(p0: Editable?) {
+                }
+
+            })
         }
     }
 

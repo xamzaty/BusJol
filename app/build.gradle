@@ -13,7 +13,7 @@ android {
         applicationId "kz.busjol"
         minSdk 21
         targetSdk 31
-        versionCode 1
+        versionCode versionCodeDate()
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -38,6 +38,56 @@ android {
     ext.postBuildExtras = {
         apply plugin: "androidx.navigation.safeargs.kotlin"
     }
+
+    flavorDimensions "default"
+    productFlavors {
+        prod {
+            dimension "default"
+            buildConfigField "String", "BASE_URL", '"https://ib.jusan.kz"'
+            buildConfigField "String", "ENCRYPT_KEY", '"publickey_prod.der"'
+            buildConfigField "String", "AMPLITUDE_KEY", '"a3dd8755ad14364a4c6b22c55d66def9"'
+            manifestPlaceholders = [
+                    resourceSuffix      : "",
+                    isCrashlyticsEnabled: "true"
+            ]
+        }
+        preprod {
+            dimension "default"
+            applicationIdSuffix ".preprod"
+            versionNameSuffix '-PREPROD'
+            buildConfigField "String", "BASE_URL", '"https://bank.jbusiness.kz:8474"'
+            buildConfigField "String", "ENCRYPT_KEY", '"publickey_test.der"'
+            buildConfigField "String", "AMPLITUDE_KEY", '"e74d47f441f931f8d6a2875b8af3d6ab"'
+            manifestPlaceholders = [
+                    resourceSuffix      : "_preprod",
+                    isCrashlyticsEnabled: "true"
+            ]
+        }
+        dev {
+            dimension "default"
+            applicationIdSuffix ".dev"
+            versionNameSuffix '-DEV'
+            buildConfigField "String", "BASE_URL", '"https://business-test1.jysanbank.kz:8460"'
+            buildConfigField "String", "ENCRYPT_KEY", '"publickey_test.der"'
+            buildConfigField "String", "AMPLITUDE_KEY", '"e74d47f441f931f8d6a2875b8af3d6ab"'
+            manifestPlaceholders = [
+                    resourceSuffix      : "_dev",
+                    isCrashlyticsEnabled: "false"
+            ]
+        }
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+}
+
+static def versionCodeDate() {
+    //Remove last digit from yyMMddHHmm
+    //MAX PLAY MARKET VERSION CODE: 2100000000
+    return (new Date().format("yyMMddHHmm").toString().substring(0,9)).toInteger()
 }
 
 dependencies {
@@ -69,6 +119,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
 
     //Koin
+    implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-androidx-scope:$koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
@@ -93,6 +144,12 @@ dependencies {
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'com.github.bumptech.glide:compiler:4.12.0'
+
+    //Hilt
+    implementation 'com.google.dagger:hilt-android:2.38.1'
+    kapt 'com.google.dagger:hilt-android-compiler:2.38.1'
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'
 
     //Lottie Animation
     implementation 'com.airbnb.android:lottie:4.2.1'
