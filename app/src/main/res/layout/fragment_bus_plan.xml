@@ -73,9 +73,10 @@
 
     <View
         android:id="@+id/bus_plan_layout"
-        android:layout_width="275dp"
+        android:layout_width="match_parent"
         android:layout_height="506dp"
         android:background="@drawable/ic_main_frame"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,8 +84,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/wheel_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@drawable/wheel"
         app:layout_constraintStart_toStartOf="@id/bus_plan_layout"
         app:layout_constraintTop_toTopOf="@id/bus_plan_layout"

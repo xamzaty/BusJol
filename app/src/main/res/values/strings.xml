@@ -90,7 +90,7 @@
     <string name="trip_details">Детали рейса</string>
 
     <string name="title_booking">Бронирование</string>
-    <string name="booking_expires">Бронирование истекает:</string>
+    <string name="booking_expires">Бронь истекает:</string>
     <string name="with_bank_cards">Банковскими картами</string>
     <string name="proceed_to_checkout_button">Перейти к оплате</string>
     <string name="kaspi">Kaspi.kz</string>
@@ -101,7 +101,7 @@
 
     <string name="title_order_payment">Оплата заказа</string>
 
-    <string name="title_your_order_number">Ваш заказ №</string>
+    <string name="title_payment_order_result">Ваш заказ №%1$s</string>
     <string name="seats">Места</string>
     <string name="return_to_main_button">Вернуться на главную</string>
 
@@ -117,7 +117,10 @@
     <string name="valid_ticket">Билет действителен</string>
     <string name="invalid_ticket">Билет недействителен</string>
     <string name="let_us_know_button">Сообщите нам</string>
-    
+
+    <string name="schedule_time">%1$s %2$s</string>
+    <string name="schedule_seats_filled">Заполнено: %1$s из %2$s</string>
+
     <string name="one_person">человек</string>
     <string name="two_person">человека</string>
 </resources>

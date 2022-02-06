@@ -12,9 +12,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kz.busjol.R
 
-
-typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
-
 abstract class BaseBottomFragmentDialog <VB : ViewBinding>(
     private val inflate: Inflate<VB>,
 ) : BottomSheetDialogFragment() {

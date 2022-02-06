@@ -12,9 +12,11 @@
         <entry key="app/src/main/res/drawable/ic_frame_trip.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_from_city_layout.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_icon_bus.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_icon_kaspi.xml" value="0.309375" />
         <entry key="app/src/main/res/drawable/ic_icon_user_menu.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_invalid_ticket.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_item_passenger_data_layout.xml" value="0.2875" />
+        <entry key="app/src/main/res/drawable/ic_valid_ticket.xml" value="0.309375" />
         <entry key="app/src/main/res/drawable/layout_button.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/rounded_dialog.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/test.xml" value="0.24583333333333332" />
@@ -24,18 +26,23 @@
         <entry key="app/src/main/res/layout/dialog_city_selector.xml" value="0.5342995169082125" />
         <entry key="app/src/main/res/layout/dialog_passenger_quantity.xml" value="0.34257262820402595" />
         <entry key="app/src/main/res/layout/dialog_trip_details.xml" value="0.3609375" />
-        <entry key="app/src/main/res/layout/fragment_booking.xml" value="0.28802083333333334" />
+        <entry key="app/src/main/res/layout/fragment_booking.xml" value="0.36572766260214706" />
         <entry key="app/src/main/res/layout/fragment_bus_plan.xml" value="0.35074308202391286" />
         <entry key="app/src/main/res/layout/fragment_choose_seats.xml" value="0.3454956660131403" />
         <entry key="app/src/main/res/layout/fragment_contacts.xml" value="0.2713541666666667" />
+        <entry key="app/src/main/res/layout/fragment_driver_passenger_data.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/fragment_driver_schedule.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28541666666666665" />
         <entry key="app/src/main/res/layout/fragment_passenger_data.xml" value="0.3414433351902939" />
+        <entry key="app/src/main/res/layout/fragment_payment_order.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/fragment_payment_order_result.xml" value="0.4849261675386939" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.49393203883495146" />
         <entry key="app/src/main/res/layout/fragment_ticket_scanner.xml" value="0.3609375" />
         <entry key="app/src/main/res/layout/fragment_tickets.xml" value="0.2296875" />
         <entry key="app/src/main/res/layout/fragment_trip.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.3609375" />
         <entry key="app/src/main/res/layout/item_city_selector.xml" value="0.28541666666666665" />
+        <entry key="app/src/main/res/layout/item_driver_schedule.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/item_passenger_data.xml" value="0.4928522804628999" />
         <entry key="app/src/main/res/layout/item_trip.xml" value="0.7843986998916577" />
         <entry key="app/src/main/res/layout/progress_button_layout.xml" value="0.3104166666666667" />
