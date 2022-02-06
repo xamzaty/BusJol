@@ -12,34 +12,24 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kz.busjol.R
+import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentSearchBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SearchFragment : Fragment() {
+class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
 
     private val searchViewModel: SearchViewModel by viewModels()
-    private var _binding: FragmentSearchBinding? = null
-
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
-
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupCalendar()
         setupObservers()
         setupButtons()
+    }
 
+    private fun setupCalendar() {
         val myCalendar = Calendar.getInstance()
 
         val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, day ->
@@ -56,15 +46,6 @@ class SearchFragment : Fragment() {
                     myCalendar.get(Calendar.DAY_OF_MONTH)).show()
             }
         }
-
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            requireActivity().window.statusBarColor = requireActivity().getColor(R.color.white)
-//        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     private fun updateCalendarDate(myCalendar: Calendar) {
@@ -108,7 +89,8 @@ class SearchFragment : Fragment() {
     private fun navigateToTripFragment() {
         binding.apply {
             val cityArray = arrayOf(fromCityEt.text.toString(), toCityEt.text.toString())
-            val action = SearchFragmentDirections.actionNavigationSearchToNavBuyTickets(cityArray)
+            val date = dateEt.text.toString()
+            val action = SearchFragmentDirections.actionNavigationSearchToNavBuyTickets(cityArray, date)
             findNavController().navigate(action)
         }
     }
@@ -171,7 +153,7 @@ class SearchFragment : Fragment() {
         builder.setTitle(getString(R.string.error))
         builder.setMessage(getString(R.string.fill_all_the_fields))
 
-        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+        builder.setPositiveButton(android.R.string.yes) { dialog, _ ->
             dialog.dismiss()
         }
         builder.show()
@@ -182,7 +164,7 @@ class SearchFragment : Fragment() {
         builder.setTitle(getString(R.string.error))
         builder.setMessage(getString(R.string.similar_cities))
 
-        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
+        builder.setPositiveButton(android.R.string.yes) { dialog, _ ->
             dialog.dismiss()
         }
         builder.show()

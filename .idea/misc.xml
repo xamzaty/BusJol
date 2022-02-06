@@ -21,9 +21,10 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.28541666666666665" />
         <entry key="app/src/main/res/layout/bottom_sheet_dialog_bus_plan.xml" value="0.40576887410285933" />
-        <entry key="app/src/main/res/layout/dialog_city_selector.xml" value="0.669079217795337" />
+        <entry key="app/src/main/res/layout/dialog_city_selector.xml" value="0.5342995169082125" />
         <entry key="app/src/main/res/layout/dialog_passenger_quantity.xml" value="0.34257262820402595" />
         <entry key="app/src/main/res/layout/dialog_trip_details.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/fragment_booking.xml" value="0.28802083333333334" />
         <entry key="app/src/main/res/layout/fragment_bus_plan.xml" value="0.35074308202391286" />
         <entry key="app/src/main/res/layout/fragment_choose_seats.xml" value="0.3454956660131403" />
         <entry key="app/src/main/res/layout/fragment_contacts.xml" value="0.2713541666666667" />

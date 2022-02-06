@@ -3,11 +3,8 @@ package kz.busjol.ui.contacts
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kz.busjol.base.BaseViewModel
 
-class ContactsViewModel : ViewModel() {
+class ContactsViewModel : BaseViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "Здесь будет фрагмент с контактами"
-    }
-    val text: LiveData<String> = _text
 }

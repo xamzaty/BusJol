@@ -10,31 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
+import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentTicketScannerBinding
 
-class TicketScannerFragment : Fragment() {
+class TicketScannerFragment : BaseFragment<FragmentTicketScannerBinding>(FragmentTicketScannerBinding::inflate) {
     private lateinit var codeScanner: CodeScanner
-
     private lateinit var ticketScannerViewModel: TicketScannerViewModel
-    private var _binding: FragmentTicketScannerBinding? = null
-
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        ticketScannerViewModel = ViewModelProvider(this)[TicketScannerViewModel::class.java]
-
-        _binding = FragmentTicketScannerBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        ticketScannerViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-        })
-        return root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -58,10 +39,5 @@ class TicketScannerFragment : Fragment() {
     override fun onPause() {
         codeScanner.releaseResources()
         super.onPause()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
