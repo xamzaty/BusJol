@@ -5,34 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_trip.*
 import kz.busjol.R
+import kz.busjol.base.BaseFragment
 import kz.busjol.data.Trip
 import kz.busjol.databinding.FragmentTripBinding
 
-class TripFragment : Fragment(), TripListAdapter.OnItemClickListener {
+class TripFragment : BaseFragment<FragmentTripBinding>(FragmentTripBinding::inflate), TripListAdapter.OnItemClickListener {
 
-    private lateinit var tripViewModel: TripViewModel
-    private var _binding: FragmentTripBinding? = null
-
-    private val binding get() = _binding!!
+    private val tripViewModel: TripViewModel by viewModels()
     private val tripAdapter = TripListAdapter(this)
     private val args: TripFragmentArgs by navArgs()
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        tripViewModel = ViewModelProvider(this)[TripViewModel::class.java]
-
-        _binding = FragmentTripBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,11 +34,6 @@ class TripFragment : Fragment(), TripListAdapter.OnItemClickListener {
     override fun onCityClicked(trip: Trip) {
         val action = TripFragmentDirections.actionNavigationTripFragmentToNavigationBusPlan(trip.type)
         findNavController().navigate(action)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     private fun setTitle() {
