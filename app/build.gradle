@@ -17,6 +17,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BASE_URL', "\"http://45.76.87.246/\""
     }
 
     buildTypes {
@@ -37,44 +39,6 @@ android {
     }
     ext.postBuildExtras = {
         apply plugin: "androidx.navigation.safeargs.kotlin"
-    }
-
-    flavorDimensions "default"
-    productFlavors {
-        prod {
-            dimension "default"
-            buildConfigField "String", "BASE_URL", '"https://ib.jusan.kz"'
-            buildConfigField "String", "ENCRYPT_KEY", '"publickey_prod.der"'
-            buildConfigField "String", "AMPLITUDE_KEY", '"a3dd8755ad14364a4c6b22c55d66def9"'
-            manifestPlaceholders = [
-                    resourceSuffix      : "",
-                    isCrashlyticsEnabled: "true"
-            ]
-        }
-        preprod {
-            dimension "default"
-            applicationIdSuffix ".preprod"
-            versionNameSuffix '-PREPROD'
-            buildConfigField "String", "BASE_URL", '"https://bank.jbusiness.kz:8474"'
-            buildConfigField "String", "ENCRYPT_KEY", '"publickey_test.der"'
-            buildConfigField "String", "AMPLITUDE_KEY", '"e74d47f441f931f8d6a2875b8af3d6ab"'
-            manifestPlaceholders = [
-                    resourceSuffix      : "_preprod",
-                    isCrashlyticsEnabled: "true"
-            ]
-        }
-        dev {
-            dimension "default"
-            applicationIdSuffix ".dev"
-            versionNameSuffix '-DEV'
-            buildConfigField "String", "BASE_URL", '"https://business-test1.jysanbank.kz:8460"'
-            buildConfigField "String", "ENCRYPT_KEY", '"publickey_test.der"'
-            buildConfigField "String", "AMPLITUDE_KEY", '"e74d47f441f931f8d6a2875b8af3d6ab"'
-            manifestPlaceholders = [
-                    resourceSuffix      : "_dev",
-                    isCrashlyticsEnabled: "false"
-            ]
-        }
     }
 
     bundle {
@@ -162,6 +126,8 @@ dependencies {
     implementation "androidx.paging:paging-runtime:$paging_version"
 
     implementation 'com.github.razir.progressbutton:progressbutton:2.1.0'
+
+    implementation 'com.jakewharton.timber:timber:5.0.1'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

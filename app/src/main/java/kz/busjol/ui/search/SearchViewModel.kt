@@ -3,12 +3,15 @@ package kz.busjol.ui.search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kz.busjol.api.ApiHelper
 import kz.busjol.base.BaseViewModel
 import kz.busjol.data.City
 import kz.busjol.preferences.PassengerPreferences
 import javax.inject.Inject
 
-class SearchViewModel : BaseViewModel() {
+class SearchViewModel(
+    private val apiHelper: ApiHelper
+) : BaseViewModel() {
 
     private val cityList = mutableListOf<City>()
     private val citiesLiveData = MutableLiveData<List<City>>()

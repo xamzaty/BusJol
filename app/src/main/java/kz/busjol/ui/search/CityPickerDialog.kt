@@ -12,10 +12,11 @@ import kotlinx.android.synthetic.main.dialog_city_selector.*
 import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.data.City
 import kz.busjol.databinding.DialogCitySelectorBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CityPickerDialog : BaseBottomFragmentDialog<DialogCitySelectorBinding>(DialogCitySelectorBinding::inflate), CityListAdapter.OnItemClickListener {
 
-    private val cityPickerViewModel: SearchViewModel by viewModels()
+    private val cityPickerViewModel: SearchViewModel by viewModel()
 
     private val cityAdapter = CityListAdapter(this)
     private val args: CityPickerDialogArgs by navArgs()
