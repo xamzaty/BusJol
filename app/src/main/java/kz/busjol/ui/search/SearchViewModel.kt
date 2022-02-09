@@ -7,10 +7,11 @@ import kz.busjol.api.ApiHelper
 import kz.busjol.base.BaseViewModel
 import kz.busjol.data.City
 import kz.busjol.preferences.PassengerPreferences
+import kz.busjol.repository.CityRepository
 import javax.inject.Inject
 
 class SearchViewModel(
-    private val apiHelper: ApiHelper
+    private val repository: CityRepository
 ) : BaseViewModel() {
 
     private val cityList = mutableListOf<City>()
@@ -25,14 +26,14 @@ class SearchViewModel(
     val passengersQuantity: LiveData<String> = _passengersQuantity
 
     init {
-        cityList.add(City("Алматы"))
-        cityList.add(City("Нур-Султан"))
-        cityList.add(City("Караганда"))
-        cityList.add(City("Балхаш"))
-        cityList.add(City("Шымкент"))
-        cityList.add(City("Тараз"))
+        fetchCityData()
+    }
 
-        citiesLiveData.value = cityList
+    private fun fetchCityData() {
+        networkRequest(
+            request = { repository.getCityList() },
+            onSuccess = { cityResponse -> citiesLiveData.value = cityResponse }
+        )
     }
 
     private fun swapCities() {
