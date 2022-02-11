@@ -7,8 +7,7 @@ import kz.busjol.utils.LocaleKeeper
 import java.util.*
 
 class UserPreferences(
-    context: Context,
-    val gson: Gson
+    context: Context
 ) {
     companion object {
         private const val APP_LANGUAGE = "APP_LANGUAGE"

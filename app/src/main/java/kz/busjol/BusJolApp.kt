@@ -1,8 +1,8 @@
 package kz.busjol
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
 import kz.busjol.module.appModule
+import kz.busjol.module.dataModule
 import kz.busjol.module.repoModule
 import kz.busjol.module.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -27,7 +27,9 @@ class BusJolApp : Application() {
             modules(
                 appModule,
                 repoModule,
-                viewModelModule)
+                viewModelModule,
+                dataModule
+            )
         }
     }
 }

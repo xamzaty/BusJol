@@ -4,8 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 
 class PassengerPreferences(
-    context: Context,
-    val gson: Gson
+    context: Context
 ) {
     companion object {
         private const val ALL_PASSENGERS_QUANTITY = "ALL_PASSENGERS_QUANTITY"

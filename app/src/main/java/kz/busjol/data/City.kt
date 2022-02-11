@@ -1,7 +1,9 @@
 package kz.busjol.data
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class City(
     val name: String
-): Serializable
+): Parcelable

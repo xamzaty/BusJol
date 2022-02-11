@@ -7,8 +7,11 @@ import androidx.navigation.fragment.findNavController
 import kz.busjol.R
 import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.databinding.DialogPassengerQuantityBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PassengerQuantityDialog() : BaseBottomFragmentDialog<DialogPassengerQuantityBinding>(DialogPassengerQuantityBinding::inflate) {
+class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantityBinding>(DialogPassengerQuantityBinding::inflate) {
+
+    private val viewModel: PassengersQuantityViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,7 +42,6 @@ class PassengerQuantityDialog() : BaseBottomFragmentDialog<DialogPassengerQuanti
                 textAdultQuantity.text = adultQuantity.toString()
             }
 
-
             buttonPlusChildTariff.setOnClickListener {
                 if (childQuantity < 50) childQuantity++
                 textChildQuantity.text = childQuantity.toString()
@@ -49,7 +51,6 @@ class PassengerQuantityDialog() : BaseBottomFragmentDialog<DialogPassengerQuanti
                 if (childQuantity > 0) childQuantity--
                 textChildQuantity.text = childQuantity.toString()
             }
-
 
             buttonPlusDisableTariff.setOnClickListener {
                 if (disabledQuantity < 50) disabledQuantity++
@@ -78,11 +79,32 @@ class PassengerQuantityDialog() : BaseBottomFragmentDialog<DialogPassengerQuanti
     }
 
     private fun passBackstackData() {
-        if (countPassengers() > 0)
+        if (countPassengers() > 0) {
             findNavController().previousBackStackEntry?.savedStateHandle?.set(
                 "quantity",
                 passengersQuantityText()
             )
+            passengersQuantityToViewModel()
+        }
+    }
+
+    private fun passengersQuantityToViewModel() {
+        binding.apply {
+            val allPassengers = countPassengers()
+            val adultPassengers = textAdultQuantity.text.toString().toInt()
+            val childPassengers = textChildQuantity.text.toString().toInt()
+            val disabledPassengers = textDisableQuantity.text.toString().toInt()
+            val listOfPassengers = ArrayList<Int>()
+
+            listOfPassengers.add(allPassengers)
+            listOfPassengers.add(adultPassengers)
+            listOfPassengers.add(childPassengers)
+            listOfPassengers.add(disabledPassengers)
+
+            println(listOfPassengers)
+
+            viewModel.onAction(CitiesListAction.PassPassengersQuantityData(listOfPassengers))
+        }
     }
 
     private fun passengersQuantityText(): String {

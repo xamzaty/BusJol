@@ -46,6 +46,10 @@
         tools:layout="@layout/dialog_city_selector">
 
         <argument
+            android:name="cityList"
+            app:argType="kz.busjol.data.City[]"/>
+
+        <argument
             android:name="fromOrToCity"
             app:argType="string"/>
 

@@ -7,7 +7,9 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
+import kz.busjol.data.City
 import kz.busjol.databinding.FragmentSearchBinding
+import kz.busjol.ext.FragmentExt.showSimpleAlertDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -15,6 +17,7 @@ import java.util.*
 class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
 
     private val searchViewModel: SearchViewModel by viewModel()
+    private lateinit var cityList: Array<City>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -71,14 +74,16 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 
             swapCitiesButton.setOnClickListener {
                 if (fromCityEt.text!!.isNotEmpty() && toCityEt.text!!.isNotEmpty())
-                searchViewModel.onAction(SearchFragmentAction.SwapCities)
+                searchViewModel.onAction(CitiesListAction.SwapCities)
             }
         }
     }
 
     private fun openCityPickerDialog(arg: String) {
-        val action = SearchFragmentDirections.actionNavigationSearchToCityPickerDialog(arg)
-        findNavController().navigate(action)
+        if (cityList.isNotEmpty()) {
+            val action = SearchFragmentDirections.actionNavigationSearchToCityPickerDialog(cityList, arg)
+            findNavController().navigate(action)
+        }
     }
 
     private fun navigateToTripFragment() {
@@ -94,17 +99,17 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("from")?.observe(
             viewLifecycleOwner) { result ->
-            searchViewModel.onAction(SearchFragmentAction.FromCityValue(result))
+            searchViewModel.onAction(CitiesListAction.FromCityValue(result))
         }
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("to")?.observe(
             viewLifecycleOwner) { result ->
-            searchViewModel.onAction(SearchFragmentAction.ToCityValue(result))
+            searchViewModel.onAction(CitiesListAction.ToCityValue(result))
         }
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("quantity")?.observe(
             viewLifecycleOwner) { result ->
-            searchViewModel.onAction(SearchFragmentAction.FillPassengersQuantityValue(result))
+            searchViewModel.onAction(CitiesListAction.FillPassengersQuantityValue(result))
         }
 
         searchViewModel.apply {
@@ -119,6 +124,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             passengersQuantity.observe(viewLifecycleOwner, { quantity ->
                 binding.passengerNumberEt.setText(quantity)
             })
+
+            citiesList.observe(viewLifecycleOwner, { cityListViewModel ->
+                cityList = cityListViewModel.toTypedArray()
+            })
         }
     }
 
@@ -128,40 +137,16 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
                 toCityEt.text.isNullOrEmpty() ||
                 dateEt.text.isNullOrEmpty() ||
                 passengerNumberEt.text.isNullOrEmpty()) {
-                showFillAllTheFieldsAlert()
-            }
-            else if (fromCityEt.text.toString() == toCityEt.text.toString() &&
+                showSimpleAlertDialog(R.string.error, R.string.fill_all_the_fields)
+            } else if (fromCityEt.text.toString() == toCityEt.text.toString() &&
                 fromCityEt.text.toString().isNotEmpty() && toCityEt.text.toString().isNotEmpty()){
 
-                showSimilarCitiesAlert()
-                searchViewModel.onAction(SearchFragmentAction.FromCityValue(""))
-                searchViewModel.onAction(SearchFragmentAction.ToCityValue(""))
-            }
-            else {
+                showSimpleAlertDialog(R.string.error, R.string.similar_cities)
+                searchViewModel.onAction(CitiesListAction.FromCityValue(""))
+                searchViewModel.onAction(CitiesListAction.ToCityValue(""))
+            } else {
                 navigateToTripFragment()
             }
         }
-    }
-
-    private fun showFillAllTheFieldsAlert() {
-        val builder = AlertDialog.Builder(activity)
-        builder.setTitle(getString(R.string.error))
-        builder.setMessage(getString(R.string.fill_all_the_fields))
-
-        builder.setPositiveButton(android.R.string.yes) { dialog, _ ->
-            dialog.dismiss()
-        }
-        builder.show()
-    }
-
-    private fun showSimilarCitiesAlert() {
-        val builder = AlertDialog.Builder(activity)
-        builder.setTitle(getString(R.string.error))
-        builder.setMessage(getString(R.string.similar_cities))
-
-        builder.setPositiveButton(android.R.string.yes) { dialog, _ ->
-            dialog.dismiss()
-        }
-        builder.show()
     }
 }

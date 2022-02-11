@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CityPickerDialog : BaseBottomFragmentDialog<DialogCitySelectorBinding>(DialogCitySelectorBinding::inflate), CityListAdapter.OnItemClickListener {
 
-    private val cityPickerViewModel: SearchViewModel by viewModel()
+    private val viewModel: CityPickerViewModel by viewModel()
 
     private val cityAdapter = CityListAdapter(this)
     private val args: CityPickerDialogArgs by navArgs()
@@ -24,6 +23,7 @@ class CityPickerDialog : BaseBottomFragmentDialog<DialogCitySelectorBinding>(Dia
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.onAction(CitiesListAction.PassCityList(args.cityList.toMutableList()))
         setupObservers()
         setupFields()
         setupButtons()
@@ -45,7 +45,7 @@ class CityPickerDialog : BaseBottomFragmentDialog<DialogCitySelectorBinding>(Dia
     }
 
     private fun setupObservers() {
-        cityPickerViewModel.apply {
+        viewModel.apply {
             citiesList.observe(viewLifecycleOwner) { citiesList ->
                 cityAdapter.submitList(citiesList)
             }
@@ -59,12 +59,11 @@ class CityPickerDialog : BaseBottomFragmentDialog<DialogCitySelectorBinding>(Dia
                 }
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    cityPickerViewModel.onAction(SearchFragmentAction.SearchCity(p0.toString()))
+                    viewModel.onAction(CitiesListAction.SearchCity(p0.toString()))
                 }
 
                 override fun afterTextChanged(p0: Editable?) {
                 }
-
             })
         }
     }
