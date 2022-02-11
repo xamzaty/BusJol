@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/drawable/background_splash.xml" value="0.346875" />
+        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/drawable/ic_busjol.xml" value="0.31927083333333334" />
+        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/drawable/splash_logo_text.xml" value="0.31927083333333334" />
+        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/drawable/splash_screen.xml" value="0.31927083333333334" />
+        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/activity_main.xml" value="0.16210739614994935" />
+        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/dialog_passenger_quantity.xml" value="0.3171875" />
+        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_search.xml" value="0.3383152173913043" />
         <entry key="app/src/main/res/drawable/ic_bottom_sheet_frame.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/drawable/ic_bus_plan.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/ic_cross.xml" value="0.2875" />
