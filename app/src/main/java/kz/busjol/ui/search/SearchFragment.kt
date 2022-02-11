@@ -30,7 +30,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
     private fun setupCalendar() {
         val myCalendar = Calendar.getInstance()
 
-        val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, day ->
+        val datePicker = DatePickerDialog.OnDateSetListener { _, year, month, day ->
             myCalendar.set(Calendar.YEAR, year)
             myCalendar.set(Calendar.MONTH, month)
             myCalendar.set(Calendar.DAY_OF_MONTH, day)

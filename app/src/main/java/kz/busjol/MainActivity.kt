@@ -1,5 +1,7 @@
 package kz.busjol
 
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
@@ -13,11 +15,16 @@ import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kz.busjol.databinding.ActivityMainBinding
 import kz.busjol.ext.ActivityExt.statusBarColor
+import kz.busjol.preferences.UserPreferences
 import kz.busjol.utils.Coroutines
+import org.koin.android.ext.android.inject
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    val userPreferences: UserPreferences by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_BusJol)
@@ -42,6 +49,12 @@ class MainActivity : AppCompatActivity() {
 
         hideBottomMenu()
         statusBarColor(R.color.white, true)
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase?.createConfigurationContext(Configuration().apply {
+            setLocale(Locale(userPreferences.getAppLanguage().name))
+        }))
     }
 
     private fun hideBottomMenu() {
