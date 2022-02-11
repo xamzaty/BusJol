@@ -111,6 +111,11 @@
     <string name="title_user">Профиль</string>
     <string name="title_ticket_scanner">Сканирование билета</string>
 
+    <string name="no_tickets">Билетов нет!</string>
+
+    <string name="faq_button_title">Вопросы и ответы</string>
+    <string name="call_button_title">Позвонить</string>
+
     <string name="title_client_data">Данные клиента</string>
     <string name="route">Маршрут</string>
     <string name="initials">ФИО</string>
