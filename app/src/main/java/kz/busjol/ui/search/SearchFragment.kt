@@ -17,7 +17,7 @@ import java.util.*
 class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
 
     private val searchViewModel: SearchViewModel by viewModel()
-    private lateinit var cityList: Array<City>
+    private var cityList = listOf<City>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -81,7 +81,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 
     private fun openCityPickerDialog(arg: String) {
         if (cityList.isNotEmpty()) {
-            val action = SearchFragmentDirections.actionNavigationSearchToCityPickerDialog(cityList, arg)
+            val action = SearchFragmentDirections.actionNavigationSearchToCityPickerDialog(cityList.toTypedArray(), arg)
             findNavController().navigate(action)
         }
     }
@@ -126,7 +126,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             })
 
             citiesList.observe(viewLifecycleOwner, { cityListViewModel ->
-                cityList = cityListViewModel.toTypedArray()
+                cityList = cityListViewModel
             })
         }
     }
