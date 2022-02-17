@@ -34,6 +34,7 @@
     <string name="password">Пароль</string>
 
     <string name="enter">Вход</string>
+    <string name="enter_button">Войти</string>
 
     <string name="loading">Загрузка</string>
 
@@ -112,6 +113,8 @@
     <string name="title_ticket_scanner">Сканирование билета</string>
 
     <string name="no_tickets">Билетов нет!</string>
+    <string name="tickets_list_title">Список ваших билетов</string>
+    <string name="tickets_list_text">Здесь будет сохранятся список\nвсех ваших билетов.\nАвторизуйтесь для того, чтобы\nвидеть ваши билеты!</string>
 
     <string name="faq_button_title">Вопросы и ответы</string>
     <string name="call_button_title">Позвонить</string>
