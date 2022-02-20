@@ -4,8 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
-import kz.busjol.base.AdapterListener
 import kz.busjol.data.City
 import kz.busjol.databinding.ItemCitySelectorBinding
 

@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -12,18 +11,15 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import dagger.hilt.android.AndroidEntryPoint
 import kz.busjol.databinding.ActivityMainBinding
 import kz.busjol.ext.ActivityExt.statusBarColor
 import kz.busjol.preferences.UserPreferences
-import kz.busjol.utils.Coroutines
 import org.koin.android.ext.android.inject
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
     val userPreferences: UserPreferences by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +54,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun hideBottomMenu() {
-
         findNavController(R.id.nav_host_fragment_activity_main).addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
                 R.id.navigation_search, R.id.navigation_tickets, R.id.navigation_contacts, R.id.navigation_user -> showMenu()

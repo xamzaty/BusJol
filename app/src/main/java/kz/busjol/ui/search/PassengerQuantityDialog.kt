@@ -19,12 +19,6 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
         setupButtons()
     }
 
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
-
-        passBackstackData()
-    }
-
     private fun setupButtons() {
         var adultQuantity = 0
         var childQuantity = 0
@@ -60,6 +54,11 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
             buttonMinusDisableTariff.setOnClickListener {
                 if (disabledQuantity > 0) disabledQuantity--
                 textDisableQuantity.text = disabledQuantity.toString()
+            }
+
+            continueButton.setOnClickListener {
+                passBackstackData()
+                dismiss()
             }
 
             closeButton.setOnClickListener {

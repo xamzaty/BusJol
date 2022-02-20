@@ -1,10 +1,6 @@
 package kz.busjol.data
 
-import kz.busjol.utils.DateTimeUtils
-import kz.busjol.utils.Money
-import kz.busjol.utils.toString
 import java.io.Serializable
-import java.util.*
 
 data class Trip(
     val time: String,

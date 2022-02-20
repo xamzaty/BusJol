@@ -114,7 +114,7 @@
 
     <string name="no_tickets">Билетов нет!</string>
     <string name="tickets_list_title">Список ваших билетов</string>
-    <string name="tickets_list_text">Здесь будет сохранятся список\nвсех ваших билетов.\nАвторизуйтесь для того, чтобы\nвидеть ваши билеты!</string>
+    <string name="tickets_list_text">Здесь будет сохраняться список\nвсех ваших билетов.\nАвторизуйтесь для того, чтобы\nвидеть ваши билеты!</string>
 
     <string name="faq_button_title">Вопросы и ответы</string>
     <string name="call_button_title">Позвонить</string>
@@ -131,4 +131,9 @@
 
     <string name="one_person">человек</string>
     <string name="two_person">человека</string>
+
+    <string name="about_app_title">О приложении</string>
+    <string name="change_language_title">Сменить язык</string>
+    <string name="russian_language">Русский</string>
+    <string name="kazakh_language">Казахский</string>
 </resources>
