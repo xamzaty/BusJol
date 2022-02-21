@@ -1,23 +1,19 @@
-package kz.busjol.ui.ticket_scanner
+package kz.busjol.ui.driver_scanner
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
 import kz.busjol.base.BaseFragment
-import kz.busjol.databinding.FragmentTicketScannerBinding
+import kz.busjol.databinding.FragmentDriverScannerBinding
 
-class TicketScannerFragment : BaseFragment<FragmentTicketScannerBinding>(FragmentTicketScannerBinding::inflate) {
+class DriverScannerFragment : BaseFragment<FragmentDriverScannerBinding>(FragmentDriverScannerBinding::inflate) {
 
     private lateinit var codeScanner: CodeScanner
-    private val ticketScannerViewModel: TicketScannerViewModel by viewModels()
+    private val driverScannerViewModel: DriverScannerViewModel by viewModels()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

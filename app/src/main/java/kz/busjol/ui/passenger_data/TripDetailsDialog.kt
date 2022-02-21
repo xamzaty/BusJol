@@ -12,7 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.databinding.DialogTripDetailsBinding
 
-class TripDetailsDialog : BaseBottomFragmentDialog<DialogTripDetailsBinding>(DialogTripDetailsBinding::inflate) {
+class TripDetailsDialog : BaseBottomFragmentDialog<DialogTripDetailsBinding>(DialogTripDetailsBinding::inflate, false) {
 
     private val passengersDataViewModel: PassengerDataViewModel by viewModels()
 

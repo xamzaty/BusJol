@@ -14,6 +14,7 @@ import kz.busjol.R
 
 abstract class BaseBottomFragmentDialog <VB : ViewBinding>(
     private val inflate: Inflate<VB>,
+    private val isFullHeight: Boolean
 ) : BottomSheetDialogFragment() {
 
     private var _binding: VB? = null
@@ -36,7 +37,7 @@ abstract class BaseBottomFragmentDialog <VB : ViewBinding>(
             val parentLayout = bottomSheetDialog.findViewById<View>(R.id.design_bottom_sheet)
             parentLayout?.let { it ->
                 val behaviour = BottomSheetBehavior.from(it)
-                setupFullHeight(it)
+                if (isFullHeight) setupFullHeight(it)
                 behaviour.state = BottomSheetBehavior.STATE_EXPANDED
             }
         }

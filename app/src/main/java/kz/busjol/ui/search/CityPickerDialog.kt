@@ -13,7 +13,7 @@ import kz.busjol.data.City
 import kz.busjol.databinding.DialogCitySelectorBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CityPickerDialog : BaseBottomFragmentDialog<DialogCitySelectorBinding>(DialogCitySelectorBinding::inflate), CityListAdapter.OnItemClickListener {
+class CityPickerDialog : BaseBottomFragmentDialog<DialogCitySelectorBinding>(DialogCitySelectorBinding::inflate, true), CityListAdapter.OnItemClickListener {
 
     private val viewModel: CityPickerViewModel by viewModel()
 

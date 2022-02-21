@@ -1,6 +1,5 @@
 package kz.busjol.ui.search
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
@@ -9,7 +8,7 @@ import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.databinding.DialogPassengerQuantityBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantityBinding>(DialogPassengerQuantityBinding::inflate) {
+class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantityBinding>(DialogPassengerQuantityBinding::inflate, false) {
 
     private val viewModel: PassengersQuantityViewModel by viewModel()
 

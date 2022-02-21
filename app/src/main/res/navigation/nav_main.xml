@@ -8,5 +8,7 @@
     <include app:graph="@navigation/nav_my_tickets"/>
     <include app:graph="@navigation/nav_contacts"/>
     <include app:graph="@navigation/nav_user"/>
+    <include app:graph="@navigation/nav_driver_home"/>
+    <include app:graph="@navigation/nav_driver_scan"/>
 
 </navigation>

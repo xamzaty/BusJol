@@ -136,4 +136,7 @@
     <string name="change_language_title">Сменить язык</string>
     <string name="russian_language">Русский</string>
     <string name="kazakh_language">Казахский</string>
+
+
+    <string name="qr_camera_scan">Наведите камеру на\nQR-код</string>
 </resources>

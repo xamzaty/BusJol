@@ -1,4 +1,4 @@
-package kz.busjol.ui.paymentOrder
+package kz.busjol.ui.payment_order
 
 import kz.busjol.base.BaseViewModel
 

@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var navView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_BusJol)
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        navView = binding.navView
 
         val navHostFragment = supportFragmentManager.findFragmentById(
             R.id.nav_host_container
@@ -73,19 +74,17 @@ class MainActivity : AppCompatActivity() {
     private fun hideBottomMenu() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
-                R.id.navigation_search, R.id.navigation_tickets, R.id.navigation_contacts, R.id.navigation_user -> showMenu()
+                R.id.navigation_search, R.id.navigation_tickets, R.id.navigation_contacts, R.id.navigation_user, R.id.nav_driver_home -> showMenu()
                 else -> hideMenu()
             }
         }
     }
 
     private fun showMenu() {
-        val bottomMenu = binding.navView
-        bottomMenu.visibility = View.VISIBLE
+        navView.visibility = View.VISIBLE
     }
 
     private fun hideMenu() {
-        val bottomMenu = binding.navView
-        bottomMenu.visibility = View.GONE
+        navView.visibility = View.GONE
     }
 }
