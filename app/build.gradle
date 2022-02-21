@@ -55,7 +55,6 @@ static def versionCodeDate() {
 }
 
 dependencies {
-
     def retrofit_version = '2.9.0'
     def nav_version = '2.5.0-alpha02'
     def fragment_version = '1.5.0-alpha02'

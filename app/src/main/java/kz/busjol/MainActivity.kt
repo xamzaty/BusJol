@@ -7,8 +7,13 @@ import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.findFragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import kz.busjol.databinding.ActivityMainBinding
@@ -22,6 +27,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     val userPreferences: UserPreferences by inject()
 
+    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_BusJol)
         super.onCreate(savedInstanceState)
@@ -34,17 +42,26 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        val appBarConfiguration = AppBarConfiguration(
+        val navHostFragment = supportFragmentManager.findFragmentById(
+            R.id.nav_host_container
+        ) as NavHostFragment
+
+        navController = navHostFragment.navController
+        appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_search, R.id.navigation_user
+                R.id.navigation_search, R.id.navigation_tickets, R.id.navigation_contacts, R.id.navigation_user
             )
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
         hideBottomMenu()
         statusBarColor(R.color.white, true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration)
     }
 
     override fun attachBaseContext(newBase: Context?) {
@@ -54,7 +71,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun hideBottomMenu() {
-        findNavController(R.id.nav_host_fragment_activity_main).addOnDestinationChangedListener { _, destination, _ ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
                 R.id.navigation_search, R.id.navigation_tickets, R.id.navigation_contacts, R.id.navigation_user -> showMenu()
                 else -> hideMenu()
