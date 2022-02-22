@@ -3,6 +3,7 @@ package kz.busjol.ui.search
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import kz.busjol.R
 import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.databinding.DialogPassengerQuantityBinding
@@ -11,11 +12,13 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantityBinding>(DialogPassengerQuantityBinding::inflate, false) {
 
     private val viewModel: PassengersQuantityViewModel by viewModel()
+    private val args: PassengerQuantityDialogArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupButtons()
+        setupFields()
     }
 
     private fun setupButtons() {
@@ -66,6 +69,14 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
         }
     }
 
+    private fun setupFields() {
+        binding.apply {
+            textAdultQuantity.text = args.adultsQuantity.toString()
+            textChildQuantity.text = args.childQuantity.toString()
+            textDisableQuantity.text = args.disabledQuantity.toString()
+        }
+    }
+
     private fun countPassengers(): Int {
         binding.apply {
             val adultQuantity = textAdultQuantity.text.toString().toInt()
@@ -81,6 +92,18 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
             findNavController().previousBackStackEntry?.savedStateHandle?.set(
                 "quantity",
                 passengersQuantityText()
+            )
+            findNavController().previousBackStackEntry?.savedStateHandle?.set(
+                "adultQuantity",
+                binding.textAdultQuantity.text.toString().toInt()
+            )
+            findNavController().previousBackStackEntry?.savedStateHandle?.set(
+                "childQuantity",
+                binding.textChildQuantity.text.toString().toInt()
+            )
+            findNavController().previousBackStackEntry?.savedStateHandle?.set(
+                "disabledQuantity",
+                binding.textDisableQuantity.text.toString().toInt()
             )
             passengersQuantityToViewModel()
         }
@@ -98,8 +121,6 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
             listOfPassengers.add(adultPassengers)
             listOfPassengers.add(childPassengers)
             listOfPassengers.add(disabledPassengers)
-
-            println(listOfPassengers)
 
             viewModel.onAction(CitiesListAction.PassPassengersQuantityData(listOfPassengers))
         }

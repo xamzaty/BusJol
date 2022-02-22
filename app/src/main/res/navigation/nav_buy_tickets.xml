@@ -66,7 +66,21 @@
         android:id="@+id/navigation_quantity_dialog"
         android:name="kz.busjol.ui.search.PassengerQuantityDialog"
         tools:layout="@layout/dialog_passenger_quantity"
-        android:label="PassengerQuantityDialog" />
+        android:label="PassengerQuantityDialog">
+
+        <argument
+            android:name="adultsQuantity"
+            app:argType="integer" />
+
+        <argument
+            android:name="childQuantity"
+            app:argType="integer" />
+
+        <argument
+            android:name="disabledQuantity"
+            app:argType="integer" />
+
+    </dialog>
 
     <fragment
         android:id="@+id/navigation_bus_plan"

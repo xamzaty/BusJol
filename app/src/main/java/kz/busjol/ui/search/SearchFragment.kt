@@ -17,6 +17,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 
     private val searchViewModel: SearchViewModel by viewModel()
     private var cityList = listOf<City>()
+    private var adultPassengersQuantity = 0
+    private var childPassengersQuantity = 0
+    private var disabledPassengersQuantity = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -69,7 +72,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             }
 
             openPassengerNumberDialog.setOnClickListener {
-                findNavController().navigate(R.id.action_navigation_search_to_navigation_quantity_dialog)
+                openPassengersQuantityDialog()
             }
 
             swapCitiesButton.setOnClickListener {
@@ -84,6 +87,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             val action = SearchFragmentDirections.actionNavigationSearchToCityPickerDialog(cityList.toTypedArray(), arg)
             findNavController().navigate(action)
         }
+    }
+
+    private fun openPassengersQuantityDialog() {
+            val action = SearchFragmentDirections.actionNavigationSearchToNavigationQuantityDialog(adultPassengersQuantity, childPassengersQuantity, disabledPassengersQuantity)
+            findNavController().navigate(action)
     }
 
     private fun navigateToTripFragment() {
@@ -109,6 +117,21 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("quantity")?.observe(
             viewLifecycleOwner) { result ->
             searchViewModel.onAction(CitiesListAction.FillPassengersQuantityValue(result))
+        }
+
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("adultQuantity")?.observe(
+            viewLifecycleOwner) { result ->
+            adultPassengersQuantity = result
+        }
+
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("childQuantity")?.observe(
+            viewLifecycleOwner) { result ->
+            childPassengersQuantity = result
+        }
+
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("disabledQuantity")?.observe(
+            viewLifecycleOwner) { result ->
+            disabledPassengersQuantity = result
         }
 
         searchViewModel.apply {
