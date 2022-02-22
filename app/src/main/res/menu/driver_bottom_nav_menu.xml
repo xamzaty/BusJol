@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_driver_home"
+        android:icon="@drawable/ic_driver_home"
+        android:title="@string/title_main" />
+
+    <item
+        android:id="@+id/nav_driver_scan"
+        android:icon="@drawable/ic_driver_scan"
+        android:title="@string/title_scan" />
+
+    <item
+        android:id="@+id/nav_driver_settings"
+        android:icon="@drawable/ic_driver_settings"
+        android:title="@string/title_settings" />
+
+</menu>
