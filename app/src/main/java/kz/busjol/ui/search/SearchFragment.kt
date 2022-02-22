@@ -1,6 +1,5 @@
 package kz.busjol.ui.search
 
-import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
@@ -29,7 +28,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 
     private fun setupCalendar() {
         val myCalendar = Calendar.getInstance()
-
         val datePicker = DatePickerDialog.OnDateSetListener { _, year, month, day ->
             myCalendar.set(Calendar.YEAR, year)
             myCalendar.set(Calendar.MONTH, month)
@@ -38,11 +36,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
         }
 
         binding.openDateDialog.setOnClickListener {
-            activity?.let { it1 ->
+            val datePickerDialog = activity?.let { it1 ->
                 DatePickerDialog(
                     it1, datePicker, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                    myCalendar.get(Calendar.DAY_OF_MONTH)).show()
+                    myCalendar.get(Calendar.DAY_OF_MONTH))
             }
+            datePickerDialog?.datePicker?.minDate = System.currentTimeMillis() - 1000
+            datePickerDialog?.show()
         }
     }
 
@@ -96,7 +96,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
     }
 
     private fun setupObservers() {
-
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("from")?.observe(
             viewLifecycleOwner) { result ->
             searchViewModel.onAction(CitiesListAction.FromCityValue(result))
