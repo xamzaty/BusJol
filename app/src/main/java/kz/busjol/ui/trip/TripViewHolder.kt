@@ -23,7 +23,7 @@ class TripViewHolder(private val binding: ItemTripBinding, private val listener:
             tripType.text = itemView.context.getString(R.string.seat_type, trip.type)
             tripFreeSeats.text = itemView.context.getString(R.string.free_seats, trip.freeSeats, trip.allSeats)
             tripFerryman.text = itemView.context.getString(R.string.carrier, trip.carrier)
-            tripPrice.text = trip.amount
+            tripPrice.text = trip.displayAmount()
         }
     }
 }

@@ -1,5 +1,6 @@
 package kz.busjol.data
 
+import kz.busjol.utils.formatWithCurrency
 import java.io.Serializable
 
 data class Trip(
@@ -11,6 +12,8 @@ data class Trip(
     val freeSeats: String,
     val allSeats: String,
     val carrier: String,
-    val amount: String
+    val amount: Double
 ) : Serializable {
+
+    fun displayAmount() = amount.formatWithCurrency()
 }
