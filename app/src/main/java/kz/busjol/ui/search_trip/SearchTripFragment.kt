@@ -1,4 +1,4 @@
-package kz.busjol.ui.search
+package kz.busjol.ui.search_trip
 
 import android.app.DatePickerDialog
 import android.os.Bundle
@@ -7,16 +7,15 @@ import androidx.navigation.fragment.findNavController
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.data.City
-import kz.busjol.databinding.FragmentSearchBinding
+import kz.busjol.databinding.FragmentSearchTripBinding
 import kz.busjol.ext.FragmentExt.showSimpleAlertDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding::inflate) {
+class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearchTripBinding::inflate) {
 
-    private val viewModel: SearchViewModel by viewModel()
+    private val tripViewModel: SearchTripViewModel by viewModel()
     private var cityList = listOf<City>()
     private var adultPassengersQuantity = 0
     private var childPassengersQuantity = 0
@@ -79,20 +78,20 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 
             swapCitiesButton.setOnClickListener {
                 if (fromCityEt.text!!.isNotEmpty() && toCityEt.text!!.isNotEmpty())
-                viewModel.onAction(CitiesListAction.SwapCities)
+                tripViewModel.onAction(CitiesListAction.SwapCities)
             }
         }
     }
 
     private fun openCityPickerDialog(arg: String) {
         if (cityList.isNotEmpty()) {
-            val action = SearchFragmentDirections.actionNavigationSearchToCityPickerDialog(cityList.toTypedArray(), arg)
+            val action = SearchTripFragmentDirections.actionNavigationSearchToCityPickerDialog(cityList.toTypedArray(), arg)
             findNavController().navigate(action)
         }
     }
 
     private fun openPassengersQuantityDialog() {
-        val action = SearchFragmentDirections.actionNavigationSearchToNavigationQuantityDialog(adultPassengersQuantity, childPassengersQuantity, disabledPassengersQuantity)
+        val action = SearchTripFragmentDirections.actionNavigationSearchToNavigationQuantityDialog(adultPassengersQuantity, childPassengersQuantity, disabledPassengersQuantity)
         findNavController().navigate(action)
     }
 
@@ -100,7 +99,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
         binding.apply {
             val cityArray = arrayOf(fromCityEt.text.toString(), toCityEt.text.toString())
             val date = dateEt.text.toString()
-            val action = SearchFragmentDirections.actionNavigationSearchToNavBuyTickets(cityArray, date)
+            val action = SearchTripFragmentDirections.actionNavigationSearchToNavBuyTickets(cityArray, date)
             findNavController().navigate(action)
         }
     }
@@ -108,17 +107,17 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
     private fun setupObservers() {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("from")?.observe(
             viewLifecycleOwner) { result ->
-            viewModel.onAction(CitiesListAction.FromCityValue(result))
+            tripViewModel.onAction(CitiesListAction.FromCityValue(result))
         }
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("to")?.observe(
             viewLifecycleOwner) { result ->
-            viewModel.onAction(CitiesListAction.ToCityValue(result))
+            tripViewModel.onAction(CitiesListAction.ToCityValue(result))
         }
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("quantity")?.observe(
             viewLifecycleOwner) { result ->
-            viewModel.onAction(CitiesListAction.FillPassengersQuantityValue(result))
+            tripViewModel.onAction(CitiesListAction.FillPassengersQuantityValue(result))
         }
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("adultQuantity")?.observe(
@@ -136,7 +135,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
             disabledPassengersQuantity = result
         }
 
-        viewModel.apply {
+        tripViewModel.apply {
             fromCityValue.observe(viewLifecycleOwner, { fromCityValue ->
                 binding.fromCityEt.setText(fromCityValue)
             })
@@ -171,11 +170,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
                 fromCityEt.text.toString().isNotEmpty() && toCityEt.text.toString().isNotEmpty()){
 
                 showSimpleAlertDialog(R.string.error, R.string.similar_cities)
-                viewModel.onAction(CitiesListAction.FromCityValue(""))
-                viewModel.onAction(CitiesListAction.ToCityValue(""))
+                tripViewModel.onAction(CitiesListAction.FromCityValue(""))
+                tripViewModel.onAction(CitiesListAction.ToCityValue(""))
             } else {
                 navigateToTripFragment()
-                viewModel.onAction(CitiesListAction.PassPassengersQuantityData(allPassengersQuantity().toMutableList()))
+                tripViewModel.onAction(CitiesListAction.PassPassengersQuantityData(allPassengersQuantity().toMutableList()))
                 println(allPassengersQuantity().toList())
             }
         }

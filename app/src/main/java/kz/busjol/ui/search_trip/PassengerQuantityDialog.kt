@@ -1,4 +1,4 @@
-package kz.busjol.ui.search
+package kz.busjol.ui.search_trip
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,6 @@ import androidx.navigation.fragment.navArgs
 import kz.busjol.R
 import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.databinding.DialogPassengerQuantityBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantityBinding>(DialogPassengerQuantityBinding::inflate, false) {
 

@@ -1,11 +1,11 @@
 package kz.busjol.module
 
-import kz.busjol.ui.search.CityPickerViewModel
-import kz.busjol.ui.search.SearchViewModel
+import kz.busjol.ui.search_trip.CityPickerViewModel
+import kz.busjol.ui.search_trip.SearchTripViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
-    viewModel { SearchViewModel(repository = get(), preferences = get()) }
+    viewModel { SearchTripViewModel(repository = get(), preferences = get()) }
     viewModel { CityPickerViewModel() }
 }

@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="kz.busjol.ui.search.SearchFragment"
-        tools:layout="@layout/fragment_search" >
+        android:name="kz.busjol.ui.search_trip.SearchTripFragment"
+        tools:layout="@layout/fragment_search_trip" >
         <action
             android:id="@+id/action_navigation_search_to_cityPickerDialog"
             app:destination="@id/navigation_city_picker_dialog" />
@@ -27,7 +27,7 @@
 
     <dialog
         android:id="@+id/navigation_city_picker_dialog"
-        android:name="kz.busjol.ui.search.CityPickerDialog"
+        android:name="kz.busjol.ui.search_trip.CityPickerDialog"
         tools:layout="@layout/dialog_city_selector">
 
         <argument
@@ -64,7 +64,7 @@
 
     <dialog
         android:id="@+id/navigation_quantity_dialog"
-        android:name="kz.busjol.ui.search.PassengerQuantityDialog"
+        android:name="kz.busjol.ui.search_trip.PassengerQuantityDialog"
         tools:layout="@layout/dialog_passenger_quantity"
         android:label="PassengerQuantityDialog">
 

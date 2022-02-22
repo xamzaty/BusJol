@@ -1,4 +1,4 @@
-package kz.busjol.ui.search
+package kz.busjol.ui.search_trip
 
 import android.os.Bundle
 import android.text.Editable

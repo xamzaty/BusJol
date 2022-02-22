@@ -1,4 +1,4 @@
-package kz.busjol.ui.search
+package kz.busjol.ui.search_trip
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

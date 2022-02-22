@@ -1,4 +1,4 @@
-package kz.busjol.ui.search
+package kz.busjol.ui.search_trip
 
 import androidx.recyclerview.widget.RecyclerView
 import kz.busjol.data.City

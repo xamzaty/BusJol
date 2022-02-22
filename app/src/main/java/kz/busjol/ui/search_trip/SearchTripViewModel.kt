@@ -1,4 +1,4 @@
-package kz.busjol.ui.search
+package kz.busjol.ui.search_trip
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import kz.busjol.preferences.PassengerPreferences
 import kz.busjol.repository.CityRepository
 import timber.log.Timber
 
-class SearchViewModel(
+class SearchTripViewModel(
     private val repository: CityRepository,
     private val preferences: PassengerPreferences
 ) : BaseViewModel() {
