@@ -11,7 +11,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantityBinding>(DialogPassengerQuantityBinding::inflate, false) {
 
-    private val viewModel: PassengersQuantityViewModel by viewModel()
     private val args: PassengerQuantityDialogArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -105,24 +104,6 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
                 "disabledQuantity",
                 binding.textDisableQuantity.text.toString().toInt()
             )
-            passengersQuantityToViewModel()
-        }
-    }
-
-    private fun passengersQuantityToViewModel() {
-        binding.apply {
-            val allPassengers = countPassengers()
-            val adultPassengers = textAdultQuantity.text.toString().toInt()
-            val childPassengers = textChildQuantity.text.toString().toInt()
-            val disabledPassengers = textDisableQuantity.text.toString().toInt()
-            val listOfPassengers = ArrayList<Int>()
-
-            listOfPassengers.add(allPassengers)
-            listOfPassengers.add(adultPassengers)
-            listOfPassengers.add(childPassengers)
-            listOfPassengers.add(disabledPassengers)
-
-            viewModel.onAction(CitiesListAction.PassPassengersQuantityData(listOfPassengers))
         }
     }
 
