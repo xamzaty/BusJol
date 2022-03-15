@@ -27,7 +27,8 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
         setupCalendar()
         setupObservers()
         setupButtons()
-        binding.toCityEt.setText("Актау")
+        binding.fromCityEt.setText("Алматы")
+        binding.toCityEt.setText("НурСултан")
     }
 
     private fun setupCalendar() {
@@ -105,52 +106,59 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
     }
 
     private fun setupObservers() {
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("from")?.observe(
+        val fromKey = "from"
+        val toKey = "to"
+        val quantityKey = "quantity"
+        val adultQuantityKey = "adultQuantity"
+        val childQuantityKey = "childQuantity"
+        val disabledQuantityKey = "disabledQuantity"
+
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(fromKey)?.observe(
             viewLifecycleOwner) { result ->
             tripViewModel.onAction(CitiesListAction.FromCityValue(result))
         }
 
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("to")?.observe(
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(toKey)?.observe(
             viewLifecycleOwner) { result ->
             tripViewModel.onAction(CitiesListAction.ToCityValue(result))
         }
 
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("quantity")?.observe(
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(quantityKey)?.observe(
             viewLifecycleOwner) { result ->
             tripViewModel.onAction(CitiesListAction.FillPassengersQuantityValue(result))
         }
 
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("adultQuantity")?.observe(
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(adultQuantityKey)?.observe(
             viewLifecycleOwner) { result ->
             adultPassengersQuantity = result
         }
 
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("childQuantity")?.observe(
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(childQuantityKey)?.observe(
             viewLifecycleOwner) { result ->
             childPassengersQuantity = result
         }
 
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>("disabledQuantity")?.observe(
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(disabledQuantityKey)?.observe(
             viewLifecycleOwner) { result ->
             disabledPassengersQuantity = result
         }
 
         tripViewModel.apply {
-            fromCityValue.observe(viewLifecycleOwner, { fromCityValue ->
+            fromCityValue.observe(viewLifecycleOwner) { fromCityValue ->
                 binding.fromCityEt.setText(fromCityValue)
-            })
+            }
 
-            toCityValue.observe(viewLifecycleOwner, { toCityValue ->
+            toCityValue.observe(viewLifecycleOwner) { toCityValue ->
                 binding.toCityEt.setText(toCityValue)
-            })
+            }
 
-            passengersQuantity.observe(viewLifecycleOwner, { quantity ->
+            passengersQuantity.observe(viewLifecycleOwner) { quantity ->
                 binding.passengerNumberEt.setText(quantity)
-            })
+            }
 
-            citiesList.observe(viewLifecycleOwner, { cityListViewModel ->
+            citiesList.observe(viewLifecycleOwner) { cityListViewModel ->
                 cityList = cityListViewModel
-            })
+            }
         }
     }
 

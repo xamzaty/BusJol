@@ -17,12 +17,14 @@ import kz.busjol.databinding.ActivityMainBinding
 import kz.busjol.ext.ActivityExt.statusBarColor
 import kz.busjol.preferences.UserPreferences
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val userPreferences: UserPreferences by inject()
+    private val viewModel: MainViewModel by viewModel()
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -38,23 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        navView = binding.navView
-
-        val navHostFragment = supportFragmentManager.findFragmentById(
-            R.id.nav_host_container
-        ) as NavHostFragment
-
-        navController = navHostFragment.navController
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_search, R.id.navigation_tickets, R.id.navigation_contacts, R.id.navigation_user
-            )
-        )
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-
-        hideBottomMenu()
+        setupNavView()
         statusBarColor(R.color.white, true)
     }
 
@@ -68,10 +54,58 @@ class MainActivity : AppCompatActivity() {
         }))
     }
 
+    private fun setupNavView() {
+        navView = binding.navView
+
+        val navHostFragment = supportFragmentManager.findFragmentById(
+            R.id.nav_host_container
+        ) as NavHostFragment
+
+        val driverConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.driverScheduleFragment, R.id.nav_driver_scan
+            )
+        )
+
+        val passengerConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_search, R.id.navigation_tickets, R.id.navigation_contacts, R.id.navigation_user
+            )
+        )
+
+        navController = navHostFragment.navController
+        appBarConfiguration = passengerConfiguration
+        navView.menu.clear()
+        navView.inflateMenu(R.menu.passenger_bottom_nav_menu)
+        navHostFragment.navController.setGraph(R.navigation.nav_passenger)
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+
+        viewModel.apply {
+            isDriver.observe(this@MainActivity) { isDriver ->
+                if (!isDriver) {
+                    setupNav(passengerConfiguration, navHostFragment, R.menu.passenger_bottom_nav_menu, R.navigation.nav_passenger)
+                } else {
+                    setupNav(driverConfiguration, navHostFragment, R.menu.driver_bottom_nav_menu, R.navigation.nav_driver)
+                }
+            }
+        }
+
+        hideBottomMenu()
+    }
+
+    private fun setupNav(configuration: AppBarConfiguration, fragment: NavHostFragment, menu: Int, nav: Int) {
+        appBarConfiguration = configuration
+        navView.menu.clear()
+        navView.inflateMenu(menu)
+        fragment.navController.setGraph(nav)
+    }
+
     private fun hideBottomMenu() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
-                R.id.navigation_search, R.id.navigation_tickets, R.id.navigation_contacts, R.id.navigation_user, R.id.nav_driver_home -> showMenu()
+                R.id.navigation_search, R.id.navigation_tickets, R.id.navigation_contacts, R.id.navigation_user, R.id.nav_driver_home, R.id.driverScheduleFragment -> showMenu()
                 else -> hideMenu()
             }
         }
