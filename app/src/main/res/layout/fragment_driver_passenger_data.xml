@@ -7,13 +7,14 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/data_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="@dimen/_16sdp"
         android:text="@string/title_client_data"
         android:textColor="@color/bolder_text"
         android:textStyle="bold"
-        android:layout_marginTop="23dp"
+        android:paddingStart="15dp"
+        android:layout_marginTop="@dimen/_17sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -23,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="@dimen/_25sdp"
         app:layout_constraintTop_toBottomOf="@id/data_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -31,37 +32,37 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_valid_ticket"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/_76sdp"
             android:background="@color/green_background">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/trip_number_valid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="@dimen/_10sdp"
                 android:textColor="@color/white"
                 android:text="@string/trip_number"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="25.5dp"/>
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_20sdp"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/valid_ticket"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/_16sdp"
                 android:textStyle="bold"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="@dimen/_2sdp"
                 app:layout_constraintStart_toStartOf="@+id/trip_number_valid"
                 app:layout_constraintTop_toBottomOf="@id/trip_number_valid"/>
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:src="@drawable/ic_valid_ticket"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="@dimen/_22sdp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -71,37 +72,37 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_invalid_ticket"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/_76sdp"
             android:background="@color/red_background">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/trip_number_invalid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="@dimen/_10sdp"
                 android:textColor="@color/white"
                 android:text="@string/trip_number"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="25.5dp"/>
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_20sdp"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/valid_ticket"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/_16sdp"
                 android:textStyle="bold"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="@dimen/_2sdp"
                 app:layout_constraintStart_toStartOf="@+id/trip_number_invalid"
                 app:layout_constraintTop_toBottomOf="@id/trip_number_invalid"/>
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:src="@drawable/ic_invalid_ticket"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="@dimen/_22sdp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
@@ -116,22 +117,21 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ticket_check_layout"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginStart="@dimen/_11sdp"
         android:text="@string/iin"
         android:textColor="@color/bolder_text"
         android:textStyle="bold"
-        android:textSize="14sp"/>
+        android:textSize="@dimen/_11sdp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/user_iin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@+id/iin_title"
         app:layout_constraintTop_toBottomOf="@+id/iin_title"
         android:textColor="@color/bolder_text"
-        android:textSize="16sp"
+        android:textSize="@dimen/_12sdp"
         tools:text="961 718 300 890" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -140,9 +140,9 @@
         android:layout_height="wrap_content"
         android:text="@string/initials"
         android:textColor="@color/bolder_text"
-        android:textSize="14sp"
+        android:textSize="@dimen/_11sdp"
         android:textStyle="bold"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/_9sdp"
         app:layout_constraintStart_toStartOf="@+id/user_iin"
         app:layout_constraintTop_toBottomOf="@id/user_iin" />
 
@@ -151,7 +151,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/bolder_text"
-        android:textSize="16sp"
+        android:textSize="@dimen/_12sdp"
         app:layout_constraintStart_toStartOf="@+id/fio_title"
         app:layout_constraintTop_toBottomOf="@+id/fio_title"
         tools:text="Ержанов Хамзат Ержанулы" />
@@ -162,9 +162,9 @@
         android:layout_height="wrap_content"
         android:text="@string/route"
         android:textColor="@color/bolder_text"
-        android:textSize="14sp"
+        android:textSize="@dimen/_11sdp"
         android:textStyle="bold"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/_9sdp"
         app:layout_constraintStart_toStartOf="@+id/user_fio"
         app:layout_constraintTop_toBottomOf="@id/user_fio" />
 
@@ -173,24 +173,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/bolder_text"
-        android:textSize="16sp"
+        android:textSize="@dimen/_12sdp"
         app:layout_constraintStart_toStartOf="@+id/route_title"
         app:layout_constraintTop_toBottomOf="@+id/route_title"
-        tools:text="Алматы - Карганда" />
+        tools:text="Алматы - Караганда" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_let_us_know"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
+        android:layout_width="@dimen/_290sdp"
+        android:layout_height="@dimen/_40sdp"
         android:text="@string/let_us_know_button"
         android:textAllCaps="false"
         android:textColor="@color/blue_text"
-        android:textSize="16sp"
+        android:textSize="@dimen/_13sdp"
         android:background="@drawable/ic_button_tell_us"
         app:layout_constraintTop_toBottomOf="@id/user_route"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="@dimen/_23sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

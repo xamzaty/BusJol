@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/ic_frame_trip"
-    android:layout_marginTop="16dp"
-    android:paddingBottom="16dp">
+    android:layout_marginTop="@dimen/_13sdp"
+    android:paddingBottom="@dimen/_13sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,9 +18,9 @@
             android:id="@+id/schedule_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="16dp"
+            android:textSize="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_9sdp"
+            android:layout_marginStart="@dimen/_13sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="09:00 24.02.2022"/>
@@ -29,8 +29,8 @@
             android:id="@+id/schedule_trip_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="12sp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:textSize="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="@+id/schedule_time"
             app:layout_constraintTop_toBottomOf="@id/schedule_time"
             tools:text="Рейс №23"
@@ -41,9 +41,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/bolder_text"
-            android:textSize="18sp"
+            android:textSize="@dimen/_13sdp"
             android:textStyle="bold"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/_2sdp"
             app:layout_constraintStart_toStartOf="@+id/schedule_trip_number"
             app:layout_constraintTop_toBottomOf="@+id/schedule_trip_number"
             tools:text="Алматы - Нурсултан" />
@@ -52,7 +52,7 @@
             android:id="@+id/schedule_seats_filled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="@dimen/_13sdp"
             app:layout_constraintStart_toStartOf="@+id/schedule_route"
             app:layout_constraintTop_toBottomOf="@+id/schedule_route"
             tools:text="Заполнено: 0 из 20" />
@@ -60,11 +60,11 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="@dimen/_13sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="@dimen/_9sdp"
+            android:layout_marginEnd="@dimen/_13sdp"
             tools:text="20:55"
             android:textColor="@color/blue_text"
             android:textStyle="bold"/>

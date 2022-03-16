@@ -4,52 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="15dp"
     tools:context=".ui.user.UserFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title_contacts"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/title_contacts"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
-        android:textSize="20sp"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_17sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:textSize="@dimen/_16sdp"
         android:textColor="@color/bolder_text"
         android:textStyle="bold"/>
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_93sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:src="@drawable/contacts_image"
-        android:layout_marginTop="86dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_contacts" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/faq_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+        android:layout_width="@dimen/_290sdp"
+        android:layout_height="@dimen/_40sdp"
         android:background="@drawable/ic_button_tell_us"
         android:text="@string/faq_button_title"
         android:textAllCaps="false"
         android:textColor="@color/blue_text"
-        android:textSize="16sp"
-        android:layout_marginBottom="16dp"
+        android:textSize="@dimen/_13sdp"
+        android:layout_marginBottom="@dimen/_13sdp"
         app:layout_constraintBottom_toTopOf="@+id/call_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/call_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+        android:layout_width="@dimen/_290sdp"
+        android:layout_height="@dimen/_40sdp"
         android:background="@drawable/ic_button_layout"
         android:text="@string/call_button_title"
         android:textAllCaps="false"
@@ -57,7 +55,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp"
-        android:textSize="16sp"/>
+        android:layout_marginBottom="@dimen/_14sdp"
+        android:textSize="@dimen/_13sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
