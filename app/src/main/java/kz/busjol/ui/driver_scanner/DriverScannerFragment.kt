@@ -51,7 +51,7 @@ class DriverScannerFragment : BaseFragment<FragmentDriverScannerBinding>(Fragmen
 
     override fun onResume() {
         super.onResume()
-        checkCameraPermission()
+        codeScanner.startPreview()
     }
 
     override fun onPause() {

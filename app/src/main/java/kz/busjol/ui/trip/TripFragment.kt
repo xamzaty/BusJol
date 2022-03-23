@@ -29,6 +29,7 @@ class TripFragment : BaseFragment<FragmentTripBinding>(FragmentTripBinding::infl
         setupButtons()
         loadData()
         setupObservers()
+        activity?.window?.statusBarColor = resources.getColor(R.color.gray_background)
     }
 
     override fun onCityClicked(trip: Trip) {

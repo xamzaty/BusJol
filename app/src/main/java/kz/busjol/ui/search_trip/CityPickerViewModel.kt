@@ -20,6 +20,7 @@ class CityPickerViewModel : BaseViewModel() {
         when(action) {
             is CitiesListAction.SearchCity -> cityValueChanged(action.query)
             is CitiesListAction.PassCityList -> _citiesLiveData.value = action.cityList
+            else -> Unit
         }
     }
 }

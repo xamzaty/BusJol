@@ -28,7 +28,8 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
         setupObservers()
         setupButtons()
         binding.fromCityEt.setText("Алматы")
-        binding.toCityEt.setText("НурСултан")
+        binding.toCityEt.setText("Нур-Султан")
+        activity?.window?.statusBarColor = resources.getColor(R.color.white)
     }
 
     private fun setupCalendar() {

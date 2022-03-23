@@ -58,10 +58,13 @@
     <string name="passengers_tariffs_child_person">Детский</string>
     <string name="passengers_tariffs_disable_person">Инвалидный</string>
     <string name="search_button">Искать</string>
+    <string name="passengers_tariffs_adult_description">От полных 15 лет</string>
+    <string name="passengers_tariffs_child_description">От 2 до 15 лет</string>
+    <string name="passengers_tariffs_disable_description">Наличие документа</string>
 
     <string name="trip_number">Рейс №%1$s</string>
     <string name="seat_type">Тип места: %1$s</string>
-    <string name="free_seats">Свободно мест: %1$s из %2$s</string>
+    <string name="free_seats">Свободно мест: <font color='#2898FF'>%1$s из %2$s</font></string>
     <string name="carrier">Перевозчик: %1$s</string>
 
     <string name="title_choose_seats">Выбор места</string>
@@ -69,6 +72,8 @@
     <string name="busy">Занятое</string>
     <string name="selected_seats">Выбранные места</string>
     <string name="continue_button">Продолжить</string>
+    <string name="choose_button">Выбрать</string>
+    <string name="nothing_found">Не удалось найти</string>
 
     <string name="title_passenger_data">Данные пассажира</string>
     <string name="details">Детали</string>
@@ -118,6 +123,8 @@
 
     <string name="faq_button_title">Вопросы и ответы</string>
     <string name="call_button_title">Позвонить</string>
+    <string name="contacts_subtitle">Задавайте вопросы\nмы поможем!</string>
+    <string name="contacts_text">Возникли вопросы?\nПроверьте в списке вопросов и\nответов или позвоните нам.</string>
 
     <string name="title_client_data">Данные клиента</string>
     <string name="route">Маршрут</string>

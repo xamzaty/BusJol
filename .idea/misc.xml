@@ -8,34 +8,9 @@
         <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/drawable/splash_logo_text.xml" value="0.31927083333333334" />
         <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/drawable/splash_screen.xml" value="0.31927083333333334" />
         <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/activity_main.xml" value="0.16210739614994935" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/bottom_sheet_dialog_bus_plan.xml" value="0.25" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/dialog_city_selector.xml" value="0.9" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/dialog_passenger_quantity.xml" value="0.33" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/dialog_trip_details.xml" value="0.2615593834995467" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_booking.xml" value="0.33" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_bus_plan.xml" value="1.5" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_contacts.xml" value="0.25" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_driver_passenger_data.xml" value="0.15" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_driver_scanner.xml" value="0.18" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_driver_schedule.xml" value="0.3383152173913043" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_driver_settings.xml" value="0.3383152173913043" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_passenger_data.xml" value="0.2615593834995467" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_payment_order.xml" value="0.2615593834995467" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_payment_order_result.xml" value="0.12" />
+        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/dialog_passenger_quantity.xml" value="0.3171875" />
         <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_search.xml" value="0.3383152173913043" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_search_trip.xml" value="0.25" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_ticket_scanner.xml" value="0.2671875" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_tickets.xml" value="0.25" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_trip.xml" value="1.1" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/fragment_user.xml" value="0.2671875" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/item_city_selector.xml" value="0.26132246376811596" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/item_driver_schedule.xml" value="0.2615593834995467" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/item_passenger_data.xml" value="0.2615593834995467" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/item_trip.xml" value="0.22" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/test.xml" value="0.33" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3489583333333333" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/menu/driver_bottom_nav_menu.xml" value="0.22604166666666667" />
-        <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/menu/passenger_bottom_nav_menu.xml" value="0.2942708333333333" />
+        <entry key="app/src/main/res/drawable/bg_seat_radio_button.xml" value="0.2955" />
         <entry key="app/src/main/res/drawable/ic_bottom_sheet_frame.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/drawable/ic_bus_plan.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/ic_cross.xml" value="0.2875" />
@@ -49,6 +24,7 @@
         <entry key="app/src/main/res/drawable/ic_icon_user_menu.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_invalid_ticket.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_item_passenger_data_layout.xml" value="0.2875" />
+        <entry key="app/src/main/res/drawable/ic_seat.xml" value="0.2955" />
         <entry key="app/src/main/res/drawable/ic_valid_ticket.xml" value="0.309375" />
         <entry key="app/src/main/res/drawable/layout_button.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/rounded_dialog.xml" value="0.2875" />
@@ -57,13 +33,16 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.28541666666666665" />
         <entry key="app/src/main/res/layout/bottom_sheet_dialog_bus_plan.xml" value="0.40576887410285933" />
         <entry key="app/src/main/res/layout/dialog_city_selector.xml" value="0.5342995169082125" />
-        <entry key="app/src/main/res/layout/dialog_passenger_quantity.xml" value="0.34257262820402595" />
+        <entry key="app/src/main/res/layout/dialog_passenger_quantity.xml" value="0.5692534720844957" />
         <entry key="app/src/main/res/layout/dialog_trip_details.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/fragment_about_app.xml" value="0.3265625" />
         <entry key="app/src/main/res/layout/fragment_booking.xml" value="0.36572766260214706" />
         <entry key="app/src/main/res/layout/fragment_bus_plan.xml" value="0.35074308202391286" />
+        <entry key="app/src/main/res/layout/fragment_change_language.xml" value="0.3265625" />
         <entry key="app/src/main/res/layout/fragment_choose_seats.xml" value="0.3454956660131403" />
         <entry key="app/src/main/res/layout/fragment_contacts.xml" value="0.2713541666666667" />
         <entry key="app/src/main/res/layout/fragment_driver_passenger_data.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/fragment_driver_scanner.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/layout/fragment_driver_schedule.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28541666666666665" />
         <entry key="app/src/main/res/layout/fragment_passenger_data.xml" value="0.3414433351902939" />
@@ -77,10 +56,12 @@
         <entry key="app/src/main/res/layout/item_city_selector.xml" value="0.28541666666666665" />
         <entry key="app/src/main/res/layout/item_driver_schedule.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/item_passenger_data.xml" value="0.4928522804628999" />
+        <entry key="app/src/main/res/layout/item_seat.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/item_trip.xml" value="0.7843986998916577" />
         <entry key="app/src/main/res/layout/progress_button_layout.xml" value="0.3104166666666667" />
         <entry key="app/src/main/res/layout/test.xml" value="0.5082958627334911" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.13020833333333334" />
+        <entry key="app/src/main/res/menu/driver_bottom_nav_menu.xml" value="0.11388888888888889" />
       </map>
     </option>
   </component>

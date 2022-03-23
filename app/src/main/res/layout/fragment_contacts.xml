@@ -22,6 +22,7 @@
         android:textStyle="bold"/>
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/contacts_image"
         android:layout_width="@dimen/_90sdp"
         android:layout_height="@dimen/_93sdp"
         android:layout_marginTop="@dimen/_25sdp"
@@ -29,6 +30,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_contacts" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/contacts_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contacts_subtitle"
+        android:gravity="center"
+        android:textSize="@dimen/_16sdp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="@+id/contacts_image"
+        app:layout_constraintStart_toStartOf="@+id/contacts_image"
+        app:layout_constraintTop_toBottomOf="@+id/contacts_image" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/contacts_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_11sdp"
+        android:text="@string/contacts_text"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_7sdp"
+        app:layout_constraintTop_toBottomOf="@id/contacts_subtitle"
+        app:layout_constraintStart_toStartOf="@id/contacts_subtitle"
+        app:layout_constraintEnd_toEndOf="@id/contacts_subtitle"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/faq_button"

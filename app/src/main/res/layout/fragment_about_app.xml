@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_button_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="21dp"
+        android:layout_marginStart="24dp"/>
+
+    <TextView
+        android:id="@+id/title_change_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_app_title"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="@id/back_button"
+        app:layout_constraintBottom_toBottomOf="@id/back_button"
+        android:layout_marginStart="16dp"
+        android:textSize="20sp"
+        android:textColor="@color/bolder_text"
+        android:textStyle="bold"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="55sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_change_language" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/version_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/appCompatTextView7"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView7"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7"
+        android:textSize="14sp"
+        tools:text="Версия 1.03 от 10 февраля 2022 г."/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/assembly_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/version_number"
+        app:layout_constraintStart_toStartOf="@+id/version_number"
+        app:layout_constraintTop_toBottomOf="@+id/version_number"
+        android:textSize="14sp"
+        android:layout_marginTop="3dp"
+        tools:text="Сборка №112"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

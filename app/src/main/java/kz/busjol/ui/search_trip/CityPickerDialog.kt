@@ -48,6 +48,15 @@ class CityPickerDialog : BaseBottomFragmentDialog<DialogCitySelectorBinding>(Dia
         viewModel.apply {
             citiesList.observe(viewLifecycleOwner) { citiesList ->
                 cityAdapter.submitList(citiesList)
+                if (citiesList.isEmpty()) {
+                    binding.rvCitySelector.visibility = View.GONE
+                    binding.nothingFoundImage.visibility = View.VISIBLE
+                    binding.nothingFoundText.visibility = View.VISIBLE
+                } else {
+                    binding.rvCitySelector.visibility = View.VISIBLE
+                    binding.nothingFoundImage.visibility = View.GONE
+                    binding.nothingFoundText.visibility = View.GONE
+                }
             }
         }
     }
