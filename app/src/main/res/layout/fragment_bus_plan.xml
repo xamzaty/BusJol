@@ -77,8 +77,8 @@
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/bus_plan_layout"
-        android:layout_width="@dimen/_190sdp"
-        android:layout_height="@dimen/_321sdp"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_367sdp"
         android:background="@drawable/ic_main_frame"
         android:layout_marginTop="@dimen/_14sdp"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,8 +87,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/wheel_img"
-        android:layout_width="@dimen/_27sdp"
-        android:layout_height="@dimen/_27sdp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
         android:src="@drawable/wheel"
         app:layout_constraintStart_toStartOf="@id/bus_plan_layout"
         app:layout_constraintTop_toTopOf="@id/bus_plan_layout"
@@ -100,14 +100,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
         android:layout_marginBottom="@dimen/_22sdp"
         app:layout_constraintBottom_toBottomOf="@id/bus_plan_layout"
         app:layout_constraintEnd_toEndOf="@id/bus_plan_layout"
         app:layout_constraintStart_toStartOf="@+id/wheel_img"
         app:layout_constraintTop_toBottomOf="@id/wheel_img"
         tools:listitem="@layout/item_seat" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
