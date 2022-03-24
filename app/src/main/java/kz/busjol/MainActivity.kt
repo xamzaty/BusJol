@@ -1,9 +1,15 @@
 package kz.busjol
 
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.content.res.Configuration
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -42,6 +48,11 @@ class MainActivity : AppCompatActivity() {
 
         setupNavView()
         statusBarColor(R.color.white, true)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkConnectivity()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -117,5 +128,28 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideMenu() {
         navView.visibility = View.GONE
+    }
+
+    private fun checkConnectivity() {
+        val manager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = manager.activeNetworkInfo
+
+        if (null == activeNetwork) {
+            val dialogBuilder = AlertDialog.Builder(this)
+            Intent(this, MainActivity::class.java)
+            dialogBuilder.setMessage(getString(R.string.no_internet_connection_text))
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.no_internet_connection_retry)) { _, _ ->
+                    recreate()
+                }
+                .setNegativeButton(getString(R.string.no_internet_connection_cancel)) { _, _ ->
+                    finish()
+                }
+
+            val alert = dialogBuilder.create()
+            alert.setTitle(getString(R.string.no_internet_connection_title))
+            alert.setIcon(R.mipmap.ic_launcher)
+            alert.show()
+        }
     }
 }

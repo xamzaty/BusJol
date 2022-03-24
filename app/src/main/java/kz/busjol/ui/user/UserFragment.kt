@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import kz.busjol.BuildConfig
+import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentUserBinding
 
@@ -20,23 +22,16 @@ class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (BuildConfig.DEBUG) {
-            binding.apply {
-                userEmailEt.setText("h.yerzhanov@gmail.com")
-                userPasswordEt.setText("LuPwbpv9w9")
-            }
-        }
         setupButtons()
     }
 
     private fun setupButtons() {
         binding.apply {
-            searchTripButton.setOnClickListener {
-                val email = userEmailEt.text.toString() == "h.yerzhanov@gmail.com"
-                val password = userPasswordEt.text.toString() == "LuPwbpv9w9"
-                if (email && password) {
-
-                }
+            changeLanguageButton.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_user_to_changeLanguageFragment)
+            }
+            aboutAppButton.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_user_to_aboutAppFragment)
             }
         }
     }

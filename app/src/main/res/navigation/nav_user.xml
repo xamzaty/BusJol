@@ -8,6 +8,33 @@
     <fragment
         android:id="@+id/navigation_user"
         android:name="kz.busjol.ui.user.UserFragment"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_navigation_user_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_navigation_user_to_changeLanguageFragment"
+            app:destination="@id/changeLanguageFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="kz.busjol.ui.about_app.AboutAppFragment"
+        android:label="AboutAppFragment"
+        tools:layout="@layout/fragment_about_app"/>
+
+    <fragment
+        android:id="@+id/changeLanguageFragment"
+        android:name="kz.busjol.ui.change_language.ChangeLanguageFragment"
+        android:label="ChangeLanguageFragment"
+        tools:layout="@layout/fragment_change_language"/>
 
 </navigation>

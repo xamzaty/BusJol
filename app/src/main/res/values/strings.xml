@@ -7,6 +7,22 @@
     <string name="alert_ok">OK</string>
     <string name="alert_cancel">Отмена</string>
 
+    <string name="no_internet_connection_title">Вы не подключены к интернету</string>
+    <string name="no_internet_connection_text">Удостоверьтесь, что WI-FI или мобильные данные включены и попробуйте снова</string>
+    <string name="no_internet_connection_retry">Повторить</string>
+    <string name="no_internet_connection_cancel">Отмена</string>
+
+    <string name="notifications">Уведомления</string>
+
+    <string name="exit_button">Выход</string>
+    <string name="main_user_subtitle">Основное</string>
+    <string name="user_my_data">Мои данные</string>
+    <string name="user_my_trips">Мои поездки</string>
+    <string name="additional">Дополнительно</string>
+
+    <string name="we_cannot_recognise_you">Мы вас не узнали</string>
+    <string name="enter_to_see_data">Войдите, чтобы просмотреть личные данные и\nиспользовать данные о пассажирах</string>
+
     <string name="today">Сегодня</string>
     <string name="yesterday">Вчера</string>
     <string name="tomorrow">Завтра</string>
