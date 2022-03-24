@@ -108,6 +108,16 @@
         app:layout_constraintTop_toBottomOf="@id/wheel_img"
         tools:listitem="@layout/item_seat" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bottom_sheet_dialog_frame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_selected_seats_title"
         android:layout_width="wrap_content"
@@ -132,16 +142,5 @@
         app:layout_constraintStart_toEndOf="@id/text_selected_seats_title"
         app:layout_constraintTop_toTopOf="@+id/text_selected_seats_title"
         tools:text="15/16/19" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/bottom_sheet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:src="@drawable/bottom_sheet_dialog_frame"
-        android:elevation="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
