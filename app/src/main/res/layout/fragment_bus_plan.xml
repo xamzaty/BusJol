@@ -75,10 +75,10 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.core.widget.NestedScrollView
+    <View
         android:id="@+id/bus_plan_layout"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_367sdp"
+        android:layout_width="@dimen/_220sdp"
+        android:layout_height="@dimen/_315sdp"
         android:background="@drawable/ic_main_frame"
         android:layout_marginTop="@dimen/_14sdp"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,8 +87,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/wheel_img"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
         android:src="@drawable/wheel"
         app:layout_constraintStart_toStartOf="@id/bus_plan_layout"
         app:layout_constraintTop_toTopOf="@id/bus_plan_layout"

@@ -1,0 +1,165 @@
+<resources>
+    <string name="app_name">BusJol</string>
+    <string name="main_subtitle">Поиск и продажа\nбилетов на автобусы</string>
+
+    <string name="alert_title">Выход</string>
+    <string name="alert_are_you_want_to_exit">Вы уверены, что хотите выйти?</string>
+    <string name="alert_ok">OK</string>
+    <string name="alert_cancel">Отмена</string>
+
+    <string name="no_internet_connection_title">Вы не подключены к интернету</string>
+    <string name="no_internet_connection_text">Удостоверьтесь, что WI-FI или мобильные данные включены и попробуйте снова</string>
+    <string name="no_internet_connection_retry">Повторить</string>
+    <string name="no_internet_connection_cancel">Отмена</string>
+
+    <string name="notifications">Уведомления</string>
+
+    <string name="exit_button">Выход</string>
+    <string name="main_user_subtitle">Основное</string>
+    <string name="user_my_data">Мои данные</string>
+    <string name="user_my_trips">Мои поездки</string>
+    <string name="additional">Дополнительно</string>
+
+    <string name="we_cannot_recognise_you">Мы вас не узнали</string>
+    <string name="enter_to_see_data">Войдите, чтобы просмотреть личные данные и\nиспользовать данные о пассажирах</string>
+
+    <string name="today">Сегодня</string>
+    <string name="yesterday">Вчера</string>
+    <string name="tomorrow">Завтра</string>
+
+    <string-array name="months">
+        <item>Январь</item>
+        <item>Февраль</item>
+        <item>Март</item>
+        <item>Апрель</item>
+        <item>Май</item>
+        <item>Июнь</item>
+        <item>Июль</item>
+        <item>Август</item>
+        <item>Сентябрь</item>
+        <item>Октябрь</item>
+        <item>Ноябрь</item>
+        <item>Декабрь</item>
+    </string-array>
+
+    <string name="error_unknown">Произошла непредвиденная ошибка. Пожалуйста попробуйте еще раз</string>
+    <string name="error_on_server">Запрос не обработан, попробуйте позднее</string>
+    <string name="error_incorrect_phone">Указанный номер телефона не принадлежит пользователю</string>
+
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+
+    <string name="enter">Вход</string>
+    <string name="enter_button">Войти</string>
+
+    <string name="loading">Загрузка</string>
+
+    <string name="error">Ошибка</string>
+    <string name="fill_all_the_fields">Пожалуйста, заполните все поля.</string>
+    <string name="similar_cities">Вы выбрали два одинаковых города.</string>
+
+    <string name="error_field_required">Это поле обязательное</string>
+
+    <string name="filled">Заполнено:</string>
+    <string name="out_of">%1$s из %2$d</string>
+    <string name="waiting">Ожидает</string>
+
+    <string name="title_search">Поиск</string>
+    <string name="from">Откуда</string>
+    <string name="where">Куда</string>
+    <string name="date">Дата</string>
+    <string name="passengers">Пассажиры</string>
+    <string name="passengers_tariffs">Выберете тарифы пассажиров</string>
+    <string name="passengers_tariffs_adult">Взрослый</string>
+    <string name="passengers_tariffs_child_person">Детский</string>
+    <string name="passengers_tariffs_disable_person">Инвалидный</string>
+    <string name="search_button">Искать</string>
+    <string name="passengers_tariffs_adult_description">От полных 15 лет</string>
+    <string name="passengers_tariffs_child_description">От 2 до 15 лет</string>
+    <string name="passengers_tariffs_disable_description">Наличие документа</string>
+
+    <string name="trip_number">Рейс №%1$s</string>
+    <string name="seat_type">Тип места: %1$s</string>
+    <string name="free_seats">Свободно мест: <font color='#2898FF'>%1$s из %2$s</font></string>
+    <string name="carrier">Перевозчик: %1$s</string>
+
+    <string name="title_choose_seats">Выбор места</string>
+    <string name="free">Свободное</string>
+    <string name="busy">Занятое</string>
+    <string name="selected_seats">Выбранные места</string>
+    <string name="continue_button">Продолжить</string>
+    <string name="choose_button">Выбрать</string>
+    <string name="nothing_found">Не удалось найти</string>
+
+    <string name="title_passenger_data">Данные пассажира</string>
+    <string name="details">Детали</string>
+    <string name="passenger">Пассажир %1$d</string>
+    <string name="adult">Взрослый</string>
+    <string name="child">Ребенок</string>
+    <string name="men">Мужской</string>
+    <string name="women">Женский</string>
+    <string name="iin">ИИН</string>
+    <string name="last_name">Фамилия</string>
+    <string name="first_name">Имя</string>
+    <string name="birthday_date">Дата рождения</string>
+    <string name="contacts_info_title">Контактная информация</string>
+    <string name="contacts_info_description">Для регистрации клиента, а также мы отправим\nбилет на этот эл.адрес.\nНомер телефона необходим для связи в случае\nизменений</string>
+    <string name="phone">Телефон</string>
+    <string name="rules_title">Правила тарифа и оферта</string>
+    <string name="read_the_rules">Ознакомьтесь с <a href="https://google.com">правилами обмена и\nвозврата</a> и <a href="https://google.com">публичной оферты</a></string>
+    <string name="accept_the_rules">Я принимаю правила тарифа и оферту</string>
+
+    <string name="trip_details">Детали рейса</string>
+
+    <string name="title_booking">Бронирование</string>
+    <string name="booking_expires">Бронь истекает:</string>
+    <string name="with_bank_cards">Банковскими картами</string>
+    <string name="proceed_to_checkout_button">Перейти к оплате</string>
+    <string name="kaspi">Kaspi.kz</string>
+
+    <string name="title_main">Главная</string>
+    <string name="title_scan">Скан</string>
+    <string name="title_settings">Настройки</string>
+
+    <string name="title_order_payment">Оплата заказа</string>
+
+    <string name="title_payment_order_result">Ваш заказ №%1$s</string>
+    <string name="seats">Места</string>
+    <string name="return_to_main_button">Вернуться на главную</string>
+
+    <string name="title_trip">%1$s - %2$s</string>
+    <string name="title_tickets">Мои билеты</string>
+    <string name="title_contacts">Контакты</string>
+    <string name="title_user">Профиль</string>
+    <string name="title_ticket_scanner">Сканирование билета</string>
+
+    <string name="no_tickets">Билетов нет!</string>
+    <string name="tickets_list_title">Список ваших билетов</string>
+    <string name="tickets_list_text">Здесь будет сохраняться список\nвсех ваших билетов.\nАвторизуйтесь для того, чтобы\nвидеть ваши билеты!</string>
+
+    <string name="faq_button_title">Вопросы и ответы</string>
+    <string name="call_button_title">Позвонить</string>
+    <string name="contacts_subtitle">Задавайте вопросы\nмы поможем!</string>
+    <string name="contacts_text">Возникли вопросы?\nПроверьте в списке вопросов и\nответов или позвоните нам.</string>
+
+    <string name="title_client_data">Данные клиента</string>
+    <string name="route">Маршрут</string>
+    <string name="initials">ФИО</string>
+    <string name="valid_ticket">Билет действителен</string>
+    <string name="invalid_ticket">Билет недействителен</string>
+    <string name="let_us_know_button">Сообщите нам</string>
+
+    <string name="schedule_time">%1$s %2$s</string>
+    <string name="schedule_seats_filled">Заполнено: %1$s из %2$s</string>
+
+    <string name="one_person">человек</string>
+    <string name="two_person">человека</string>
+
+    <string name="about_app_title">О приложенииии</string>
+    <string name="change_language_title">Сменить язык</string>
+    <string name="russian_language">Русский</string>
+    <string name="kazakh_language">Казахский</string>
+
+
+    <string name="qr_camera_scan">Наведите камеру на\nQR-код</string>
+</resources>

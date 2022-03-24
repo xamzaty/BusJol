@@ -1,23 +1,17 @@
 package kz.busjol.ui.user
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import kz.busjol.BuildConfig
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentUserBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::inflate) {
 
-    private val userViewModel: UserViewModel by viewModels()
+    private val viewModel: UserViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,6 +21,9 @@ class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
 
     private fun setupButtons() {
         binding.apply {
+            enterButton.setOnClickListener {
+
+            }
             changeLanguageButton.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_user_to_changeLanguageFragment)
             }
