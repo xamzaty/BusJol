@@ -1,96 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/_24sdp">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_button_back"
+        android:id="@+id/close_button"
+        android:layout_width="@dimen/_10sdp"
+        android:layout_height="@dimen/_10sdp"
+        android:src="@drawable/ic_cross"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="21dp"
-        android:layout_marginStart="24dp"/>
+        android:layout_marginStart="@dimen/_17sdp"
+        android:layout_marginTop="@dimen/_17sdp"/>
 
-    <TextView
-        android:id="@+id/title_change_language"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/change_language_title"
-        app:layout_constraintStart_toEndOf="@id/back_button"
-        app:layout_constraintTop_toTopOf="@id/back_button"
-        app:layout_constraintBottom_toBottomOf="@id/back_button"
-        android:layout_marginStart="16dp"
-        android:textSize="20sp"
+        android:layout_marginStart="@dimen/_17sdp"
+        android:text="@string/language_title"
         android:textColor="@color/bolder_text"
-        android:textStyle="bold"/>
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/close_button"
+        app:layout_constraintStart_toEndOf="@id/close_button"
+        app:layout_constraintTop_toTopOf="@id/close_button" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/russian_language_layout"
+    <View
+        android:id="@+id/separator_one"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="53dp"
-        android:background="?attr/selectableItemBackground"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/black"
+        android:alpha="0.1"
+        app:layout_constraintTop_toBottomOf="@id/close_button"
+        android:layout_marginTop="@dimen/_18sdp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/kazakh_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_change_language">
+        app:layout_constraintTop_toBottomOf="@id/separator_one"
+        android:text="@string/kazakh_language"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:textSize="@dimen/_13sdp"
+        android:textColor="@color/black"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/appCompatTextView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="15dp"
-            android:text="@string/russian_language"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatRadioButton
-            android:id="@+id/russian_language_radio_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:checked="true"
-            app:layout_constraintTop_toTopOf="@+id/appCompatTextView8"
-            app:layout_constraintBottom_toBottomOf="@id/appCompatTextView8"
-            android:buttonTint="@color/blue_text"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/kazakh_language_layout"
+    <View
+        android:id="@+id/separator_two"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?attr/selectableItemBackground"
-        app:layout_constraintTop_toBottomOf="@+id/russian_language_layout">
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/black"
+        android:alpha="0.1"
+        app:layout_constraintTop_toBottomOf="@id/kazakh_tv"
+        android:layout_marginTop="@dimen/_12sdp"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/appCompatTextView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="15dp"
-            android:text="@string/kazakh_language"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/russian_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator_two"
+        android:text="@string/russian_language"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:textSize="@dimen/_13sdp"
+        android:textColor="@color/black"/>
 
-        <androidx.appcompat.widget.AppCompatRadioButton
-            android:id="@+id/kazakh_language_radio_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/blue_text"
-            app:layout_constraintBottom_toBottomOf="@id/appCompatTextView9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/appCompatTextView9" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/separator_three"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/black"
+        android:alpha="0.1"
+        app:layout_constraintTop_toBottomOf="@id/russian_tv"
+        android:layout_marginTop="@dimen/_12sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

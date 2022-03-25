@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="15dp"
     tools:context=".ui.search_trip.SearchTripFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title_tickets"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_2sdp"
         android:layout_marginTop="@dimen/_17sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         android:text="@string/title_tickets"
         android:textColor="@color/bolder_text"
+        android:layout_marginStart="@dimen/_12sdp"
         android:textSize="@dimen/_16sdp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +70,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_my_tickets_authorization_enter"
-        android:layout_width="@dimen/_290sdp"
+        android:layout_width="@dimen/_275sdp"
         android:layout_height="@dimen/_40sdp"
         android:background="@drawable/ic_button_layout"
         android:layout_marginBottom="@dimen/_25sdp"

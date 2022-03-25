@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="@id/close_button" />
 
     <View
-        android:id="@+id/separator"
+        android:id="@+id/separator1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
         android:background="@color/black"
@@ -49,7 +49,7 @@
         android:textSize="@dimen/_13sdp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator" />
+        app:layout_constraintTop_toBottomOf="@id/separator1" />
 
     <View
         android:id="@+id/view"
@@ -331,7 +331,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/continue_button"
-        android:layout_width="@dimen/_290sdp"
+        android:layout_width="@dimen/_270sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_marginTop="@dimen/_25sdp"
         android:background="@drawable/ic_button_layout"

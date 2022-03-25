@@ -21,6 +21,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/authorized_exit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:text="@string/exit_user_button"
+        android:textColor="@color/red_background"
+        android:textSize="@dimen/_12sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/user_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/user_title" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/non_authorized_layout"
         android:layout_width="@dimen/_277sdp"
@@ -48,7 +61,7 @@
             android:id="@+id/appCompatTextView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:text="@string/enter_to_see_data"
             android:textSize="@dimen/_11sdp"
             app:layout_constraintStart_toStartOf="@id/we_cannot_recognise_you_tv"
@@ -56,14 +69,14 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/enter_button"
-            android:layout_width="@dimen/_250sdp"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="@dimen/_40sdp"
             android:background="@drawable/ic_button_layout"
             android:text="@string/enter_button"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView4" />
@@ -81,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/authorized_email"
+            android:id="@+id/authorized_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_12sdp"
@@ -90,19 +103,32 @@
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="driver-1@busjol.kz" />
+            tools:text="Khamzat Yerzhanov" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/authorized_exit_button"
+            android:id="@+id/authorized_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_12sdp"
-            android:textColor="@color/red_background"
-            android:textSize="@dimen/_13sdp"
-            app:layout_constraintBottom_toBottomOf="@+id/authorized_email"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/authorized_email"
-            android:text="@string/exit_button" />
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            app:layout_constraintTop_toBottomOf="@id/authorized_name"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="h.yerzhanov@gmail.com" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/authorized_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            app:layout_constraintTop_toBottomOf="@id/authorized_email"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="+7 705 500 2555" />
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/authorized_main_subtitle"
@@ -111,15 +137,15 @@
             android:text="@string/main_user_subtitle"
             android:textAllCaps="true"
             android:textSize="@dimen/_11sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            app:layout_constraintStart_toStartOf="@+id/authorized_email"
-            app:layout_constraintTop_toBottomOf="@+id/authorized_email" />
+            android:layout_marginTop="@dimen/_25sdp"
+            app:layout_constraintStart_toStartOf="@+id/authorized_phone"
+            app:layout_constraintTop_toBottomOf="@+id/authorized_phone" />
 
         <View
             android:id="@+id/authorized_my_data_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:background="?attr/selectableItemBackground"
             app:layout_constraintBottom_toTopOf="@id/view7"
             app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +168,8 @@
             android:layout_height="@dimen/_15sdp"
             android:src="@drawable/ic_baseline_arrow_forward_24"
             app:layout_constraintBottom_toBottomOf="@+id/authorized_my_data"
-            app:layout_constraintEnd_toEndOf="@+id/authorized_exit_button"
+            android:layout_marginEnd="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/authorized_my_data" />
 
         <View
@@ -180,7 +207,8 @@
             android:layout_height="@dimen/_15sdp"
             android:src="@drawable/ic_baseline_arrow_forward_24"
             app:layout_constraintBottom_toBottomOf="@+id/authorized_my_passengers"
-            app:layout_constraintEnd_toEndOf="@+id/authorized_exit_button"
+            android:layout_marginEnd="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/authorized_my_passengers" />
 
         <View
@@ -218,7 +246,8 @@
             android:layout_height="@dimen/_15sdp"
             android:src="@drawable/ic_baseline_arrow_forward_24"
             app:layout_constraintBottom_toBottomOf="@+id/authorized_my_trips"
-            app:layout_constraintEnd_toEndOf="@+id/authorized_exit_button"
+            android:layout_marginEnd="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/authorized_my_trips" />
 
         <View
@@ -276,11 +305,24 @@
         app:layout_constraintStart_toStartOf="@+id/settings_subtitle"
         app:layout_constraintTop_toTopOf="@+id/change_language_button" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/current_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:text="@string/russian_language"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_11sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@+id/appCompatImageView4"
+        app:layout_constraintTop_toTopOf="@+id/change_language_button" />
+
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView4"
         android:layout_width="@dimen/_15sdp"
         android:layout_height="@dimen/_15sdp"
-        android:src="@drawable/ic_baseline_arrow_forward_24"
         android:layout_marginEnd="@dimen/_12sdp"
+        android:src="@drawable/ic_baseline_arrow_forward_24"
         app:layout_constraintBottom_toBottomOf="@+id/change_language_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/change_language_data" />

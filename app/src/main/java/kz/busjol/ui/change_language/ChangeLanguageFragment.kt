@@ -2,12 +2,12 @@ package kz.busjol.ui.change_language
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.fragment.findNavController
-import kz.busjol.base.BaseFragment
+import kz.busjol.base.BaseBottomFragmentDialog
+import kz.busjol.databinding.BottomSheetDialogBusPlanBinding.inflate
 import kz.busjol.databinding.FragmentChangeLanguageBinding
 import java.util.*
 
-class ChangeLanguageFragment : BaseFragment<FragmentChangeLanguageBinding>(FragmentChangeLanguageBinding::inflate) {
+class ChangeLanguageFragment :  BaseBottomFragmentDialog<FragmentChangeLanguageBinding>(FragmentChangeLanguageBinding::inflate, false){
 
     lateinit var locale: Locale
     private var currentLanguage = "ru"
@@ -21,8 +21,8 @@ class ChangeLanguageFragment : BaseFragment<FragmentChangeLanguageBinding>(Fragm
 
     private fun setupButtons() {
         binding.apply {
-            backButton.setOnClickListener {
-                findNavController().popBackStack()
+            closeButton.setOnClickListener {
+                dismiss()
             }
         }
     }

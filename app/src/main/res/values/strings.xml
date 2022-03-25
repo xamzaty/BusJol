@@ -15,6 +15,7 @@
     <string name="notifications">Уведомления</string>
 
     <string name="exit_button">Выход</string>
+    <string name="exit_user_button">Выйти</string>
     <string name="main_user_subtitle">Основное</string>
     <string name="user_my_data">Мои данные</string>
     <string name="user_my_trips">Мои поездки</string>
@@ -157,6 +158,7 @@
 
     <string name="about_app_title">О приложении</string>
     <string name="change_language_title">Сменить язык</string>
+    <string name="language_title">Язык приложения</string>
     <string name="russian_language">Русский</string>
     <string name="kazakh_language">Казахский</string>
 
