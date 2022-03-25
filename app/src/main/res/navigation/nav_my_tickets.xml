@@ -11,13 +11,12 @@
         tools:layout="@layout/fragment_tickets" >
         <action
             android:id="@+id/action_navigation_tickets_to_navigation_user"
-            app:destination="@id/nav_user"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            app:destination="@id/enterUserDialog" />
     </fragment>
 
-    <include app:graph="@navigation/nav_user"/>
+    <dialog
+        android:id="@+id/enterUserDialog"
+        android:name="kz.busjol.ui.enter_user.EnterUserDialog"
+        tools:layout="@layout/dialog_enter_user"/>
 
 </navigation>

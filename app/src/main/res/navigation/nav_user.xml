@@ -23,6 +23,9 @@
             app:popExitAnim="@anim/slide_out_right"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_navigation_user_to_enterUserDialog"
+            app:destination="@id/enterUserDialog" />
     </fragment>
 
     <fragment
@@ -33,8 +36,14 @@
 
     <dialog
         android:id="@+id/changeLanguageFragment"
-        android:name="kz.busjol.ui.change_language.ChangeLanguageFragment"
+        android:name="kz.busjol.ui.change_language.ChangeLanguageDialog"
         android:label="ChangeLanguageFragment"
-        tools:layout="@layout/fragment_change_language"/>
+        tools:layout="@layout/dialog_change_language"/>
+
+    <dialog
+        android:id="@+id/enterUserDialog"
+        android:name="kz.busjol.ui.enter_user.EnterUserDialog"
+        tools:layout="@layout/dialog_enter_user"/>
+
 
 </navigation>

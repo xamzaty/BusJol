@@ -3,11 +3,10 @@ package kz.busjol.ui.change_language
 import android.os.Bundle
 import android.view.View
 import kz.busjol.base.BaseBottomFragmentDialog
-import kz.busjol.databinding.BottomSheetDialogBusPlanBinding.inflate
-import kz.busjol.databinding.FragmentChangeLanguageBinding
+import kz.busjol.databinding.DialogChangeLanguageBinding
 import java.util.*
 
-class ChangeLanguageFragment :  BaseBottomFragmentDialog<FragmentChangeLanguageBinding>(FragmentChangeLanguageBinding::inflate, false){
+class ChangeLanguageDialog :  BaseBottomFragmentDialog<DialogChangeLanguageBinding>(DialogChangeLanguageBinding::inflate, false){
 
     lateinit var locale: Locale
     private var currentLanguage = "ru"

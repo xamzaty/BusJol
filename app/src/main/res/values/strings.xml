@@ -162,6 +162,11 @@
     <string name="russian_language">Русский</string>
     <string name="kazakh_language">Казахский</string>
 
+    <string name="enter_subtitle">Войдите, чтобы видеть свои билеты\nи пассажиров</string>
+    <string name="enter_user_text">Используйте эл. почту, которую указывали при покупке или регистрации на BusJol </string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="regisration">Зарегистрироваться</string>
+
 
     <string name="qr_camera_scan">Наведите камеру на\nQR-код</string>
 </resources>

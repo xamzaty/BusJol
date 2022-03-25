@@ -22,7 +22,7 @@ class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
     private fun setupButtons() {
         binding.apply {
             enterButton.setOnClickListener {
-
+                findNavController().navigate(R.id.action_navigation_user_to_enterUserDialog)
             }
             changeLanguageButton.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_user_to_changeLanguageFragment)
