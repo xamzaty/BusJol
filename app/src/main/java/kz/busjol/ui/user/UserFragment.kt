@@ -28,7 +28,7 @@ class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
                 findNavController().navigate(R.id.action_navigation_user_to_changeLanguageFragment)
             }
             aboutAppButton.setOnClickListener {
-                findNavController().navigate(R.id.action_navigation_user_to_aboutAppFragment)
+                findNavController().navigate(R.id.action_navigation_user_to_rateAppDialog)
             }
         }
     }

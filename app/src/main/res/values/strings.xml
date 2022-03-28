@@ -167,6 +167,10 @@
     <string name="forgot_password">Забыли пароль?</string>
     <string name="regisration">Зарегистрироваться</string>
 
+    <string name="rate_app">Оценить приложение</string>
+    <string name="rate_app_title">Оцените приложение</string>
+    <string name="i_like_it">Нравится</string>
+    <string name="i_don_not_like_it">Не особо</string>
 
     <string name="qr_camera_scan">Наведите камеру на\nQR-код</string>
 </resources>

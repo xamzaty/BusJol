@@ -2,13 +2,12 @@ package kz.busjol.ui.bus_plan
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import kz.busjol.base.BaseFragment
 import kz.busjol.data.BusPlan
 import kz.busjol.databinding.FragmentBusPlanBinding
-import kz.busjol.utils.SpacesItemDecoration
+import kz.busjol.utils.GridSpacingItemDecoration
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBinding::inflate), BusPlanAdapter.OnItemClickListener {
@@ -38,7 +37,7 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
             rvBusPlan.apply {
                 adapter = seatAdapter
                 layoutManager = gridLayoutManager
-                addItemDecoration(SpacesItemDecoration(15))
+                addItemDecoration(GridSpacingItemDecoration())
             }
         }
     }
@@ -52,5 +51,6 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
     }
 
     override fun onSeatClicked(seat: BusPlan) {
+        binding.selectedSeats.text = seat.place.toString()
     }
 }

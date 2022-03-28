@@ -38,6 +38,16 @@
         app:layout_constraintTop_toBottomOf="@id/close_button"
         android:layout_marginTop="@dimen/_18sdp"/>
 
+    <View
+        android:id="@+id/button_kazakh_language"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator_one"
+        app:layout_constraintBottom_toTopOf="@id/separator_two"
+        android:background="?attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/kazakh_tv"
         android:layout_width="wrap_content"
@@ -59,6 +69,16 @@
         app:layout_constraintTop_toBottomOf="@id/kazakh_tv"
         android:layout_marginTop="@dimen/_12sdp"/>
 
+    <View
+        android:id="@+id/button_russian_language"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator_two"
+        app:layout_constraintBottom_toTopOf="@id/separator_three"
+        android:background="?attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/russian_tv"
         android:layout_width="wrap_content"
@@ -79,5 +99,26 @@
         android:alpha="0.1"
         app:layout_constraintTop_toBottomOf="@id/russian_tv"
         android:layout_marginTop="@dimen/_12sdp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/kazakh_language_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_selector"
+        app:layout_constraintTop_toBottomOf="@id/separator_one"
+        app:layout_constraintBottom_toTopOf="@id/separator_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/russian_language_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_selector"
+        app:layout_constraintTop_toBottomOf="@id/separator_two"
+        app:layout_constraintBottom_toTopOf="@id/separator_three"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/_20sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

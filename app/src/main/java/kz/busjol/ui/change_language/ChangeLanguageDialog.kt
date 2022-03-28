@@ -6,7 +6,7 @@ import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.databinding.DialogChangeLanguageBinding
 import java.util.*
 
-class ChangeLanguageDialog :  BaseBottomFragmentDialog<DialogChangeLanguageBinding>(DialogChangeLanguageBinding::inflate, false){
+class ChangeLanguageDialog :  BaseBottomFragmentDialog<DialogChangeLanguageBinding>(DialogChangeLanguageBinding::inflate, false) {
 
     lateinit var locale: Locale
     private var currentLanguage = "ru"
@@ -14,14 +14,27 @@ class ChangeLanguageDialog :  BaseBottomFragmentDialog<DialogChangeLanguageBindi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupButtons()
     }
 
     private fun setupButtons() {
         binding.apply {
-            closeButton.setOnClickListener {
+            closeButton.setOnClickListener { dismiss() }
+
+            buttonKazakhLanguage.setOnClickListener {
+                kazakhLanguageSelector.visibility = View.VISIBLE
+                russianLanguageSelector.visibility = View.GONE
                 dismiss()
+                setLocale("kk")
+                activity?.recreate()
+            }
+
+            buttonRussianLanguage.setOnClickListener {
+                kazakhLanguageSelector.visibility = View.GONE
+                russianLanguageSelector.visibility = View.VISIBLE
+                dismiss()
+                setLocale("ru")
+                activity?.recreate()
             }
         }
     }

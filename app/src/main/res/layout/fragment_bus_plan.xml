@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/gray_background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/back_button"
@@ -79,40 +83,26 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <View
-            android:id="@+id/bus_plan_layout"
-            android:layout_width="@dimen/_220sdp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_14sdp"
-            android:background="@drawable/ic_main_frame"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_sheet"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/free_seat_description_layout" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/wheel_img"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:src="@drawable/wheel"
-            app:layout_constraintStart_toStartOf="@id/bus_plan_layout"
-            app:layout_constraintTop_toTopOf="@id/bus_plan_layout"
-            android:layout_marginTop="@dimen/_17sdp"
-            android:layout_marginStart="@dimen/_25sdp"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_bus_plan"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:nestedScrollingEnabled="false"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginEnd="@dimen/_25sdp"
-            app:layout_constraintBottom_toBottomOf="@id/bus_plan_layout"
-            app:layout_constraintEnd_toEndOf="@id/bus_plan_layout"
-            app:layout_constraintStart_toStartOf="@+id/wheel_img"
-            app:layout_constraintTop_toBottomOf="@id/wheel_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/_20sdp"
+            android:background="@drawable/ic_main_frame"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginBottom="@dimen/_100sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/free_seat_description_layout"
             tools:listitem="@layout/item_seat" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/bottom_sheet"
@@ -165,6 +155,4 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_selected_seats_title" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
