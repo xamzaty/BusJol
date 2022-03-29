@@ -15,9 +15,10 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
     private val viewModel: BusPlanViewModel by viewModel()
     private val seatAdapter = BusPlanAdapter(this)
 
+    private var checkedSeat: BusPlan? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupButtons()
         setupObservers()
         setupRecyclerView()
@@ -51,6 +52,7 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
     }
 
     override fun onSeatClicked(seat: BusPlan) {
+        checkedSeat = seat
         binding.selectedSeats.text = seat.place.toString()
     }
 }

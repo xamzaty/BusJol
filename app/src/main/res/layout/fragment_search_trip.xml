@@ -48,7 +48,7 @@
     <FrameLayout
         android:id="@+id/from_city_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_54sdp"
+        android:layout_height="@dimen/_53sdp"
         android:layout_marginTop="@dimen/_25sdp"
         android:background="@drawable/ic_from_city_layout"
         android:layout_marginStart="@dimen/_12sdp"
@@ -61,7 +61,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:background="#00000000"
             android:hint="@string/from">
 
@@ -88,7 +88,7 @@
         <FrameLayout
             android:id="@+id/to_city_layout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_54sdp"
+            android:layout_height="@dimen/_53sdp"
             android:layout_marginTop="@dimen/_minus2sdp"
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_12sdp"
@@ -133,7 +133,7 @@
             app:layout_constraintTop_toTopOf="@id/from_city_layout"
             app:layout_constraintBottom_toBottomOf="@id/to_city_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="@dimen/_16sdp"/>
+            android:layout_marginEnd="@dimen/_25sdp"/>
 
         <FrameLayout
             android:id="@+id/date_layout"
@@ -149,7 +149,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/date"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:background="#00000000">
@@ -206,7 +206,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/passengers"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:background="#00000000">

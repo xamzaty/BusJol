@@ -81,6 +81,7 @@
 
     <string name="trip_number">Рейс №%1$s</string>
     <string name="seat_type">Тип места: %1$s</string>
+    <string name="seat_type_subtitle">Тип места:</string>
     <string name="free_seats">Свободно мест: <font color='#2898FF'>%1$s из %2$s</font></string>
     <string name="carrier">Перевозчик: %1$s</string>
 

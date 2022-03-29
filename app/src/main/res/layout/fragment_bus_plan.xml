@@ -14,13 +14,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <View
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="@dimen/_60sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/back_button"
             android:layout_width="@dimen/_29sdp"
             android:layout_height="@dimen/_29sdp"
             android:src="@drawable/ic_button_back"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="@id/toolbar"
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginStart="@dimen/_19sdp"/>
 
@@ -45,8 +53,8 @@
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_choose_seats"
-            android:layout_marginTop="@dimen/_30sdp">
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            android:layout_marginTop="@dimen/_20sdp">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="@dimen/_16sdp"
@@ -94,6 +102,7 @@
             android:layout_marginBottom="@dimen/_100sdp"
             android:paddingStart="@dimen/_15sdp"
             android:paddingEnd="@dimen/_10sdp"
+            android:nestedScrollingEnabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

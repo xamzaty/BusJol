@@ -1,12 +1,8 @@
 package kz.busjol.ui.trip
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,12 +20,10 @@ class TripFragment : BaseFragment<FragmentTripBinding>(FragmentTripBinding::infl
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setTitle()
         setupButtons()
         loadData()
         setupObservers()
-        activity?.window?.statusBarColor = resources.getColor(R.color.gray_background)
     }
 
     override fun onCityClicked(trip: Trip) {

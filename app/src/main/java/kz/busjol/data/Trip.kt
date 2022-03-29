@@ -4,6 +4,8 @@ import kz.busjol.utils.formatWithCurrency
 import java.io.Serializable
 
 data class Trip(
+    val fromCity: String,
+    val toCity: String,
     val time: String,
     val date: String,
     val tripCount: String,

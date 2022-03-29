@@ -11,10 +11,9 @@ class TripViewHolder(private val binding: ItemTripBinding, private val listener:
     fun bind(trip: Trip) {
         binding.apply {
             tripLayout.setOnClickListener { listener.onCityClicked(trip) }
-            tripTime.text = trip.time
-            tripDate.text = trip.date
             tripNumber.text = itemView.context.getString(R.string.trip_number, trip.tripCount)
-            tripDirection.text = trip.cities
+            fromCity.text = trip.fromCity
+            toCity.text = trip.toCity
             tripType.text = itemView.context.getString(R.string.seat_type, trip.type)
             tripFreeSeats.text = itemView.context.getString(R.string.free_seats, trip.freeSeats, trip.allSeats)
             tripFerryman.text = itemView.context.getString(R.string.carrier, trip.carrier)
