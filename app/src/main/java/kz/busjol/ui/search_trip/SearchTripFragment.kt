@@ -17,18 +17,15 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
 
     private val tripViewModel: SearchTripViewModel by viewModel()
     private var cityList = listOf<City>()
-    private var adultPassengersQuantity = 0
+    private var adultPassengersQuantity = 1
     private var childPassengersQuantity = 0
     private var disabledPassengersQuantity = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupCalendar()
         setupObservers()
         setupButtons()
-        binding.fromCityEt.setText("Алматы")
-        binding.toCityEt.setText("Нур-Султан")
         activity?.window?.statusBarColor = resources.getColor(R.color.white)
     }
 

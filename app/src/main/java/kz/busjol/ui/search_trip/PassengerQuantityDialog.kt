@@ -14,13 +14,12 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupButtons()
         setupFields()
     }
 
     private fun setupButtons() {
-        var adultQuantity = 0
+        var adultQuantity = 1
         var childQuantity = 0
         var disabledQuantity = 0
 
@@ -32,7 +31,7 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
             }
 
             buttonMinusAdultTariff.setOnClickListener {
-                if (adultQuantity > 0) adultQuantity--
+                if (adultQuantity > 1) adultQuantity--
                 textAdultQuantity.text = adultQuantity.toString()
             }
 

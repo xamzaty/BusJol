@@ -14,9 +14,9 @@ class SearchTripViewModel(
 ) : BaseViewModel() {
 
     private val citiesLiveData = MutableLiveData<List<City>>()
-    private val _fromCityValue = MutableLiveData<String>()
-    private val _toCityValue = MutableLiveData<String>()
-    private val _passengersQuantity = MutableLiveData<String>()
+    private val _fromCityValue = MutableLiveData("Алматы")
+    private val _toCityValue = MutableLiveData("Нур-Султан")
+    private val _passengersQuantity = MutableLiveData("1 человек")
 
     val citiesList: LiveData<List<City>> = citiesLiveData
     val fromCityValue: LiveData<String> = _fromCityValue
