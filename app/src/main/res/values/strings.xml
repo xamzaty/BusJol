@@ -134,6 +134,10 @@
     <string name="title_contacts">Контакты</string>
     <string name="title_user">Профиль</string>
     <string name="title_ticket_scanner">Сканирование билета</string>
+    <string name="trip_time">%1$sч %2$мин в пути</string>
+    <string name="all_seats">Все</string>
+    <string name="lying_seats">Лежачий</string>
+    <string name="seating_seats">Сидячий</string>
 
     <string name="no_tickets">Билетов нет!</string>
     <string name="tickets_list_title">Список ваших билетов</string>
@@ -161,7 +165,8 @@
     <string name="change_language_title">Сменить язык</string>
     <string name="language_title">Язык приложения</string>
     <string name="russian_language">Русский</string>
-    <string name="kazakh_language">Казахский</string>
+    <string name="kazakh_language">Қазақша</string>
+    <string name="current_language">Русский</string>
 
     <string name="enter_subtitle">Войдите, чтобы видеть свои билеты\nи пассажиров</string>
     <string name="enter_user_text">Используйте эл. почту, которую указывали при покупке или регистрации на BusJol </string>

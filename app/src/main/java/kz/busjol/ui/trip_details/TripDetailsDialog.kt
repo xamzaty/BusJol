@@ -1,16 +1,11 @@
-package kz.busjol.ui.passenger_data
+package kz.busjol.ui.trip_details
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.databinding.DialogTripDetailsBinding
+import kz.busjol.ui.passenger_data.PassengerDataViewModel
 
 class TripDetailsDialog : BaseBottomFragmentDialog<DialogTripDetailsBinding>(DialogTripDetailsBinding::inflate, false) {
 

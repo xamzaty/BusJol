@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.data.BusPlan
 import kz.busjol.databinding.FragmentBusPlanBinding
-import kz.busjol.utils.GridSpacingItemDecoration
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBinding::inflate), BusPlanAdapter.OnItemClickListener {
@@ -24,10 +24,19 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
         setupRecyclerView()
     }
 
+    override fun onSeatClicked(seat: BusPlan) {
+        checkedSeat = seat
+        binding.selectedSeats.text = seat.place.toString()
+    }
+
     private fun setupButtons() {
         binding.apply {
             backButton.setOnClickListener {
                 findNavController().popBackStack()
+            }
+
+            continueButton.setOnClickListener {
+                findNavController().navigate(R.id.action_navigation_bus_plan_to_passengerDataFragment)
             }
         }
     }
@@ -38,7 +47,7 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
             rvBusPlan.apply {
                 adapter = seatAdapter
                 layoutManager = gridLayoutManager
-                addItemDecoration(GridSpacingItemDecoration())
+                addItemDecoration(BusPlanItemDecoration())
             }
         }
     }
@@ -49,10 +58,5 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
                 seatAdapter.submitList(citiesList)
             }
         }
-    }
-
-    override fun onSeatClicked(seat: BusPlan) {
-        checkedSeat = seat
-        binding.selectedSeats.text = seat.place.toString()
     }
 }

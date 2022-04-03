@@ -48,8 +48,8 @@
     <FrameLayout
         android:id="@+id/from_city_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_53sdp"
-        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/ic_from_city_layout"
         android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_12sdp"
@@ -58,10 +58,10 @@
         app:layout_constraintTop_toBottomOf="@id/search_banner">
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            app:boxBackgroundMode="none"
+            android:layout_gravity="center_vertical"
             android:background="#00000000"
             android:hint="@string/from">
 
@@ -70,7 +70,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#00000000"
+                android:paddingTop="5dp"
                 android:cursorVisible="false"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
                 android:inputType="textNoSuggestions"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_13sdp"
@@ -85,33 +88,35 @@
 
     </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/to_city_layout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_53sdp"
-            android:layout_marginTop="@dimen/_minus2sdp"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginEnd="@dimen/_12sdp"
-            app:layout_constraintStart_toStartOf="@id/from_city_layout"
-            app:layout_constraintEnd_toEndOf="@id/from_city_layout"
-            android:background="@drawable/ic_to_city_layout"
-            app:layout_constraintTop_toBottomOf="@id/from_city_layout">
+    <FrameLayout
+        android:id="@+id/to_city_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginTop="@dimen/_minus2sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        app:layout_constraintStart_toStartOf="@id/from_city_layout"
+        app:layout_constraintEnd_toEndOf="@id/from_city_layout"
+        android:background="@drawable/ic_to_city_layout"
+        app:layout_constraintTop_toBottomOf="@id/from_city_layout">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:hint="@string/where"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_gravity="center_vertical"
+                app:boxBackgroundMode="none"
                 android:background="#00000000">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/to_city_et"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:textColor="@color/black"
                     android:cursorVisible="false"
-                    app:boxBackgroundMode="none"
+                    android:layout_gravity="center_vertical"
+                    android:paddingTop="5dp"
                     android:inputType="textNoSuggestions"
                     android:textSize="@dimen/_13sdp"
                     android:background="#00000000"/>
@@ -127,8 +132,8 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/swap_cities_button"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_width="@dimen/_37sdp"
+            android:layout_height="@dimen/_37sdp"
             android:background="@drawable/ic_cities_swap_button"
             app:layout_constraintTop_toTopOf="@id/from_city_layout"
             app:layout_constraintBottom_toBottomOf="@id/to_city_layout"
@@ -138,8 +143,8 @@
         <FrameLayout
             android:id="@+id/date_layout"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_5sdp"
             app:layout_constraintStart_toStartOf="@id/search_banner"
             android:background="@drawable/ic_et_layout"
@@ -149,16 +154,19 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
                 android:hint="@string/date"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxBackgroundMode="none"
                 android:background="#00000000">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/date_et"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center"
                     android:textColor="@color/black"
+                    android:paddingTop="5dp"
                     app:boxBackgroundMode="none"
                     android:inputType="textNoSuggestions"
                     android:textSize="@dimen/_13sdp"
@@ -195,8 +203,8 @@
         <FrameLayout
             android:id="@+id/passenger_number_layout"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/ic_et_layout"
             android:layout_marginStart="@dimen/_5sdp"
             app:layout_constraintStart_toStartOf="@id/center_barrier"
@@ -206,9 +214,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
                 android:hint="@string/passengers"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxBackgroundMode="none"
                 android:background="#00000000">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -217,6 +225,7 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/black"
                     app:boxBackgroundMode="none"
+                    android:paddingTop="5dp"
                     android:inputType="textNoSuggestions"
                     android:textSize="@dimen/_13sdp"
                     android:background="#00000000"/>

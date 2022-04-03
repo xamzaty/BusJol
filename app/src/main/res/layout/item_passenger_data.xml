@@ -31,29 +31,42 @@
         app:layout_constraintTop_toTopOf="@id/passenger_number"
         app:layout_constraintBottom_toBottomOf="@id/passenger_number"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_men"
-        android:layout_width="147dp"
-        android:layout_height="40dp"
-        android:text="@string/men"
-        android:textAllCaps="false"
-        android:background="@drawable/ic_layout_button"
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/passenger_number"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_women"
-        android:layout_width="147dp"
-        android:layout_height="40dp"
-        android:text="@string/women"
-        android:textAllCaps="false"
-        android:background="@drawable/ic_layout_button"
-        app:layout_constraintTop_toBottomOf="@id/passenger_number"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="12dp"/>
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/men_button"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="@string/men"
+            android:textColor="@drawable/radio_button_text_color"
+            android:gravity="center"
+            android:background="@drawable/bg_dec_radio_button"
+            android:checked="true"
+            android:button="@null"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/women_button"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:text="@string/women"
+            android:textColor="@drawable/radio_button_text_color"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:gravity="center"
+            android:background="@drawable/bg_dec_radio_button"
+            android:button="@null"/>
+
+    </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/iin_layout"
@@ -66,7 +79,7 @@
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_men">
+        app:layout_constraintTop_toBottomOf="@id/radio_group">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passenger_data_iin_et"

@@ -13,7 +13,7 @@
         android:text="@string/title_client_data"
         android:textColor="@color/bolder_text"
         android:textStyle="bold"
-        android:paddingStart="15dp"
+        android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_17sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -6,8 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/ic_frame_trip"
-    android:layout_marginTop="16dp"
-    android:paddingBottom="16dp">
+    android:layout_marginBottom="@dimen/_10sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -129,7 +128,8 @@
             android:id="@+id/trip_price"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_25sdp"
-            android:background="#F2F6F8"
+            android:backgroundTint="#F2F6F8"
+            android:background="@drawable/card_frame"
             android:gravity="center"
             android:textColor="@color/blue_text"
             android:textSize="@dimen/_13sdp"
@@ -145,7 +145,7 @@
             android:layout_width="@dimen/_10sdp"
             android:layout_height="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_65sdp"
-            android:src="@drawable/wheel"
+            android:src="@drawable/ic_time_left"
             app:layout_constraintBottom_toBottomOf="@+id/trip_number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/trip_number" />

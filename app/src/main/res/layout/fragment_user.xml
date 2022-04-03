@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/main_user_subtitle"
                 android:textAllCaps="true"
-                android:textSize="@dimen/_11sdp"
+                android:textSize="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_25sdp"
                 app:layout_constraintStart_toStartOf="@+id/authorized_phone"
                 app:layout_constraintTop_toBottomOf="@+id/authorized_phone" />
@@ -163,7 +163,7 @@
                 android:text="@string/user_my_data"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_13sdp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:layout_constraintStart_toStartOf="@+id/authorized_main_subtitle"
                 app:layout_constraintTop_toTopOf="@+id/authorized_my_data_button" />
 
@@ -180,7 +180,7 @@
                 android:id="@+id/view7"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:alpha="0.1"
                 android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -202,7 +202,7 @@
                 android:text="@string/passengers"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_13sdp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:layout_constraintStart_toStartOf="@+id/authorized_my_data"
                 app:layout_constraintTop_toTopOf="@+id/authorized_passengers_button" />
 
@@ -219,7 +219,7 @@
                 android:id="@+id/view11"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:alpha="0.1"
                 android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -241,7 +241,7 @@
                 android:text="@string/user_my_trips"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_13sdp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:layout_constraintStart_toStartOf="@+id/authorized_my_data"
                 app:layout_constraintTop_toTopOf="@+id/authorized_my_trips_button" />
 
@@ -258,7 +258,7 @@
                 android:id="@+id/view12"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:alpha="0.1"
                 android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -281,7 +281,7 @@
             android:layout_height="wrap_content"
             android:text="@string/title_settings"
             android:textAllCaps="true"
-            android:textSize="@dimen/_11sdp"
+            android:textSize="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_18sdp"
             android:layout_marginStart="@dimen/_12sdp"
             app:layout_constraintStart_toStartOf="parent"
@@ -305,7 +305,7 @@
             android:text="@string/change_language_title"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="@+id/settings_subtitle"
             app:layout_constraintTop_toTopOf="@+id/change_language_button" />
 
@@ -313,8 +313,8 @@
             android:id="@+id/current_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:text="@string/russian_language"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/current_language"
             android:textColor="@color/black"
             android:textSize="@dimen/_11sdp"
             android:layout_marginEnd="@dimen/_5sdp"
@@ -335,7 +335,7 @@
             android:id="@+id/view_bottom_change_language"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:alpha="0.1"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -349,7 +349,7 @@
             android:text="@string/notifications"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="@+id/settings_subtitle"
             app:layout_constraintTop_toBottomOf="@id/change_language_button" />
 
@@ -369,7 +369,7 @@
             android:id="@+id/view_bottom_notifications"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:alpha="0.1"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -383,7 +383,7 @@
             android:layout_height="wrap_content"
             android:text="@string/additional"
             android:textAllCaps="true"
-            android:textSize="@dimen/_11sdp"
+            android:textSize="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_18sdp"
             android:layout_marginStart="@dimen/_12sdp"
             app:layout_constraintStart_toStartOf="parent"
@@ -407,7 +407,7 @@
             android:text="@string/rate_app"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="@+id/additional_subtitle"
             app:layout_constraintTop_toTopOf="@+id/about_app_button" />
 
@@ -424,7 +424,7 @@
             android:id="@+id/view_bottom_additional"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:alpha="0.1"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"

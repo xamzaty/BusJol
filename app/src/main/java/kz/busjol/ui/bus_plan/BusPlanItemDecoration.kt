@@ -1,10 +1,10 @@
-package kz.busjol.utils
+package kz.busjol.ui.bus_plan
 
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class GridSpacingItemDecoration : RecyclerView.ItemDecoration() {
+class BusPlanItemDecoration : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,

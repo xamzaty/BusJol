@@ -9,10 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bold_text">#8B98A7</color>
     <color name="bolder_text">#444444</color>
-    <color name="gray_text">#91A2BF</color>
+    <color name="gray_text">#698CA5</color>
     <color name="blue_text">#2898FF</color>
     <color name="green_background">#AADB65</color>
     <color name="red_background">#EF4545</color>
     <color name="gray_background">#FAFAFA</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#E9F5FF</color>
+    <color name="gray_button">#EBEBEB</color>
+    <color name="blue_button">#2898FF</color>
 </resources>

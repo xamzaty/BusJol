@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="kz.busjol">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -18,13 +19,13 @@
         android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BusJol">
+        android:theme="@style/Theme.BusJol"
+        tools:targetApi="m">
 
         <activity android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name"
             android:theme="@style/SplashScreenTheme"
+            android:screenOrientation="portrait"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

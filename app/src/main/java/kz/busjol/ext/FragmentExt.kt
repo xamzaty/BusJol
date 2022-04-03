@@ -4,10 +4,14 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
@@ -16,6 +20,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import kz.busjol.BuildConfig
 import kz.busjol.R
 import java.lang.Exception
@@ -55,6 +60,17 @@ object FragmentExt {
         builder.show()
     }
 
+    fun Fragment.showSnackBar(message: Int) {
+        val snackBar = view?.let {
+            Snackbar.make(
+                it, getString(message),
+                Snackbar.LENGTH_SHORT
+            )
+        }
+        snackBar?.view?.setBackgroundColor(resources.getColor(R.color.blue_button))
+        snackBar?.show()
+    }
+
     fun Fragment.hideKeyboard() {
         try {
             val inputMethodManager: InputMethodManager? =
@@ -92,24 +108,5 @@ object FragmentExt {
 
     fun Fragment.postNavigationResult(result: Any, key: String = "NavigationResult") {
         findNavController().previousBackStackEntry?.savedStateHandle?.set(key, result)
-    }
-
-    fun Fragment.navigateSafe(directions: NavDirections) {
-        /*
-            Example:
-            Fatal Exception: java.lang.IllegalArgumentException
-            Navigation action/destination kz.jysan.business:id/to_statementDetails cannot be found from
-            the current destination a(kz.jysan.business:id/home) class=kz.jysan.business.ui.home.HomeFragment
-        */
-        try {
-            findNavController().navigate(directions)
-        } catch (ignoredException: IllegalArgumentException) {
-            if (BuildConfig.DEBUG) {
-                //Чтобы во время разработки не упустить проблемы
-                throw ignoredException
-            } else {
-                ignoredException.printStackTrace()
-            }
-        }
     }
 }

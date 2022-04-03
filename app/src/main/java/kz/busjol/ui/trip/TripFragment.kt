@@ -46,8 +46,32 @@ class TripFragment : BaseFragment<FragmentTripBinding>(FragmentTripBinding::infl
     }
 
     private fun setupButtons() {
-        binding.backButton.setOnClickListener {
-            findNavController().popBackStack()
+        binding.apply {
+            backButton.setOnClickListener {
+                findNavController().popBackStack()
+            }
+
+            tripViewModel.apply {
+                radioGroup.setOnCheckedChangeListener { radioGroup, i ->
+                    if (i == R.id.all_button) {
+                        tripList.observe(viewLifecycleOwner) { tripList ->
+                            tripAdapter.submitList(tripList)
+                        }
+                    }
+
+                    if (i == R.id.lying_place_button) {
+                        tripLyingList.observe(viewLifecycleOwner) { tripList ->
+                            tripAdapter.submitList(tripList)
+                        }
+                    }
+
+                    if (i == R.id.seat_place_button) {
+                        tripSeatingList.observe(viewLifecycleOwner) { tripList ->
+                            tripAdapter.submitList(tripList)
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -56,6 +80,7 @@ class TripFragment : BaseFragment<FragmentTripBinding>(FragmentTripBinding::infl
             rv_trip.apply {
                 adapter = tripAdapter
                 layoutManager = LinearLayoutManager(context)
+                addItemDecoration(TripItemDecoration())
             }
         }
     }

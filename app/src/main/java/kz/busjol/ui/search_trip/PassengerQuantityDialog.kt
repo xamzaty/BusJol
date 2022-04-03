@@ -1,7 +1,10 @@
 package kz.busjol.ui.search_trip
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kz.busjol.R
@@ -12,19 +15,20 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
 
     private val args: PassengerQuantityDialogArgs by navArgs()
 
+    var adultQuantity = 1
+    var childQuantity = 0
+    var disabledQuantity = 0
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupButtons()
         setupFields()
+        test()
     }
 
     private fun setupButtons() {
-        var adultQuantity = 1
-        var childQuantity = 0
-        var disabledQuantity = 0
-
         binding.apply {
-
             buttonPlusAdultTariff.setOnClickListener {
                 if (adultQuantity < 50) adultQuantity++
                 textAdultQuantity.text = adultQuantity.toString()
@@ -74,6 +78,54 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun test() {
+        binding.apply {
+            if (textAdultQuantity.text.toString().toInt() < 1) {
+                buttonMinusAdultTariff.setTextColor(requireContext().getColor(R.color.black))
+                buttonMinusAdultTariff.setBackgroundResource(R.drawable.ic_quantity_gray_button)
+            } else {
+                buttonMinusAdultTariff.setTextColor(requireContext().getColor(R.color.white))
+                buttonMinusAdultTariff.setBackgroundResource(R.drawable.ic_quantity_blue_button)
+            }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun setupButtonColors() {
+        binding.apply {
+            setButtonColors(textAdultQuantity, 1, buttonMinusAdultTariff, false)
+            setButtonColors(textAdultQuantity, 50, buttonPlusAdultTariff, true)
+            setButtonColors(textChildQuantity, 0, buttonMinusChildTariff, false)
+            setButtonColors(textChildQuantity, 50, buttonPlusChildTariff, true)
+            setButtonColors(textDisableQuantity, 0, buttonMinusDisableTariff, false)
+            setButtonColors(textDisableQuantity, 50, buttonPlusDisableTariff, true)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun setButtonColors(quantityTv: AppCompatTextView, quantity: Int, button: AppCompatTextView, isPlus: Boolean) {
+        if (!isPlus) {
+            if (quantityTv.text.toString().toInt() > quantity) {
+                button.setTextColor(requireContext().getColor(R.color.white))
+                button.setBackgroundResource(R.drawable.ic_quantity_blue_button)
+            }
+            else {
+                button.setTextColor(requireContext().getColor(R.color.black))
+                button.setBackgroundResource(R.drawable.ic_quantity_gray_button)
+            }
+        }
+        else {
+            if (quantityTv.text.toString().toInt() < quantity) {
+                button.setTextColor(requireContext().getColor(R.color.white))
+                button.setBackgroundResource(R.drawable.ic_quantity_blue_button)
+            } else {
+                button.setTextColor(requireContext().getColor(R.color.black))
+                button.setBackgroundResource(R.drawable.ic_quantity_gray_button)
+            }
+        }
+    }
+
     private fun countPassengers(): Int {
         binding.apply {
             val adultQuantity = textAdultQuantity.text.toString().toInt()
@@ -85,24 +137,21 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
     }
 
     private fun passBackstackData() {
+        val allQuantity = "quantity"
+        val adultQuantity = "adultQuantity"
+        val childQuantity = "childQuantity"
+        val disabledQuantity = "disabledQuantity"
+
         if (countPassengers() > 0) {
-            findNavController().previousBackStackEntry?.savedStateHandle?.set(
-                "quantity",
-                passengersQuantityText()
-            )
-            findNavController().previousBackStackEntry?.savedStateHandle?.set(
-                "adultQuantity",
-                binding.textAdultQuantity.text.toString().toInt()
-            )
-            findNavController().previousBackStackEntry?.savedStateHandle?.set(
-                "childQuantity",
-                binding.textChildQuantity.text.toString().toInt()
-            )
-            findNavController().previousBackStackEntry?.savedStateHandle?.set(
-                "disabledQuantity",
-                binding.textDisableQuantity.text.toString().toInt()
-            )
+            backstackData(allQuantity, passengersQuantityText())
+            backstackData(adultQuantity, binding.textAdultQuantity.text.toString().toInt())
+            backstackData(childQuantity, binding.textChildQuantity.text.toString().toInt())
+            backstackData(disabledQuantity, binding.textDisableQuantity.text.toString().toInt())
         }
+    }
+
+    private fun backstackData(key: String, value: Any) {
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(key, value)
     }
 
     private fun passengersQuantityText(): String {

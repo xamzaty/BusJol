@@ -9,6 +9,7 @@ import kz.busjol.base.BaseFragment
 import kz.busjol.data.City
 import kz.busjol.databinding.FragmentSearchTripBinding
 import kz.busjol.ext.FragmentExt.showSimpleAlertDialog
+import kz.busjol.ext.FragmentExt.showSnackBar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -56,13 +57,16 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
     }
 
     private fun setupButtons() {
+        val fromCity = "from"
+        val toCity = "to"
+
         binding.apply {
             openFromCitiesDialog.setOnClickListener {
-                openCityPickerDialog("from")
+                openCityPickerDialog(fromCity)
             }
 
             openToCitiesDialog.setOnClickListener {
-                openCityPickerDialog("to")
+                openCityPickerDialog(toCity)
             }
 
             searchTripButton.apply {
@@ -90,7 +94,9 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
     }
 
     private fun openPassengersQuantityDialog() {
-        val action = SearchTripFragmentDirections.actionNavigationSearchToNavigationQuantityDialog(adultPassengersQuantity, childPassengersQuantity, disabledPassengersQuantity)
+        val action = SearchTripFragmentDirections.actionNavigationSearchToNavigationQuantityDialog(
+            adultPassengersQuantity, childPassengersQuantity, disabledPassengersQuantity
+        )
         findNavController().navigate(action)
     }
 
@@ -171,13 +177,12 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
                 toCityEt.text.isNullOrEmpty() ||
                 dateEt.text.isNullOrEmpty() ||
                 passengerNumberEt.text.isNullOrEmpty()) {
-                showSimpleAlertDialog(R.string.error, R.string.fill_all_the_fields)
+                    showSnackBar(R.string.fill_all_the_fields)
             } else if (fromCityEt.text.toString() == toCityEt.text.toString() &&
                 fromCityEt.text.toString().isNotEmpty() && toCityEt.text.toString().isNotEmpty()){
-
-                showSimpleAlertDialog(R.string.error, R.string.similar_cities)
-                tripViewModel.onAction(CitiesListAction.FromCityValue(""))
-                tripViewModel.onAction(CitiesListAction.ToCityValue(""))
+                    showSnackBar(R.string.similar_cities)
+                    tripViewModel.onAction(CitiesListAction.FromCityValue(""))
+                    tripViewModel.onAction(CitiesListAction.ToCityValue(""))
             } else {
                 navigateToTripFragment()
                 tripViewModel.onAction(CitiesListAction.PassPassengersQuantityData(allPassengersQuantity().toMutableList()))
