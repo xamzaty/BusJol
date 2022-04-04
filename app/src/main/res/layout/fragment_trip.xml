@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_background"
+    android:animateLayoutChanges="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -113,6 +114,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
         android:nestedScrollingEnabled="false"
         android:paddingHorizontal="@dimen/_11sdp"
         app:layout_constraintBottom_toBottomOf="parent"

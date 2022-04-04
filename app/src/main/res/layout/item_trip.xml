@@ -2,11 +2,12 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/trip_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/_110sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="@dimen/_3sdp"
     android:background="@drawable/ic_frame_trip"
-    android:layout_marginBottom="@dimen/_10sdp">
+    android:layout_marginTop="@dimen/_10sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

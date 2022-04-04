@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/ic_frame_trip"
+    app:cardElevation="@dimen/_3sdp"
     android:layout_marginTop="@dimen/_13sdp"
     android:paddingBottom="@dimen/_13sdp">
 
@@ -46,7 +47,7 @@
             android:layout_marginTop="@dimen/_2sdp"
             app:layout_constraintStart_toStartOf="@+id/schedule_trip_number"
             app:layout_constraintTop_toBottomOf="@+id/schedule_trip_number"
-            tools:text="Алматы - Нурсултан" />
+            tools:text="Алматы - Нур-Султан" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/schedule_seats_filled"

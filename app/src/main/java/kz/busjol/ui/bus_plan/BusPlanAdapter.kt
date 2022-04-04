@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import kz.busjol.R
 import kz.busjol.data.BusPlan
 import kz.busjol.databinding.ItemSeatBinding
-import java.util.ArrayList
 
 class BusPlanAdapter(
     private val listener: OnItemClickListener

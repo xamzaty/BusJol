@@ -3,7 +3,6 @@ package kz.busjol.ui.driver_scanner
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.budiyev.android.codescanner.CodeScanner
@@ -17,7 +16,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class DriverScannerFragment : BaseFragment<FragmentDriverScannerBinding>(FragmentDriverScannerBinding::inflate) {
 
     private lateinit var codeScanner: CodeScanner
-    private val driverScannerViewModel: DriverScannerViewModel by viewModel()
+    private val viewModel: DriverScannerViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

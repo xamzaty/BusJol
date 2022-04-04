@@ -11,10 +11,11 @@ import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.data.Trip
 import kz.busjol.databinding.FragmentTripBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TripFragment : BaseFragment<FragmentTripBinding>(FragmentTripBinding::inflate), TripListAdapter.OnItemClickListener {
 
-    private val tripViewModel: TripViewModel by viewModels()
+    private val viewModel: TripViewModel by viewModels()
     private val tripAdapter = TripListAdapter(this)
     private val args: TripFragmentArgs by navArgs()
 
@@ -38,7 +39,7 @@ class TripFragment : BaseFragment<FragmentTripBinding>(FragmentTripBinding::infl
     }
 
     private fun setupObservers() {
-        tripViewModel.apply {
+        viewModel.apply {
             tripList.observe(viewLifecycleOwner) { tripList ->
                 tripAdapter.submitList(tripList)
             }
@@ -51,8 +52,8 @@ class TripFragment : BaseFragment<FragmentTripBinding>(FragmentTripBinding::infl
                 findNavController().popBackStack()
             }
 
-            tripViewModel.apply {
-                radioGroup.setOnCheckedChangeListener { radioGroup, i ->
+            viewModel.apply {
+                radioGroup.setOnCheckedChangeListener { _, i ->
                     if (i == R.id.all_button) {
                         tripList.observe(viewLifecycleOwner) { tripList ->
                             tripAdapter.submitList(tripList)
@@ -80,6 +81,7 @@ class TripFragment : BaseFragment<FragmentTripBinding>(FragmentTripBinding::infl
             rv_trip.apply {
                 adapter = tripAdapter
                 layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
                 addItemDecoration(TripItemDecoration())
             }
         }

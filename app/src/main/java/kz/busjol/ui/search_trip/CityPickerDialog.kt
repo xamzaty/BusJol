@@ -66,11 +66,9 @@ class CityPickerDialog : BaseBottomFragmentDialog<DialogCitySelectorBinding>(Dia
             findCityEt.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
-
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     viewModel.onAction(CitiesListAction.SearchCity(p0.toString()))
                 }
-
                 override fun afterTextChanged(p0: Editable?) {
                 }
             })
@@ -78,9 +76,7 @@ class CityPickerDialog : BaseBottomFragmentDialog<DialogCitySelectorBinding>(Dia
     }
 
     private fun setupButtons() {
-        binding.buttonBack.setOnClickListener {
-            dismiss()
-        }
+        binding.buttonBack.setOnClickListener { dismiss() }
     }
 
     private fun loadData() {

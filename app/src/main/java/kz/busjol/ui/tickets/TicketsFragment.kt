@@ -6,14 +6,14 @@ import androidx.navigation.fragment.findNavController
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentTicketsBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TicketsFragment : BaseFragment<FragmentTicketsBinding>(FragmentTicketsBinding::inflate) {
 
-    private lateinit var ticketsViewModel: TicketsViewModel
+    private val viewModel: TicketsViewModel by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupButtons()
     }
 

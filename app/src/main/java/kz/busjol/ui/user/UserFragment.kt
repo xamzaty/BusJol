@@ -2,7 +2,6 @@ package kz.busjol.ui.user
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
@@ -24,9 +23,11 @@ class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
             enterButton.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_user_to_enterUserDialog)
             }
+
             changeLanguageButton.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_user_to_changeLanguageFragment)
             }
+
             aboutAppButton.setOnClickListener {
                 findNavController().navigate(R.id.action_navigation_user_to_rateAppDialog)
             }

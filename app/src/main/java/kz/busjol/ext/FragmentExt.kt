@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
@@ -67,7 +68,7 @@ object FragmentExt {
                 Snackbar.LENGTH_SHORT
             )
         }
-        snackBar?.view?.setBackgroundColor(resources.getColor(R.color.blue_button))
+        snackBar?.view?.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.blue_button))
         snackBar?.show()
     }
 

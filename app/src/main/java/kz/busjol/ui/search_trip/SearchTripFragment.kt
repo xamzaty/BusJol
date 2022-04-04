@@ -3,12 +3,12 @@ package kz.busjol.ui.search_trip
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.data.City
 import kz.busjol.databinding.FragmentSearchTripBinding
-import kz.busjol.ext.FragmentExt.showSimpleAlertDialog
 import kz.busjol.ext.FragmentExt.showSnackBar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
@@ -16,7 +16,7 @@ import java.util.*
 
 class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearchTripBinding::inflate) {
 
-    private val tripViewModel: SearchTripViewModel by viewModel()
+    private val viewModel: SearchTripViewModel by viewModel()
     private var cityList = listOf<City>()
     private var adultPassengersQuantity = 1
     private var childPassengersQuantity = 0
@@ -27,7 +27,7 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
         setupCalendar()
         setupObservers()
         setupButtons()
-        activity?.window?.statusBarColor = resources.getColor(R.color.white)
+        activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
     }
 
     private fun setupCalendar() {
@@ -81,7 +81,7 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
 
             swapCitiesButton.setOnClickListener {
                 if (fromCityEt.text!!.isNotEmpty() && toCityEt.text!!.isNotEmpty())
-                tripViewModel.onAction(CitiesListAction.SwapCities)
+                    viewModel.onAction(CitiesListAction.SwapCities)
             }
         }
     }
@@ -119,17 +119,17 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(fromKey)?.observe(
             viewLifecycleOwner) { result ->
-            tripViewModel.onAction(CitiesListAction.FromCityValue(result))
+            viewModel.onAction(CitiesListAction.FromCityValue(result))
         }
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(toKey)?.observe(
             viewLifecycleOwner) { result ->
-            tripViewModel.onAction(CitiesListAction.ToCityValue(result))
+            viewModel.onAction(CitiesListAction.ToCityValue(result))
         }
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(quantityKey)?.observe(
             viewLifecycleOwner) { result ->
-            tripViewModel.onAction(CitiesListAction.FillPassengersQuantityValue(result))
+            viewModel.onAction(CitiesListAction.FillPassengersQuantityValue(result))
         }
 
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(adultQuantityKey)?.observe(
@@ -147,7 +147,7 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
             disabledPassengersQuantity = result
         }
 
-        tripViewModel.apply {
+        viewModel.apply {
             fromCityValue.observe(viewLifecycleOwner) { fromCityValue ->
                 binding.fromCityEt.setText(fromCityValue)
             }
@@ -181,11 +181,11 @@ class SearchTripFragment : BaseFragment<FragmentSearchTripBinding>(FragmentSearc
             } else if (fromCityEt.text.toString() == toCityEt.text.toString() &&
                 fromCityEt.text.toString().isNotEmpty() && toCityEt.text.toString().isNotEmpty()){
                     showSnackBar(R.string.similar_cities)
-                    tripViewModel.onAction(CitiesListAction.FromCityValue(""))
-                    tripViewModel.onAction(CitiesListAction.ToCityValue(""))
+                viewModel.onAction(CitiesListAction.FromCityValue(""))
+                viewModel.onAction(CitiesListAction.ToCityValue(""))
             } else {
                 navigateToTripFragment()
-                tripViewModel.onAction(CitiesListAction.PassPassengersQuantityData(allPassengersQuantity().toMutableList()))
+                viewModel.onAction(CitiesListAction.PassPassengersQuantityData(allPassengersQuantity().toMutableList()))
                 println(allPassengersQuantity().toList())
             }
         }

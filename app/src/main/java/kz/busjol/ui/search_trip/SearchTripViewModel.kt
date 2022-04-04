@@ -53,6 +53,7 @@ class SearchTripViewModel(
                 preferences.setChildQuantity(passengersQuantity[2])
                 preferences.setDisabledQuantity(passengersQuantity[3])
             }
+            else -> Unit
         }
     }
 }

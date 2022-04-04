@@ -12,9 +12,10 @@ class TripItemDecoration : RecyclerView.ItemDecoration() {
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        if (parent.getChildLayoutPosition(view) == 0) outRect.top = 50
+        val position = parent.getChildLayoutPosition(view)
 
-        if (parent.getChildLayoutPosition(view) == state.itemCount - 1) outRect.bottom = 30
+        if (position == 1) parent.paddingTop
+        if (position == state.itemCount - 1) outRect.bottom = 30
         else super.getItemOffsets(outRect, view, parent, state)
     }
 }

@@ -97,13 +97,55 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
-
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
+
     <fragment
         android:id="@+id/passengerDataFragment"
         android:name="kz.busjol.ui.passenger_data.PassengerDataFragment"
         android:label="PassengerDataFragment"
-        tools:layout="@layout/fragment_passenger_data"/>
+        tools:layout="@layout/fragment_passenger_data">
+        <action
+            android:id="@+id/action_passengerDataFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="kz.busjol.ui.booking.BookingFragment"
+        android:label="BookingFragment"
+        tools:layout="@layout/fragment_booking">
+        <action
+            android:id="@+id/action_bookingFragment_to_paymentOrderFragment"
+            app:destination="@id/paymentOrderFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentOrderFragment"
+        android:name="kz.busjol.ui.payment_order.PaymentOrderFragment"
+        android:label="PaymentOrderFragment"
+        tools:layout="@layout/fragment_payment_order">
+        <action
+            android:id="@+id/action_paymentOrderFragment_to_paymentOrderResultFragment"
+            app:destination="@id/paymentOrderResultFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentOrderResultFragment"
+        android:name="kz.busjol.ui.payment_order_result.PaymentOrderResultFragment"
+        android:label="PaymentOrderResultFragment"
+        tools:layout="@layout/fragment_payment_order_result"/>
 
 </navigation>
