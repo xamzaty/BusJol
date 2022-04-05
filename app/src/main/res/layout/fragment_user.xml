@@ -111,7 +111,7 @@
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="Khamzat Yerzhanov" />
+                android:text="Khamzat Yerzhanov" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/authorized_email"
@@ -123,7 +123,7 @@
                 android:layout_marginTop="@dimen/_2sdp"
                 app:layout_constraintTop_toBottomOf="@id/authorized_name"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="h.yerzhanov@gmail.com" />
+                android:text="h.yerzhanov@gmail.com" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/authorized_phone"
@@ -135,8 +135,7 @@
                 android:layout_marginTop="@dimen/_2sdp"
                 app:layout_constraintTop_toBottomOf="@id/authorized_email"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="+7 705 500 2555" />
-
+                android:text="+7 705 500 2555" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/authorized_main_subtitle"
@@ -211,6 +210,7 @@
                 app:layout_constraintTop_toTopOf="@+id/authorized_passengers_button" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/authorized_my_passengers_arrow"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:src="@drawable/ic_baseline_arrow_forward_24"
@@ -250,6 +250,7 @@
                 app:layout_constraintTop_toTopOf="@+id/authorized_my_trips_button" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/authorized_my_trips_arrow"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:src="@drawable/ic_baseline_arrow_forward_24"

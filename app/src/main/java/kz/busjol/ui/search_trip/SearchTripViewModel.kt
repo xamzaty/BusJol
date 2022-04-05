@@ -2,9 +2,14 @@ package kz.busjol.ui.search_trip
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import kz.busjol.base.BaseViewModel
 import kz.busjol.data.City
 import kz.busjol.preferences.PassengerPreferences
+import kz.busjol.preferences.UserPreferences
 import kz.busjol.repository.CityRepository
 import timber.log.Timber
 

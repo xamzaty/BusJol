@@ -1,6 +1,8 @@
 package kz.busjol.ui.bus_plan
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import kz.busjol.base.BaseViewModel
 import kz.busjol.data.BusPlan
 
@@ -9,10 +11,15 @@ class BusPlanViewModel : BaseViewModel() {
     val listBus = arrayListOf<BusPlan>()
 
     init {
-        for (i in 1..80) {
-            listBus.add(BusPlan(i))
-        }
+        postValue()
+    }
 
-        seatList.postValue(listBus)
+    private fun postValue() {
+        viewModelScope.launch {
+            for (i in 1..80) {
+                listBus.add(BusPlan(i))
+            }
+            seatList.postValue(listBus)
+        }
     }
 }

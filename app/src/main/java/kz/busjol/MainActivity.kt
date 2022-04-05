@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(newBase?.createConfigurationContext(Configuration().apply {
-            setLocale(Locale(userPreferences.getAppLanguage().name))
+//            setLocale(Locale(userPreferences.getAppLanguage().name))
         }))
     }
 
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         viewModel.apply {
-            isDriver.observe(this@MainActivity) { isDriver ->
+            isDriverStatus.observe(this@MainActivity) { isDriver ->
                 if (!isDriver) {
                     setupNav(passengerConfiguration, navHostFragment, R.menu.passenger_bottom_nav_menu, R.navigation.nav_passenger)
                 } else {

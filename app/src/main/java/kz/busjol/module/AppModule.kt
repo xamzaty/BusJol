@@ -34,7 +34,7 @@ private fun provideNetworkHelper(context: Context) = NetworkHelper(context)
 fun provideInterceptor(userPreferences: UserPreferences): Interceptor {
     return Interceptor { chain ->
         val builder = chain.request().newBuilder()
-        builder.addHeader("X-Language", userPreferences.getAppLanguage().name.lowercase())
+        builder.addHeader("X-Language", userPreferences.getAppLanguage.toString())
             .addHeader("X-Device-Info", DeviceUtils.getDeviceDescription())
             .addHeader("Client-Type", "ANDROID")
             .addHeader("Content-Type", "application/json")

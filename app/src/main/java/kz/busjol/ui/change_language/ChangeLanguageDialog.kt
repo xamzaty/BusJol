@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.View
 import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.databinding.DialogChangeLanguageBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 private const val KAZAKH_LANGUAGE = "kk"
 private const val RUSSIAN_LANGUAGE = "ru"
 
 class ChangeLanguageDialog :  BaseBottomFragmentDialog<DialogChangeLanguageBinding>(DialogChangeLanguageBinding::inflate, false) {
+
+    private val viewModule: ChangeLanguageViewModel by viewModel()
 
     lateinit var locale: Locale
     private var currentLanguage = RUSSIAN_LANGUAGE
@@ -27,21 +30,16 @@ class ChangeLanguageDialog :  BaseBottomFragmentDialog<DialogChangeLanguageBindi
             buttonKazakhLanguage.setOnClickListener {
                 kazakhLanguageSelector.visibility = View.VISIBLE
                 russianLanguageSelector.visibility = View.GONE
-                dismiss()
                 setLocale(KAZAKH_LANGUAGE)
-                activity?.recreate()
             }
 
             buttonRussianLanguage.setOnClickListener {
                 kazakhLanguageSelector.visibility = View.GONE
                 russianLanguageSelector.visibility = View.VISIBLE
-                dismiss()
                 setLocale(RUSSIAN_LANGUAGE)
-                activity?.recreate()
             }
         }
     }
-
 
     private fun setLocale(localeName: String) {
         if (localeName != currentLanguage) {

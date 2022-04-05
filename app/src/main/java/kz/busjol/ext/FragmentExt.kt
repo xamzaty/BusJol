@@ -28,19 +28,6 @@ import java.lang.Exception
 
 object FragmentExt {
 
-    fun Fragment.showAlertDialog(
-        @StringRes title: Int = 0, @StringRes message: Int = 0,
-        clickListener: DialogInterface.OnClickListener? = null,
-        modal: Boolean = false
-    ) {
-        showAlertDialog(
-            if (title == 0) null else getString(title),
-            if (message == 0) null else getString(message),
-            clickListener,
-            modal
-        )
-    }
-
     fun Fragment.vibratePhone(duration: Long) {
         val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         if (Build.VERSION.SDK_INT >= 26) {
@@ -98,6 +85,18 @@ object FragmentExt {
             .setCancelable(!modal)
             .setPositiveButton(getString(R.string.ok), clickListener)
             .show()
+    }
+
+    fun Fragment.setVisibility(setVisible: Boolean, views: Array<View>) {
+        if (setVisible) {
+            views.forEach {
+                it.visibility = View.VISIBLE
+            }
+        } else {
+            views.forEach {
+                it.visibility = View.GONE
+            }
+        }
     }
 
     fun Fragment.observeNavigationResult(

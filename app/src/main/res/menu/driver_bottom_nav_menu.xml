@@ -12,7 +12,7 @@
         android:title="@string/title_scan" />
 
     <item
-        android:id="@+id/nav_driver_settings"
+        android:id="@+id/nav_user"
         android:icon="@drawable/ic_driver_settings"
         android:title="@string/title_settings" />
 

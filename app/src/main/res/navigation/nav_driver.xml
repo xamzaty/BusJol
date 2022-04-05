@@ -6,5 +6,6 @@
 
     <include app:graph="@navigation/nav_driver_home"/>
     <include app:graph="@navigation/nav_driver_scan"/>
+    <include app:graph="@navigation/nav_user"/>
 
 </navigation>

@@ -1,36 +1,60 @@
 package kz.busjol.preferences
 
 import android.content.Context
-import com.google.gson.Gson
-import kz.busjol.data.Language
-import kz.busjol.utils.LocaleKeeper
-import java.util.*
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
-class UserPreferences(
-    context: Context
-) {
+class UserPreferences(private val context: Context) {
+
+    private val russianLanguage = "ru"
+    private val isAuthorized = false
+
     companion object {
-        private const val APP_LANGUAGE = "APP_LANGUAGE"
-        private const val USER_IS_AUTHORIZED = "USER_IS_AUTHORIZE"
+        private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "userPrefs")
+        private val appLanguage = stringPreferencesKey("language")
+        private val userIsAuthorized = booleanPreferencesKey("userAuthorized")
+        private val driverIsAuthorized = booleanPreferencesKey("driverAuthorized")
     }
 
-    private var sp = context.getSharedPreferences("PassengerPreferences", Context.MODE_PRIVATE)
-    private var editor = sp.edit()
+    val getAppLanguage: Flow<String>
+        get() = context.dataStore.data.map {
+            it[appLanguage] ?: russianLanguage
+        }
 
-    fun setAppLanguage(lang: Language) {
-        editor.putString(APP_LANGUAGE, lang.name).apply()
-        LocaleKeeper.currentLocale = Locale(lang.name.lowercase())
+    suspend fun setAppLanguage(value: String) {
+        context.dataStore.edit { it[appLanguage] = value }
     }
 
-    fun getAppLanguage(): Language {
-        return Language.valueOf(sp.getString(APP_LANGUAGE, Language.RU.name)!!)
+    val getUserIsAuthorized: Flow<Boolean>
+        get() = context.dataStore.data.map {
+            it[userIsAuthorized] ?: isAuthorized
+        }
+
+    suspend fun setUserIsAuthorized(value: Boolean) {
+        context.dataStore.edit { it[userIsAuthorized] = value }
     }
 
-    fun setUserIsAuthorizedStatus(isAuthorized: Boolean) {
-        editor.putBoolean(USER_IS_AUTHORIZED, isAuthorized).apply()
+    val getDriverIsAuthorized: Flow<Boolean>
+        get() = context.dataStore.data.map {
+            it[driverIsAuthorized] ?: isAuthorized
+        }
+
+    suspend fun setDriverIsAuthorized(value: Boolean) {
+        context.dataStore.edit { it[driverIsAuthorized] = value }
     }
 
-    fun getUserIsAuthorizedStatus(): Boolean {
-        return sp.getBoolean(USER_IS_AUTHORIZED, false)
-    }
+//    fun setAppLanguage(lang: Language) {
+//        editor.putString(APP_LANGUAGE, lang.name).apply()
+//        LocaleKeeper.currentLocale = Locale(lang.name.lowercase())
+//    }
+//
+//    fun getAppLanguage(): Language {
+//        return Language.valueOf(sp.getString(APP_LANGUAGE, Language.RU.name)!!)
+//    }
 }

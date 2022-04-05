@@ -1,11 +1,13 @@
 package kz.busjol
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import kz.busjol.base.BaseViewModel
 import kz.busjol.preferences.UserPreferences
 
 class MainViewModel(
     private val userPreferences: UserPreferences
 ): BaseViewModel() {
-    val isDriver = MutableLiveData(false)
+    val isDriverStatus = userPreferences.getDriverIsAuthorized.asLiveData()
+
+
 }
