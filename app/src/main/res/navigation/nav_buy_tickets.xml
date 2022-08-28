@@ -7,14 +7,14 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="kz.busjol.ui.search_trip.SearchTripFragment"
+        android:name="kz.busjol.ui.search_journey.SearchJourneyFragment"
         tools:layout="@layout/fragment_search_trip" >
         <action
             android:id="@+id/action_navigation_search_to_cityPickerDialog"
             app:destination="@id/navigation_city_picker_dialog" />
         <action
             android:id="@+id/action_navigation_search_to_nav_buy_tickets"
-            app:destination="@id/navigation_trip_fragment"
+            app:destination="@id/navigation_journey_fragment"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             app:enterAnim="@anim/slide_in_right"
@@ -27,33 +27,31 @@
 
     <dialog
         android:id="@+id/navigation_city_picker_dialog"
-        android:name="kz.busjol.ui.search_trip.CityPickerDialog"
+        android:name="kz.busjol.ui.city_picker.CityPickerDialog"
         tools:layout="@layout/dialog_city_selector">
-
-        <argument
-            android:name="cityList"
-            app:argType="kz.busjol.data.City[]"/>
 
         <argument
             android:name="fromOrToCity"
             app:argType="string"/>
 
+        <argument
+            android:name="journeyData"
+            app:argType="kz.busjol.domain.model.JourneyData" />
+
     </dialog>
 
     <fragment
-        android:id="@+id/navigation_trip_fragment"
-        android:name="kz.busjol.ui.trip.TripFragment"
-        tools:layout="@layout/fragment_trip"
-        android:label="TripFragment" >
+        android:id="@+id/navigation_journey_fragment"
+        android:name="kz.busjol.ui.journey.JourneyFragment"
+        tools:layout="@layout/fragment_journey"
+        android:label="JourneyFragment">
 
         <argument
-            android:name="cities"
-            app:argType="string[]" />
-        <argument
-            android:name="date"
-            app:argType="string"/>
+            android:name="journeyData"
+            app:argType="kz.busjol.domain.model.JourneyData" />
+
         <action
-            android:id="@+id/action_navigation_trip_fragment_to_navigation_bus_plan"
+            android:id="@+id/action_navigation_journey_fragment_to_navigation_bus_plan"
             app:destination="@id/navigation_bus_plan"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
@@ -64,21 +62,14 @@
 
     <dialog
         android:id="@+id/navigation_quantity_dialog"
-        android:name="kz.busjol.ui.search_trip.PassengerQuantityDialog"
+        android:name="kz.busjol.ui.passenger_quantity.PassengerQuantityDialog"
         tools:layout="@layout/dialog_passenger_quantity"
         android:label="PassengerQuantityDialog">
 
         <argument
-            android:name="adultsQuantity"
-            app:argType="integer" />
-
-        <argument
-            android:name="childQuantity"
-            app:argType="integer" />
-
-        <argument
-            android:name="disabledQuantity"
-            app:argType="integer" />
+            android:name="journeyData"
+            app:argType="kz.busjol.domain.model.JourneyData"
+            app:nullable="true"/>
 
     </dialog>
 
@@ -89,8 +80,9 @@
         android:label="BusPlanFragment">
 
         <argument
-            android:name="trip_type"
-            app:argType="string"/>
+            android:name="journeyData"
+            app:argType="kz.busjol.domain.model.JourneyData"/>
+
         <action
             android:id="@+id/action_navigation_bus_plan_to_passengerDataFragment"
             app:destination="@id/passengerDataFragment"
@@ -105,6 +97,11 @@
         android:name="kz.busjol.ui.passenger_data.PassengerDataFragment"
         android:label="PassengerDataFragment"
         tools:layout="@layout/fragment_passenger_data">
+
+        <argument
+            android:name="journeyData"
+            app:argType="kz.busjol.domain.model.JourneyData"/>
+
         <action
             android:id="@+id/action_passengerDataFragment_to_bookingFragment"
             app:destination="@id/bookingFragment"
@@ -119,6 +116,11 @@
         android:name="kz.busjol.ui.booking.BookingFragment"
         android:label="BookingFragment"
         tools:layout="@layout/fragment_booking">
+
+        <argument
+            android:name="journeyData"
+            app:argType="kz.busjol.domain.model.JourneyData"/>
+
         <action
             android:id="@+id/action_bookingFragment_to_paymentOrderFragment"
             app:destination="@id/paymentOrderFragment"
@@ -133,6 +135,11 @@
         android:name="kz.busjol.ui.payment_order.PaymentOrderFragment"
         android:label="PaymentOrderFragment"
         tools:layout="@layout/fragment_payment_order">
+
+        <argument
+            android:name="journeyData"
+            app:argType="kz.busjol.domain.model.JourneyData"/>
+
         <action
             android:id="@+id/action_paymentOrderFragment_to_paymentOrderResultFragment"
             app:destination="@id/paymentOrderResultFragment"

@@ -120,18 +120,12 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
+           <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/passengers_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/trip_layout"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginEnd="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_14sdp"
-                tools:listitem="@layout/item_passenger_data"
-                tools:itemCount="2"/>
+                tools:listitem="@layout/custom_form" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -149,7 +143,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/continue_button"
-        android:layout_width="@dimen/_270sdp"
+        android:layout_width="@dimen/_281sdp"
         android:layout_height="@dimen/_40sdp"
         android:background="@drawable/ic_button_layout"
         android:text="@string/continue_button"

@@ -6,28 +6,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/gray_background">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/back_button"
-        android:layout_width="@dimen/_29sdp"
-        android:layout_height="@dimen/_29sdp"
-        android:src="@drawable/ic_button_back"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="@dimen/_60sdp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_marginStart="@dimen/_19sdp"/>
+        app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/title_booking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_booking"
-        app:layout_constraintStart_toEndOf="@id/back_button"
-        app:layout_constraintTop_toTopOf="@id/back_button"
-        app:layout_constraintBottom_toBottomOf="@id/back_button"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:textSize="@dimen/_16sdp"
-        android:textColor="@color/bolder_text"
-        android:textStyle="bold"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back_button"
+            android:layout_width="@dimen/_29sdp"
+            android:layout_height="@dimen/_29sdp"
+            android:src="@drawable/ic_button_back"
+            app:layout_constraintTop_toTopOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="@id/toolbar"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_19sdp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_booking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_booking"
+            app:layout_constraintStart_toEndOf="@id/back_button"
+            app:layout_constraintTop_toTopOf="@id/back_button"
+            app:layout_constraintBottom_toBottomOf="@id/back_button"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textSize="@dimen/_16sdp"
+            android:textColor="@color/bolder_text"
+            android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <View
         android:id="@+id/booking_details_layout"
@@ -37,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/ic_frame_trip"
-        app:layout_constraintTop_toBottomOf="@id/title_booking" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/booking_trip_number"
@@ -196,7 +206,7 @@
             android:id="@+id/booking_kaspi_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/with_bank_cards"
+            android:text="@string/kaspi"
             android:textColor="@color/bolder_text"
             android:textSize="@dimen/_12sdp"
             android:paddingBottom="@dimen/_9sdp"

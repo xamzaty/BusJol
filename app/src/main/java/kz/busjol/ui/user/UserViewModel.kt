@@ -12,6 +12,7 @@ class UserViewModel(
 ) : BaseViewModel() {
     val isDriver = userPreferences.getDriverIsAuthorized.asLiveData()
     val isUserAuthorized = userPreferences.getUserIsAuthorized.asLiveData()
+    val isNotificationOn = userPreferences.getNotificationStatus.asLiveData()
 
     fun exitDriverStatus() = viewModelScope.launch(Dispatchers.IO) {
         userPreferences.setDriverIsAuthorized(false)
@@ -19,5 +20,9 @@ class UserViewModel(
 
     fun exitUserAuthorizedStatus() = viewModelScope.launch(Dispatchers.IO) {
         userPreferences.setUserIsAuthorized(false)
+    }
+
+    fun setNotificationStatus(value: Boolean) = viewModelScope.launch(Dispatchers.IO) {
+        userPreferences.setNotificationStatus(value)
     }
 }

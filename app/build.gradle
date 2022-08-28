@@ -64,6 +64,7 @@ dependencies {
     def arch_version = "2.1.0"
     def interceptor_version = '4.9.0'
     def koin_version = "2.2.0-rc-4"
+    def chucker_version = "3.5.2"
 
     implementation "com.journeyapps:zxing-android-embedded:3.6.0"
     implementation 'com.budiyev.android:code-scanner:2.1.0'
@@ -140,6 +141,8 @@ dependencies {
 
     //CameraPermission
     implementation 'io.github.ParkSangGwon:tedpermission-coroutine:3.3.0'
+
+    implementation "com.github.chuckerteam.chucker:library:$chucker_version"
 
     //ScalableSize
     implementation 'com.intuit.sdp:sdp-android:1.0.6'

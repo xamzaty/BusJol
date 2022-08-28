@@ -3,10 +3,11 @@ package kz.busjol.ui.bus_plan
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
-import kz.busjol.data.BusPlan
+import kz.busjol.data.network.model.BusPlan
 import kz.busjol.databinding.FragmentBusPlanBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -14,6 +15,7 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
 
     private val viewModel: BusPlanViewModel by viewModel()
     private val seatAdapter = BusPlanAdapter(this)
+    private val args: BusPlanFragmentArgs by navArgs()
 
     private var checkedSeat: BusPlan? = null
 

@@ -43,13 +43,20 @@
         <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/layout/item_trip.xml" value="0.5" />
         <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
         <entry key="..\:/Users/u00020176/Desktop/new/BusJol/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.196" />
+        <entry key="app/src/main/res/drawable-v24/bg_dec_radio_button.xml" value="0.1975" />
         <entry key="app/src/main/res/drawable/bg_seat_radio_button.xml" value="0.2955" />
         <entry key="app/src/main/res/drawable/ic_bottom_sheet_frame.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/drawable/ic_bus_plan.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_button_layout.xml" value="0.1975" />
+        <entry key="app/src/main/res/drawable/ic_button_tell_us.xml" value="0.1975" />
+        <entry key="app/src/main/res/drawable/ic_cities_swap_button.xml" value="0.2175" />
+        <entry key="app/src/main/res/drawable/ic_city_selector.xml" value="0.2175" />
+        <entry key="app/src/main/res/drawable/ic_city_selector_layout.xml" value="0.2175" />
         <entry key="app/src/main/res/drawable/ic_cross.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_date.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_details_layout.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_et_layout.xml" value="0.2175" />
         <entry key="app/src/main/res/drawable/ic_frame_trip.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_from_city_layout.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_icon_bus.xml" value="0.1" />
@@ -57,44 +64,61 @@
         <entry key="app/src/main/res/drawable/ic_icon_user_menu.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_invalid_ticket.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/ic_item_passenger_data_layout.xml" value="0.2875" />
+        <entry key="app/src/main/res/drawable/ic_main_frame.xml" value="0.195" />
         <entry key="app/src/main/res/drawable/ic_seat.xml" value="0.2955" />
+        <entry key="app/src/main/res/drawable/ic_ticket_layout.xml" value="0.186" />
         <entry key="app/src/main/res/drawable/ic_valid_ticket.xml" value="0.309375" />
         <entry key="app/src/main/res/drawable/layout_button.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/radio_button_selected.xml" value="0.2175" />
+        <entry key="app/src/main/res/drawable/radio_button_unselected.xml" value="0.1975" />
         <entry key="app/src/main/res/drawable/rounded_dialog.xml" value="0.2875" />
         <entry key="app/src/main/res/drawable/test.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.28541666666666665" />
         <entry key="app/src/main/res/layout/bottom_sheet_dialog_bus_plan.xml" value="0.40576887410285933" />
+        <entry key="app/src/main/res/layout/custom_clickable_view.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/custom_edit_text.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/custom_form.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/custom_loading_button.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/dialog_change_language.xml" value="0.33697916666666666" />
         <entry key="app/src/main/res/layout/dialog_city_selector.xml" value="0.5342995169082125" />
+        <entry key="app/src/main/res/layout/dialog_enter_user.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/dialog_passenger_quantity.xml" value="0.5692534720844957" />
+        <entry key="app/src/main/res/layout/dialog_rate_app.xml" value="0.2984375" />
         <entry key="app/src/main/res/layout/dialog_trip_details.xml" value="0.3609375" />
         <entry key="app/src/main/res/layout/fragment_about_app.xml" value="0.3265625" />
         <entry key="app/src/main/res/layout/fragment_booking.xml" value="0.36572766260214706" />
-        <entry key="app/src/main/res/layout/fragment_bus_plan.xml" value="1.0130996494067255" />
+        <entry key="app/src/main/res/layout/fragment_bus_plan.xml" value="0.539651837524178" />
         <entry key="app/src/main/res/layout/fragment_change_language.xml" value="0.3265625" />
         <entry key="app/src/main/res/layout/fragment_choose_seats.xml" value="0.3454956660131403" />
         <entry key="app/src/main/res/layout/fragment_contacts.xml" value="0.2713541666666667" />
         <entry key="app/src/main/res/layout/fragment_driver_passenger_data.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/fragment_driver_scanner.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/layout/fragment_driver_schedule.xml" value="0.29322916666666665" />
+        <entry key="app/src/main/res/layout/fragment_faq.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28541666666666665" />
-        <entry key="app/src/main/res/layout/fragment_passenger_data.xml" value="0.3414433351902939" />
+        <entry key="app/src/main/res/layout/fragment_passenger_data.xml" value="0.17371649983855345" />
         <entry key="app/src/main/res/layout/fragment_payment_order.xml" value="0.3609375" />
-        <entry key="app/src/main/res/layout/fragment_payment_order_result.xml" value="0.4849261675386939" />
+        <entry key="app/src/main/res/layout/fragment_payment_order_result.xml" value="0.4790547798066595" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.49393203883495146" />
+        <entry key="app/src/main/res/layout/fragment_search_trip.xml" value="0.33697916666666666" />
         <entry key="app/src/main/res/layout/fragment_ticket_scanner.xml" value="0.3609375" />
         <entry key="app/src/main/res/layout/fragment_tickets.xml" value="0.2296875" />
-        <entry key="app/src/main/res/layout/fragment_trip.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_trip.xml" value="0.48426361083984376" />
         <entry key="app/src/main/res/layout/fragment_user.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/fragment_user_data.xml" value="0.33697916666666666" />
         <entry key="app/src/main/res/layout/item_city_selector.xml" value="0.28541666666666665" />
         <entry key="app/src/main/res/layout/item_driver_schedule.xml" value="0.29322916666666665" />
         <entry key="app/src/main/res/layout/item_passenger_data.xml" value="0.4928522804628999" />
         <entry key="app/src/main/res/layout/item_seat.xml" value="0.28854166666666664" />
         <entry key="app/src/main/res/layout/item_trip.xml" value="0.7843986998916577" />
+        <entry key="app/src/main/res/layout/item_user_data_list.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/item_wheel.xml" value="0.32864583333333336" />
         <entry key="app/src/main/res/layout/progress_button_layout.xml" value="0.3104166666666667" />
         <entry key="app/src/main/res/layout/test.xml" value="0.5082958627334911" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.13020833333333334" />
         <entry key="app/src/main/res/menu/driver_bottom_nav_menu.xml" value="0.11388888888888889" />
+        <entry key="app/src/main/res/menu/passenger_bottom_nav_menu.xml" value="0.3453125" />
       </map>
     </option>
   </component>

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import kz.busjol.R
-import kz.busjol.data.BusPlan
+import kz.busjol.data.network.model.BusPlan
 import kz.busjol.databinding.ItemSeatBinding
 
 class BusPlanAdapter(

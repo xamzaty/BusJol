@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.search_trip.SearchTripFragment">
+    tools:context=".ui.search_journey.SearchJourneyFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title_tickets"
@@ -70,7 +70,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_my_tickets_authorization_enter"
-        android:layout_width="@dimen/_275sdp"
+        android:layout_width="@dimen/_281sdp"
         android:layout_height="@dimen/_40sdp"
         android:background="@drawable/ic_button_layout"
         android:layout_marginBottom="@dimen/_25sdp"

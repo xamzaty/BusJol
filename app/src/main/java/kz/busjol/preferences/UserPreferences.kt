@@ -14,12 +14,14 @@ class UserPreferences(private val context: Context) {
 
     private val russianLanguage = "ru"
     private val isAuthorized = false
+    private val isNotificationStatusOn = true
 
     companion object {
         private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "userPrefs")
         private val appLanguage = stringPreferencesKey("language")
         private val userIsAuthorized = booleanPreferencesKey("userAuthorized")
         private val driverIsAuthorized = booleanPreferencesKey("driverAuthorized")
+        private val isNotificationOn = booleanPreferencesKey("notificationIsOn")
     }
 
     val getAppLanguage: Flow<String>
@@ -47,6 +49,15 @@ class UserPreferences(private val context: Context) {
 
     suspend fun setDriverIsAuthorized(value: Boolean) {
         context.dataStore.edit { it[driverIsAuthorized] = value }
+    }
+
+    val getNotificationStatus: Flow<Boolean>
+        get() = context.dataStore.data.map {
+            it[isNotificationOn] ?: isNotificationStatusOn
+        }
+
+    suspend fun setNotificationStatus(value: Boolean) {
+        context.dataStore.edit { it[isNotificationOn] = value }
     }
 
 //    fun setAppLanguage(lang: Language) {

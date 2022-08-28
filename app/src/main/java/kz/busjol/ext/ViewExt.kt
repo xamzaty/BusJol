@@ -1,18 +1,20 @@
 package kz.busjol.ext
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.TypedArray
+import android.icu.text.SimpleDateFormat
+import android.os.Build
 import android.util.AttributeSet
-import android.view.LayoutInflater
+import android.util.Log.e
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.annotation.LayoutRes
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.Toolbar
-import androidx.recyclerview.widget.RecyclerView
 import kz.busjol.R
+import java.text.ParseException
+import java.util.logging.Logger
 
 fun AttributeSet?.obtainStyledAttributes(
     context: Context,
@@ -67,4 +69,20 @@ fun View.hide() {
 
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+
+fun formatDate(dateToFormat: String, inputFormat: String?, outputFormat: String?): String? {
+    try {
+
+        //Update Date
+        return SimpleDateFormat(outputFormat)
+            .format(
+                SimpleDateFormat(inputFormat)
+                    .parse(dateToFormat)
+            )
+    } catch (e: ParseException) {
+        e.printStackTrace()
+    }
+    return null
 }

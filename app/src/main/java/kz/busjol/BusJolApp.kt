@@ -1,10 +1,7 @@
 package kz.busjol
 
 import android.app.Application
-import kz.busjol.module.appModule
-import kz.busjol.module.dataModule
-import kz.busjol.module.repoModule
-import kz.busjol.module.viewModelModule
+import kz.busjol.module.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -28,7 +25,8 @@ class BusJolApp : Application() {
                 appModule,
                 repoModule,
                 viewModelModule,
-                dataModule
+                dataModule,
+                networkModule
             )
         }
     }

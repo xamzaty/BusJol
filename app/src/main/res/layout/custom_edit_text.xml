@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48sdp"
+        app:srcCompat="@drawable/ic_custom_edit_text_layout"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/layout"
+        app:layout_constraintStart_toStartOf="@id/layout"
+        tools:text="Фамилия"
+        android:textSize="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:textColor="#8B98A7"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintEnd_toEndOf="@id/layout"
+        android:background="@null"
+        android:layout_marginEnd="@dimen/_40sdp"
+        android:textColorHint="#8B98A7"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:inputType="textNoSuggestions"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/black" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/error_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layout"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:textColor="@color/red_background"
+        android:visibility="gone"
+        tools:text="Чтобы зарегистрироваться, необходимо дать согласие на обработку персональных данных"/>
+
+    <View
+        android:id="@+id/clickable_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:background="?attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="@id/layout"
+        app:layout_constraintTop_toTopOf="@id/layout"
+        app:layout_constraintEnd_toEndOf="@id/layout"
+        app:layout_constraintBottom_toBottomOf="@id/layout"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/_17sdp"
+        android:layout_height="@dimen/_17sdp"
+        app:srcCompat="@drawable/ic_calendar_image"
+        app:layout_constraintEnd_toEndOf="@id/layout"
+        app:layout_constraintTop_toTopOf="@id/layout"
+        app:layout_constraintBottom_toBottomOf="@id/layout"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/erase_button"
+        android:layout_width="@dimen/_11sdp"
+        android:layout_height="@dimen/_11sdp"
+        app:srcCompat="@drawable/ic_cross"
+        app:layout_constraintEnd_toEndOf="@id/layout"
+        app:layout_constraintTop_toTopOf="@id/layout"
+        app:layout_constraintBottom_toBottomOf="@id/layout"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/main_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sdp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/layout"
+        app:layout_constraintTop_toTopOf="@id/layout"
+        app:layout_constraintBottom_toBottomOf="@id/layout"
+        android:layout_marginStart="@dimen/_12sdp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

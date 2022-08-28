@@ -38,28 +38,15 @@
         app:layout_constraintTop_toBottomOf="@id/close_button"
         android:layout_marginTop="@dimen/_18sdp"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_17sdp"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:text="@string/passengers_tariffs"
-        android:textColor="@color/bolder_text"
-        android:textSize="@dimen/_13sdp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separator1" />
-
     <View
         android:id="@+id/view"
         android:layout_width="@dimen/_290sdp"
         android:layout_height="@dimen/_45sdp"
-        android:layout_marginTop="@dimen/_28sdp"
+        android:layout_marginTop="@dimen/_13sdp"
         android:background="@drawable/ic_layout_tariff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/separator1" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
@@ -91,6 +78,8 @@
         android:layout_width="@dimen/_21sdp"
         android:layout_height="@dimen/_21sdp"
         android:text="—"
+        android:background="@drawable/ic_quantity_gray_button"
+        android:textColor="@color/black"
         android:gravity="center"
         android:layout_marginEnd="@dimen/_25sdp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
@@ -116,6 +105,8 @@
         android:layout_height="@dimen/_21sdp"
         android:layout_marginEnd="@dimen/_13sdp"
         android:text="+"
+        android:background="@drawable/ic_quantity_blue_button"
+        android:textColor="@color/white"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
@@ -162,6 +153,8 @@
         android:layout_height="@dimen/_21sdp"
         android:gravity="center"
         android:text="—"
+        android:background="@drawable/ic_quantity_gray_button"
+        android:textColor="@color/black"
         android:layout_marginEnd="@dimen/_25sdp"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toStartOf="@+id/button_plus_child_tariff"
@@ -186,6 +179,8 @@
         android:layout_height="@dimen/_21sdp"
         android:layout_marginEnd="@dimen/_13sdp"
         android:text="+"
+        android:background="@drawable/ic_quantity_blue_button"
+        android:textColor="@color/white"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="@+id/view2"
@@ -231,6 +226,8 @@
         android:layout_width="@dimen/_21sdp"
         android:layout_height="@dimen/_21sdp"
         android:gravity="center"
+        android:background="@drawable/ic_quantity_gray_button"
+        android:textColor="@color/black"
         android:text="—"
         android:layout_marginEnd="@dimen/_25sdp"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
@@ -256,6 +253,8 @@
         android:layout_height="@dimen/_21sdp"
         android:layout_marginEnd="16dp"
         android:text="+"
+        android:background="@drawable/ic_quantity_blue_button"
+        android:textColor="@color/white"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"

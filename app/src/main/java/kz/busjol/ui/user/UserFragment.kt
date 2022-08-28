@@ -36,6 +36,10 @@ class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
             authorizedExitButton.setOnClickListener {
                 exitAuthorizedStatus()
             }
+
+            notificationSwitch.setOnCheckedChangeListener { _, isChecked ->
+                viewModel.setNotificationStatus(isChecked)
+            }
         }
     }
 
@@ -55,8 +59,13 @@ class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
             isDriver.observe(viewLifecycleOwner) { isDriver ->
                 driverModeViewsVisibility(isDriver)
             }
+
             isUserAuthorized.observe(viewLifecycleOwner) { userIsAuthorized ->
                 authorizedUserModeViewsVisibility(userIsAuthorized)
+            }
+
+            isNotificationOn.observe(viewLifecycleOwner) { isNotificationOn ->
+                binding.notificationSwitch.isChecked = isNotificationOn
             }
         }
     }

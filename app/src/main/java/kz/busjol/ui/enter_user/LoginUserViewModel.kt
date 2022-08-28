@@ -1,6 +1,5 @@
 package kz.busjol.ui.enter_user
 
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

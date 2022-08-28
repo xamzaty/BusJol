@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -53,5 +54,10 @@ abstract class BaseBottomFragmentDialog <VB : ViewBinding>(
         val layoutParams = bottomSheet.layoutParams
         layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
         bottomSheet.layoutParams = layoutParams
+    }
+
+    fun onError() {
+        val toast = Toast.makeText(requireContext(), getString(R.string.error_server), Toast.LENGTH_SHORT)
+        toast.show()
     }
 }

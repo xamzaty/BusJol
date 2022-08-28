@@ -21,7 +21,6 @@ import kz.busjol.ext.ActivityExt.statusBarColor
 import kz.busjol.preferences.UserPreferences
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -114,7 +113,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
                 R.id.navigation_search, R.id.navigation_tickets, R.id.navigation_contacts, R.id.navigation_user,
-                R.id.nav_driver_home, R.id.driverScheduleFragment, R.id.navigation_trip_fragment -> showMenu()
+                R.id.nav_driver_home, R.id.driverScheduleFragment, R.id.navigation_journey_fragment -> showMenu()
                 else -> hideMenu()
             }
         }

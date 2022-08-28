@@ -2,6 +2,11 @@
     <string name="app_name">BusJol</string>
     <string name="main_subtitle">Поиск и продажа\nбилетов на автобусы</string>
 
+    <string name="error_server">Ошибка сервера</string>
+
+    <string name="almaty">Алматы</string>
+    <string name="taraz">Тараз</string>
+
     <string name="alert_title">Выход</string>
     <string name="alert_are_you_want_to_exit">Вы уверены, что хотите выйти?</string>
     <string name="alert_ok">OK</string>
@@ -69,6 +74,7 @@
     <string name="from">Откуда</string>
     <string name="where">Куда</string>
     <string name="date">Дата</string>
+    <string name="date_hint">Введите дату</string>
     <string name="passengers">Пассажиры</string>
     <string name="passengers_tariffs">Выберете тарифы пассажиров</string>
     <string name="passengers_tariffs_adult">Взрослый</string>
@@ -101,12 +107,15 @@
     <string name="men">Мужской</string>
     <string name="women">Женский</string>
     <string name="iin">ИИН</string>
+    <string name="iin_hint">Введите ИИН</string>
     <string name="last_name">Фамилия</string>
     <string name="first_name">Имя</string>
     <string name="birthday_date">Дата рождения</string>
     <string name="contacts_info_title">Контактная информация</string>
     <string name="contacts_info_description">Для регистрации клиента, а также мы отправим\nбилет на этот эл.адрес.\nНомер телефона необходим для связи в случае\nизменений</string>
     <string name="phone">Телефон</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="phone_number_hint">Введите номер телефона</string>
     <string name="rules_title">Правила тарифа и оферта</string>
     <string name="read_the_rules">Ознакомьтесь с <a href="https://google.com">правилами обмена и\nвозврата</a> и <a href="https://google.com">публичной оферты</a></string>
     <string name="accept_the_rules">Я принимаю правила тарифа и оферту</string>
