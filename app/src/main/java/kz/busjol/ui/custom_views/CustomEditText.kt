@@ -5,6 +5,7 @@ import android.content.Context
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
+import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -166,6 +167,19 @@ class CustomEditText @JvmOverloads constructor(
 
         setTitle(R.string.iin)
         setHint(R.string.iin_hint)
+    }
+
+    fun enableMailField() {
+        setTitle(R.string.email)
+        setHint(R.string.enter_email)
+        getMainField().inputType = InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS
+    }
+
+    fun enablePasswordField() {
+        setTitle(R.string.password)
+        setHint(R.string.enter_password)
+        getMainField().inputType = InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD
+        getMainField().transformationMethod = PasswordTransformationMethod.getInstance()
     }
 
     fun getMainField() = binding.editText

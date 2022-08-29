@@ -53,10 +53,15 @@
     <string name="error_incorrect_phone">Указанный номер телефона не принадлежит пользователю</string>
 
     <string name="email">Email</string>
+    <string name="enter_email">Введите эл. почту</string>
     <string name="password">Пароль</string>
+    <string name="enter_password">Введите пароль</string>
 
     <string name="enter">Вход</string>
     <string name="enter_button">Войти</string>
+
+    <string name="title_password_recovery">Восстановление пароля</string>
+    <string name="subtitle_password_recovery">Укажите эл. почту, которую использовали при регистрации на сайте или в приложениях BusJol. На эту эл. почту мы вышлем ссылку для восстановления пароля</string>
 
     <string name="loading">Загрузка</string>
 
@@ -81,6 +86,7 @@
     <string name="passengers_tariffs_child_person">Детский</string>
     <string name="passengers_tariffs_disable_person">Инвалидный</string>
     <string name="search_button">Искать</string>
+    <string name="send_button">Отправить</string>
     <string name="passengers_tariffs_adult_description">От полных 15 лет</string>
     <string name="passengers_tariffs_child_description">От 2 до 15 лет</string>
     <string name="passengers_tariffs_disable_description">Наличие документа</string>
@@ -177,7 +183,7 @@
     <string name="kazakh_language">Қазақша</string>
     <string name="current_language">Русский</string>
 
-    <string name="enter_subtitle">Войдите, чтобы видеть свои билеты\nи пассажиров</string>
+    <string name="enter_subtitle">Войдите, чтобы видеть свои\nбилеты и пассажиров</string>
     <string name="enter_user_text">Используйте эл. почту, которую указывали при покупке или регистрации на BusJol </string>
     <string name="forgot_password">Забыли пароль?</string>
     <string name="regisration">Зарегистрироваться</string>

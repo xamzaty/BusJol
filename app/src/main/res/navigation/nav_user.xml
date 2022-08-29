@@ -18,7 +18,11 @@
             app:exitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_navigation_user_to_enterUserDialog"
-            app:destination="@id/enterUserDialog" />
+            app:destination="@id/enterUserDialog"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"/>
         <action
             android:id="@+id/action_navigation_user_to_rateAppDialog"
             app:destination="@id/rateAppDialog" />
@@ -30,10 +34,10 @@
         android:label="ChangeLanguageFragment"
         tools:layout="@layout/dialog_change_language"/>
 
-    <dialog
+    <fragment
         android:id="@+id/enterUserDialog"
-        android:name="kz.busjol.ui.enter_user.EnterUserDialog"
-        tools:layout="@layout/dialog_enter_user"/>
+        android:name="kz.busjol.ui.login_user.LoginUserFragment"
+        tools:layout="@layout/fragment_login_user"/>
 
     <dialog
         android:id="@+id/rateAppDialog"

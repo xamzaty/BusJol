@@ -22,7 +22,6 @@ class BusJolApp : Application() {
         startKoin {
             androidContext(this@BusJolApp)
             modules(
-                appModule,
                 repoModule,
                 viewModelModule,
                 dataModule,

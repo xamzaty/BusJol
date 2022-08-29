@@ -23,6 +23,13 @@ class SearchJourneyFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
+        backStackFromJourneyScreen()
+    }
+
+    private fun backStackFromJourneyScreen() {
+        onBackStackEntry<JourneyData>("journeyFragmentData") {
+            viewModel.onAction(SearchJourneyAction.OnJourneyBackDataInit(it))
+        }
     }
 
     private fun setupObservers() {
@@ -76,10 +83,6 @@ class SearchJourneyFragment :
         onBackStackEntry<JourneyData>("data") {
             viewModel.onAction(SearchJourneyAction.PassPassengersData(it))
         }
-
-//        onBackStackEntry<JourneyData>("journeyFragmentData") {
-//            viewModel.onAction(SearchJourneyAction.OnJourneyBackDataInit(it))
-//        }
     }
 
     private fun setupTextFields(journeyData: JourneyData) {
@@ -153,8 +156,8 @@ class SearchJourneyFragment :
 
 
         val postJourneyData = JourneyPost(
-            cityFrom = journeyData.fromCity?.id ?: 0,
-            cityTo = journeyData.toCity?.id ?: 1,
+            cityFrom = journeyData.fromCity!!.id,
+            cityTo = journeyData.toCity!!.id,
             dateFrom = todayDate,
             dateTo = toDate
         )

@@ -3,7 +3,7 @@ package kz.busjol.module
 import kz.busjol.MainViewModel
 import kz.busjol.ui.bus_plan.BusPlanViewModel
 import kz.busjol.ui.change_language.ChangeLanguageViewModel
-import kz.busjol.ui.enter_user.LoginUserViewModel
+import kz.busjol.ui.login_user.LoginUserViewModel
 import kz.busjol.ui.passenger_data.PassengerDataViewModel
 import kz.busjol.ui.city_picker.CityPickerViewModel
 import kz.busjol.ui.journey.JourneyFragmentArgs

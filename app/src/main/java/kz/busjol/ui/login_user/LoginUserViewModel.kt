@@ -1,4 +1,4 @@
-package kz.busjol.ui.enter_user
+package kz.busjol.ui.login_user
 
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
