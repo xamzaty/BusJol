@@ -1,14 +1,14 @@
 package kz.busjol.ui.login_user
 
 import android.os.Bundle
-import android.text.InputType
-import android.text.method.PasswordTransformationMethod
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import kz.busjol.BuildConfig
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentLoginUserBinding
+import kz.busjol.ext.FragmentExt.navigate
+import kz.busjol.utils.Regex
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 private const val DRIVER_TEST_MAIL = "driver@gmail.com"
@@ -45,18 +45,26 @@ class LoginUserFragment : BaseFragment<FragmentLoginUserBinding>(FragmentLoginUs
                     authorizeUser()
                 }
             }
+
+            forgotPasswordButton.setOnClickListener {
+                navigate(R.id.action_loginUserFragment_to_passwordRecoveryFragment)
+            }
+
+            registerButton.setOnClickListener {
+                navigate(R.id.action_loginUserFragment_to_registrationFragment)
+            }
         }
     }
 
     private fun authorizeUser() {
-        if (BuildConfig.DEBUG) {
-            if (binding.emailEt.getText() == DRIVER_TEST_MAIL && binding.passwordEt.getText() == PASSWORD_TEST) {
-                viewModel.setDriverStatus(true)
-            }
+        val checkEmail = checkEmail(binding.emailEt.getText())
 
-            if (binding.emailEt.getText() == USER_TEST_MAIL && binding.passwordEt.getText() == PASSWORD_TEST) {
+        if (BuildConfig.DEBUG) {
+            if ((binding.emailEt.getText() == DRIVER_TEST_MAIL && checkEmail) && binding.passwordEt.getText() == PASSWORD_TEST)
+                viewModel.setDriverStatus(true)
+
+            if ((binding.emailEt.getText() == USER_TEST_MAIL && checkEmail) && binding.passwordEt.getText() == PASSWORD_TEST)
                 viewModel.setUserStatus(true)
-            }
         }
     }
 }

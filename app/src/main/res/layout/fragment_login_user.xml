@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:paddingBottom="@dimen/_24sdp">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -65,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@id/enter_user_subtitle"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:textSize="@dimen/_12sdp"/>
+        android:textSize="@dimen/_11sdp"/>
 
     <kz.busjol.ui.custom_views.CustomEditText
         android:id="@+id/email_et"
@@ -87,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_marginEnd="@dimen/_17sdp"
-        android:layout_marginTop="@dimen/_5sdp"/>
+        android:layout_marginTop="@dimen/_8sdp"/>
 
     <kz.busjol.ui.custom_views.CustomLoadingButton
         android:id="@+id/continue_button"

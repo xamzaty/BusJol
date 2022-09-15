@@ -7,9 +7,13 @@ import androidx.navigation.fragment.navArgs
 import kz.busjol.R
 import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.databinding.DialogPassengerQuantityBinding
-import kz.busjol.domain.model.JourneyData
+import kz.busjol.ext.setQuantityButtonAction
 
-class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantityBinding>(DialogPassengerQuantityBinding::inflate, false) {
+class PassengerQuantityDialog :
+    BaseBottomFragmentDialog<DialogPassengerQuantityBinding>(
+        DialogPassengerQuantityBinding::inflate,
+        false
+    ) {
 
     private val args: PassengerQuantityDialogArgs by navArgs()
 
@@ -20,7 +24,7 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
     }
 
     private fun setupButtons() {
-        val quantity = args.journeyData?.passengerData!!
+        val quantity = args.passengerData!!
 
         binding.apply {
             buttonPlusAdultTariff.setOnClickListener {
@@ -66,9 +70,9 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
 
     private fun setupFields() {
         binding.apply {
-            textAdultQuantity.text = args.journeyData?.passengerData?.adultQuantity.toString()
-            textChildQuantity.text = args.journeyData?.passengerData?.childQuantity.toString()
-            textDisableQuantity.text = args.journeyData?.passengerData?.disabledQuantity.toString()
+            textAdultQuantity.text = args.passengerData?.adultQuantity.toString()
+            textChildQuantity.text = args.passengerData?.childQuantity.toString()
+            textDisableQuantity.text = args.passengerData?.disabledQuantity.toString()
         }
     }
 
@@ -88,23 +92,19 @@ class PassengerQuantityDialog : BaseBottomFragmentDialog<DialogPassengerQuantity
 
         if (countPassengers() > 0) {
             backstackData(allQuantity, passengersQuantityText())
-            backstackData(data, args.journeyData!!)
+            backstackData(data, args.passengerData!!)
         }
     }
 
-    private fun backstackData(key: String, value: Any) {
+    private fun backstackData(key: String, value: Any) =
         findNavController().previousBackStackEntry?.savedStateHandle?.set(key, value)
-    }
 
-    private fun passengersQuantityText(): String {
-        if (countPassengers() == 1 || countPassengers() in 5..21 || countPassengers() in 25..31 || countPassengers() in 35..41) {
-            return "${countPassengers()} ${getString(R.string.one_person)}"
-        }
-
-        return if (countPassengers() in 2..4 || countPassengers() in 22..24 || countPassengers() in 32..34 || countPassengers() in 42..44) {
-            "${countPassengers()} ${getString(R.string.two_person)}"
-        } else {
+    private fun passengersQuantityText() = when {
+        countPassengers() == 1 || countPassengers() in 5..21 || countPassengers() in 25..31 || countPassengers() in 35..41 ->
             "${countPassengers()} ${getString(R.string.one_person)}"
-        }
+        countPassengers() in 2..4 || countPassengers() in 22..24 || countPassengers() in 32..34 || countPassengers() in 42..44 ->
+            "${countPassengers()} ${getString(R.string.two_person)}"
+        else ->
+            "${countPassengers()} ${getString(R.string.one_person)}"
     }
 }

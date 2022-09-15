@@ -15,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import kz.busjol.R
 import kz.busjol.databinding.CustomEditTextBinding
+import kz.busjol.ext.setOnSafeClickListener
 import ru.tinkoff.decoro.MaskImpl
 import ru.tinkoff.decoro.parser.UnderscoreDigitSlotsParser
 import ru.tinkoff.decoro.slots.PredefinedSlots
@@ -115,6 +116,11 @@ class CustomEditText @JvmOverloads constructor(
 
     fun getText() = binding.editText.text.toString()
 
+    fun setImage(@DrawableRes imageId: Int) {
+        binding.image.visibility = View.VISIBLE
+        binding.image.setImageResource(imageId ?: 0)
+    }
+
     fun setHint(@StringRes hintId: Int) {
         binding.editText.setHint(hintId)
     }
@@ -133,7 +139,7 @@ class CustomEditText @JvmOverloads constructor(
         binding.image.visibility = View.VISIBLE
         binding.eraseButton.visibility = View.GONE
         binding.image.setImageResource(imageId ?: 0)
-        binding.clickableLayout.setOnClickListener {
+        binding.clickableLayout.setOnSafeClickListener {
             onClickListener()
         }
     }

@@ -6,6 +6,7 @@ import androidx.navigation.fragment.findNavController
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentUserBinding
+import kz.busjol.ext.FragmentExt.navigate
 import kz.busjol.ext.FragmentExt.setVisibility
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -22,15 +23,19 @@ class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
     private fun setupButtons() {
         binding.apply {
             enterButton.setOnClickListener {
-                findNavController().navigate(R.id.action_navigation_user_to_enterUserDialog)
+                navigate(R.id.action_navigation_user_to_enterUserDialog)
             }
 
             changeLanguageButton.setOnClickListener {
-                findNavController().navigate(R.id.action_navigation_user_to_changeLanguageFragment)
+                navigate(R.id.action_navigation_user_to_changeLanguageFragment)
+            }
+
+            authorizedMyDataButton.setOnClickListener {
+                navigate(R.id.action_navigation_user_to_userDataFragment)
             }
 
             aboutAppButton.setOnClickListener {
-                findNavController().navigate(R.id.action_navigation_user_to_rateAppDialog)
+                navigate(R.id.action_navigation_user_to_rateAppDialog)
             }
 
             authorizedExitButton.setOnClickListener {

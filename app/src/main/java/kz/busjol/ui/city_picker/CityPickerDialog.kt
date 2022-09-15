@@ -11,8 +11,7 @@ import kotlinx.android.synthetic.main.dialog_city_selector.*
 import kz.busjol.base.BaseBottomFragmentDialog
 import kz.busjol.databinding.DialogCitySelectorBinding
 import kz.busjol.domain.model.City
-import kz.busjol.ui.search_journey.SearchJourneyAction
-import kz.jysan.business.core.ui.utils.state.ViewState
+import kz.busjol.utils.state.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CityPickerDialog :
@@ -59,6 +58,7 @@ class CityPickerDialog :
 
     private fun onDataInit(cityList: List<City>) {
         onLoading(false)
+        setupFields(cityList)
         cityAdapter.submitList(cityList)
 
         if (cityList.isEmpty()) {
@@ -84,23 +84,16 @@ class CityPickerDialog :
         }
     }
 
-    private fun backWithData(city: City) {
-        if (args.fromOrToCity == "from") {
-            findNavController().previousBackStackEntry?.savedStateHandle?.set("from", city)
-        }
-        if (args.fromOrToCity == "to") {
-            findNavController().previousBackStackEntry?.savedStateHandle?.set("to", city)
-        }
-    }
-
     private fun setupFields(cityList: List<City>) {
         binding.apply {
             findCityEt.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
+
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                    viewModel.onAction(SearchJourneyAction.SearchCity(p0.toString()))
+                    viewModel.onAction(CityListAction.SearchCity(p0.toString(), cityList))
                 }
+
                 override fun afterTextChanged(p0: Editable?) {
                 }
             })
@@ -109,6 +102,15 @@ class CityPickerDialog :
 
     private fun setupButtons() {
         binding.buttonBack.setOnClickListener { dismiss() }
+    }
+
+    private fun backWithData(city: City) {
+        if (args.fromOrToCity == "from") {
+            findNavController().previousBackStackEntry?.savedStateHandle?.set("from", city)
+        }
+        if (args.fromOrToCity == "to") {
+            findNavController().previousBackStackEntry?.savedStateHandle?.set("to", city)
+        }
     }
 
     private fun loadData() {

@@ -9,8 +9,10 @@ import kz.busjol.databinding.FragmentSearchTripBinding
 import kz.busjol.domain.model.City
 import kz.busjol.domain.model.JourneyData
 import kz.busjol.domain.model.JourneyPost
-import kz.busjol.ext.formatDate
-import kz.jysan.business.core.ui.utils.state.ViewState
+import kz.busjol.domain.model.PassengerData
+import kz.busjol.ext.reformatDateToBackend
+import kz.busjol.ext.setOnSafeClickListener
+import kz.busjol.utils.state.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -22,13 +24,50 @@ class SearchJourneyFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initButtons()
         setupObservers()
+        backStackDataInit()
         backStackFromJourneyScreen()
+    }
+
+    private fun initButtons() {
+        binding.apply {
+            dateLayout.apply {
+                setTitle(R.string.date)
+                setHint(R.string.date_hint)
+                enableCalendarView(activity, true)
+            }
+
+            searchTripButton.apply {
+                setTitle(R.string.search_button)
+            }
+
+            openFromCitiesDialog.setOnSafeClickListener {
+                openCityPickerDialog("from")
+            }
+
+            openToCitiesDialog.setOnSafeClickListener {
+                openCityPickerDialog("to")
+            }
+
+            swapCitiesButton.setOnClickListener {
+                viewModel.onAction(SearchJourneyAction.OnSwapCities)
+            }
+
+            searchTripButton.apply {
+                onSetClickListener {
+                    onJourneySearchClickListener()
+                }
+            }
+
+            fromCityEt.isFocusable = false
+            toCityEt.isFocusable = false
+        }
     }
 
     private fun backStackFromJourneyScreen() {
         onBackStackEntry<JourneyData>("journeyFragmentData") {
-            viewModel.onAction(SearchJourneyAction.OnJourneyBackDataInit(it))
+//            viewModel.onAction(SearchJourneyAction.OnJourneyBackDataInit(it))
         }
     }
 
@@ -36,6 +75,27 @@ class SearchJourneyFragment :
         viewModel.apply {
             viewState.observe(viewLifecycleOwner) {
                 handleViewStateChanges(it)
+            }
+
+            fromCity.observe(viewLifecycleOwner) {
+                binding.fromCityEt.setText(it.name)
+            }
+
+            toCity.observe(viewLifecycleOwner) {
+                binding.toCityEt.setText(it.name)
+            }
+
+            passengerData.observe(viewLifecycleOwner) {
+                val allPassengersData = it.allPassengersQuantity()
+                val allPassengersText = "$allPassengersData ${getString(R.string.one_person)}"
+
+                binding.passengerNumberLayout.apply {
+                    setText(allPassengersText)
+                    setTitle(R.string.passengers)
+                    enableClickableView(imageId = R.drawable.ic_user) {
+                        openPassengersQuantityDialog(it)
+                    }
+                }
             }
         }
     }
@@ -56,113 +116,53 @@ class SearchJourneyFragment :
 
     private fun handleViewState(state: SearchJourneyViewState) {
         when (state) {
-            is SearchJourneyViewState.JourneyDataInit -> initData(state.journeyData)
             is SearchJourneyViewState.NavigateToJourneyScreen -> navigateToJourneyScreen(state.journeyData)
         }
     }
 
-    private fun initData(journeyData: JourneyData) {
-        backStackDataInit(journeyData)
-        setupButtons(journeyData)
-        setupTextFields(journeyData)
-    }
-
-    private fun backStackDataInit(journeyData: JourneyData) {
+    private fun backStackDataInit() {
         onBackStackEntry<City>("from") {
-            viewModel.onAction(SearchJourneyAction.CityValueInit(journeyData, it, true))
+            viewModel.onAction(SearchJourneyAction.FromCityValueInit(it))
         }
 
         onBackStackEntry<City>("to") {
-            viewModel.onAction(SearchJourneyAction.CityValueInit(journeyData, it, false))
+            viewModel.onAction(SearchJourneyAction.ToCityValueInit(it))
         }
 
         onBackStackEntry<String>("quantity") {
             binding.passengerNumberLayout.setText(it)
         }
 
-        onBackStackEntry<JourneyData>("data") {
+        onBackStackEntry<PassengerData>("data") {
             viewModel.onAction(SearchJourneyAction.PassPassengersData(it))
         }
     }
 
-    private fun setupTextFields(journeyData: JourneyData) {
-        val allPassengersData = journeyData.passengerData?.allPassengersQuantity()
-        val allPassengersText = "$allPassengersData ${getString(R.string.one_person)}"
-
-        binding.apply {
-            fromCityEt.setText(journeyData.fromCity?.name ?: "")
-            toCityEt.setText(journeyData.toCity?.name ?: "")
-            passengerNumberLayout.setText(allPassengersText)
-        }
-    }
-
-    private fun setupButtons(journeyData: JourneyData) {
-        binding.apply {
-
-            openFromCitiesDialog.setOnClickListener {
-                openCityPickerDialog("from", journeyData)
-            }
-
-            openToCitiesDialog.setOnClickListener {
-                openCityPickerDialog("to", journeyData)
-            }
-
-            swapCitiesButton.setOnClickListener {
-                viewModel.onAction(SearchJourneyAction.OnSwapCities(journeyData))
-            }
-
-            dateLayout.apply {
-                setTitle(R.string.date)
-                setHint(R.string.date_hint)
-                enableCalendarView(activity, true)
-            }
-
-            passengerNumberLayout.apply {
-                setTitle(R.string.passengers)
-                enableClickableView(imageId = R.drawable.ic_user) {
-                    openPassengersQuantityDialog(journeyData)
-                }
-            }
-
-            searchTripButton.apply {
-                setTitle(R.string.search_button)
-                onSetClickListener {
-                    onJourneySearchClickListener(journeyData)
-                }
-            }
-        }
-    }
-
     // Переход в диалог по выбору города
-    private fun openCityPickerDialog(arg: String, journeyData: JourneyData) {
-        val action = SearchJourneyFragmentDirections.actionNavigationSearchToCityPickerDialog(arg, journeyData)
+    private fun openCityPickerDialog(arg: String) {
+        val action = SearchJourneyFragmentDirections.actionNavigationSearchToCityPickerDialog(arg)
         findNavController().navigate(action)
     }
 
     // Переход в диалог по выбору количества пассажиров
-    private fun openPassengersQuantityDialog(journeyData: JourneyData) {
-        val action = SearchJourneyFragmentDirections.actionNavigationSearchToNavigationQuantityDialog(journeyData)
+    private fun openPassengersQuantityDialog(passengerData: PassengerData?) {
+        val action = SearchJourneyFragmentDirections.actionNavigationSearchToNavigationQuantityDialog(passengerData)
         findNavController().navigate(action)
     }
 
-    private fun onJourneySearchClickListener(journeyData: JourneyData) {
+    private fun onJourneySearchClickListener() {
         val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val todayDate = "${sdf.format(Date())}T00:00:00"
-
-        val inputFormat = "dd.MM.yyyy"
-        val outputFormat = "yyyy-MM-dd"
-        val convertedDate = formatDate(binding.dateLayout.getText(), inputFormat, outputFormat)
-        val toDate = "${convertedDate}T00:00:00"
-
+        val todayDate = sdf.format(Date()).reformatDateToBackend(false) ?: ""
+        val toDate = binding.dateLayout.getText().reformatDateToBackend(true) ?: ""
 
         val postJourneyData = JourneyPost(
-            cityFrom = journeyData.fromCity!!.id,
-            cityTo = journeyData.toCity!!.id,
+            cityFrom = viewModel.fromCity.value!!.id,
+            cityTo = viewModel.toCity.value!!.id,
             dateFrom = todayDate,
             dateTo = toDate
         )
 
-        viewModel.onAction(SearchJourneyAction.OnSearchJourneyButtonClicked(postJourneyData, journeyData))
+        viewModel.onAction(SearchJourneyAction.OnSearchJourneyButtonClicked(postJourneyData))
     }
 
     // Переход к экрану со списком билетов
@@ -170,6 +170,6 @@ class SearchJourneyFragment :
         val action = SearchJourneyFragmentDirections.actionNavigationSearchToNavBuyTickets(journeyData)
 
         if (journeyData.fromCity != journeyData.toCity) findNavController().navigate(action)
-        else viewModel.onAction(SearchJourneyAction.SimilarCities(journeyData))
+        else viewModel.onAction(SearchJourneyAction.SimilarCitiesInit)
     }
 }

@@ -11,7 +11,7 @@ import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentJourneyBinding
 import kz.busjol.domain.model.Journey
 import kz.busjol.domain.model.JourneyData
-import kz.jysan.business.core.ui.utils.state.ViewState
+import kz.busjol.utils.state.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -66,6 +66,7 @@ class JourneyFragment :
     private fun initData(journeyData: JourneyData) {
         loadData()
         setTitle(journeyData)
+        tripAdapter.submitList(journeyData.journeyList)
         setupButtons()
     }
 
@@ -83,7 +84,7 @@ class JourneyFragment :
     private fun setTitle(journeyData: JourneyData) {
         val fromCity = journeyData.fromCity?.name
         val toCity = journeyData.toCity?.name
-        binding.titleTrip.text = getString(R.string.title_trip, fromCity, toCity)
+        binding.titleTrip.text = "$fromCity - $toCity"
     }
 
     private fun setupButtons() {
@@ -99,15 +100,11 @@ class JourneyFragment :
                     }
 
                     if (i == R.id.lying_place_button) {
-                        viewModel.onAction(JourneyAction.FilterListByTypeButtonClicked(
-                            false, getString(R.string.lying_seats))
-                        )
+                        viewModel.onAction(JourneyAction.FilterListByTypeButtonClicked(false, getString(R.string.lying_seats)))
                     }
 
                     if (i == R.id.seat_place_button) {
-                        viewModel.onAction(JourneyAction.FilterListByTypeButtonClicked(
-                            false, getString(R.string.lying_seats))
-                        )
+                        viewModel.onAction(JourneyAction.FilterListByTypeButtonClicked(false, getString(R.string.seating_seats)))
                     }
                 }
             }

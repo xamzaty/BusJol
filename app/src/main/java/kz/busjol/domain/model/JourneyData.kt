@@ -7,5 +7,6 @@ import kotlinx.android.parcel.Parcelize
 data class JourneyData(
     val passengerData: PassengerData?,
     val fromCity: City?,
-    val toCity: City?
+    val toCity: City?,
+    val journeyList: List<Journey>?
 ): Parcelable

@@ -23,8 +23,7 @@
         tools:text="Фамилия"
         android:textSize="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginStart="@dimen/_12sdp"
-        android:textColor="#8B98A7"/>
+        android:layout_marginStart="@dimen/_12sdp" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_text"

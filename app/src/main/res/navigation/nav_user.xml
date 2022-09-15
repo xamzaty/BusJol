@@ -18,7 +18,7 @@
             app:exitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_navigation_user_to_enterUserDialog"
-            app:destination="@id/enterUserDialog"
+            app:destination="@id/nav_login"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_bottom"
             app:enterAnim="@anim/slide_in_bottom"
@@ -26,6 +26,13 @@
         <action
             android:id="@+id/action_navigation_user_to_rateAppDialog"
             app:destination="@id/rateAppDialog" />
+        <action
+            android:id="@+id/action_navigation_user_to_userDataFragment"
+            app:destination="@id/userDataFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
     </fragment>
 
     <dialog
@@ -34,14 +41,16 @@
         android:label="ChangeLanguageFragment"
         tools:layout="@layout/dialog_change_language"/>
 
-    <fragment
-        android:id="@+id/enterUserDialog"
-        android:name="kz.busjol.ui.login_user.LoginUserFragment"
-        tools:layout="@layout/fragment_login_user"/>
-
     <dialog
         android:id="@+id/rateAppDialog"
         android:name="kz.busjol.ui.rate_app.RateAppDialog"
         tools:layout="@layout/dialog_rate_app" />
+
+    <include app:graph="@navigation/nav_login"/>
+
+    <fragment
+        android:id="@+id/userDataFragment"
+        android:name="kz.busjol.ui.user_my_data.UserDataFragment"
+        tools:layout="@layout/fragment_user_data" />
 
 </navigation>

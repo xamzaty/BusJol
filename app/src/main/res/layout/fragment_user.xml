@@ -364,6 +364,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/blue_text"
             android:checked="true"
+            android:buttonTint="@color/white"
             android:scaleX="1.2"
             android:scaleY="1.2"
             android:src="@drawable/ic_baseline_arrow_forward_24"

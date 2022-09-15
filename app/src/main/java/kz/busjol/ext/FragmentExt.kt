@@ -24,6 +24,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kz.busjol.BuildConfig
 import kz.busjol.R
+import kz.busjol.ext.FragmentExt.navigate
 import java.lang.Exception
 
 object FragmentExt {
@@ -88,6 +89,10 @@ object FragmentExt {
                 it.visibility = View.GONE
             }
         }
+    }
+
+    fun Fragment.navigate(resId: Int) {
+        findNavController().navigate(resId)
     }
 
     fun Fragment.observeNavigationResult(

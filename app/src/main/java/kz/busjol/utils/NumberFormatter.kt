@@ -8,7 +8,7 @@ object NumberFormatter {
 
     const val DECIMAL_SEPARATOR: Char = ','
     const val GROUPING_SEPARATOR: Char = ' '
-    val DECIMAL_SEPARATORS: Regex = "[.,]".toRegex()
+//    val DECIMAL_SEPARATORS: Regex = "[.,]".toRegex()
     const val DOT: Char = '.'
     val regexCurrency = Regex("[^\\d.]")
 

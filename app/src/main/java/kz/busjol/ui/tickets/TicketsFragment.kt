@@ -6,6 +6,7 @@ import androidx.navigation.fragment.findNavController
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentTicketsBinding
+import kz.busjol.ext.FragmentExt.navigate
 import kz.busjol.ext.FragmentExt.setVisibility
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -21,7 +22,7 @@ class TicketsFragment : BaseFragment<FragmentTicketsBinding>(FragmentTicketsBind
 
     private fun setupButtons() {
         binding.buttonMyTicketsAuthorizationEnter.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_tickets_to_navigation_user)
+            navigate(R.id.action_navigation_tickets_to_navigation_user)
         }
     }
 

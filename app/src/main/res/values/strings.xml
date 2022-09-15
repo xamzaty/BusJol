@@ -7,6 +7,10 @@
     <string name="almaty">Алматы</string>
     <string name="taraz">Тараз</string>
 
+    <string name="save_button">Сохранить</string>
+
+    <string name="enter_valid_email">Введите правильный электронный адрес</string>
+
     <string name="alert_title">Выход</string>
     <string name="alert_are_you_want_to_exit">Вы уверены, что хотите выйти?</string>
     <string name="alert_ok">OK</string>
@@ -63,6 +67,12 @@
     <string name="title_password_recovery">Восстановление пароля</string>
     <string name="subtitle_password_recovery">Укажите эл. почту, которую использовали при регистрации на сайте или в приложениях BusJol. На эту эл. почту мы вышлем ссылку для восстановления пароля</string>
 
+    <string name="title_registration">Регистрация</string>
+    <string name="subtitle_registration">Укажите эл. почту: мы вышлем письмо с временным паролем</string>
+    <string name="agreement_registration">Я даю согласие на обработку моих\nперсональных данных</string>
+    <string name="error_registration">Чтобы зарегистрироваться, необходимо дать согласие на обработку персональных данных</string>
+    <string name="button_registration">Зарегистрироваться</string>
+
     <string name="loading">Загрузка</string>
 
     <string name="error">Ошибка</string>
@@ -115,8 +125,11 @@
     <string name="iin">ИИН</string>
     <string name="iin_hint">Введите ИИН</string>
     <string name="last_name">Фамилия</string>
+    <string name="last_name_hint">Введите фамилию</string>
     <string name="first_name">Имя</string>
+    <string name="first_name_hint">Введите имя</string>
     <string name="birthday_date">Дата рождения</string>
+    <string name="birthday_date_hint">xx.xx.xxxx</string>
     <string name="contacts_info_title">Контактная информация</string>
     <string name="contacts_info_description">Для регистрации клиента, а также мы отправим\nбилет на этот эл.адрес.\nНомер телефона необходим для связи в случае\nизменений</string>
     <string name="phone">Телефон</string>
@@ -135,7 +148,7 @@
     <string name="kaspi">Kaspi.kz</string>
 
     <string name="title_main">Главная</string>
-    <string name="title_scan">Скан</string>
+    <string name="title_scan">Сканирование билета</string>
     <string name="title_settings">Настройки</string>
 
     <string name="title_order_payment">Оплата заказа</string>

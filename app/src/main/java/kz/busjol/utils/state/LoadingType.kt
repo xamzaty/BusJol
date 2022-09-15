@@ -1,4 +1,4 @@
-package kz.jysan.business.core.ui.utils.state
+package kz.busjol.utils.state
 
 sealed class LoadingType {
     object Progress : LoadingType()

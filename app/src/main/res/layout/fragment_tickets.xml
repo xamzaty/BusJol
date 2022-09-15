@@ -70,7 +70,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_my_tickets_authorization_enter"
-        android:layout_width="@dimen/_281sdp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:background="@drawable/ic_button_layout"
         android:layout_marginBottom="@dimen/_25sdp"
@@ -78,6 +78,8 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/_13sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

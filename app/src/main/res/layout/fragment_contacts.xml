@@ -58,7 +58,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/faq_button"
-        android:layout_width="@dimen/_281sdp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:background="@drawable/ic_button_tell_us"
         android:text="@string/faq_button_title"
@@ -66,13 +66,15 @@
         android:textColor="@color/blue_text"
         android:textSize="@dimen/_13sdp"
         android:layout_marginBottom="@dimen/_13sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
         app:layout_constraintBottom_toTopOf="@+id/call_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/call_button"
-        android:layout_width="@dimen/_281sdp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:background="@drawable/ic_button_layout"
         android:text="@string/call_button_title"
@@ -82,6 +84,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
         android:textSize="@dimen/_13sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

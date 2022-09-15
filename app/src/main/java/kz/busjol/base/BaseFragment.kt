@@ -11,11 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import kz.busjol.R
+import kz.busjol.utils.Regex
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
 abstract class BaseFragment<VB : ViewBinding>(
-    private val inflate: Inflate<VB>,
+    private val inflate: Inflate<VB>
 ) : Fragment() {
 
     private var _binding: VB? = null
@@ -39,6 +40,8 @@ abstract class BaseFragment<VB : ViewBinding>(
         super.onDestroyView()
         _binding = null
     }
+
+    fun checkEmail(str: String) = Regex.checkValidEmail(str, activity, R.string.enter_valid_email)
 
     fun onError() {
         val toast = Toast.makeText(activity, getString(R.string.error_server), Toast.LENGTH_SHORT)

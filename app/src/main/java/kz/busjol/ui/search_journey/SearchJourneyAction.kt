@@ -3,13 +3,13 @@ package kz.busjol.ui.search_journey
 import kz.busjol.domain.model.City
 import kz.busjol.domain.model.JourneyData
 import kz.busjol.domain.model.JourneyPost
+import kz.busjol.domain.model.PassengerData
 
 sealed class SearchJourneyAction {
-    data class InitJourneyData(val journeyData: JourneyData): SearchJourneyAction()
-    data class CityValueInit(val journeyData: JourneyData, val city: City, val isFromInit: Boolean): SearchJourneyAction()
-    data class SimilarCities(val journeyData: JourneyData): SearchJourneyAction()
-    data class PassPassengersData(val passengersData: JourneyData): SearchJourneyAction()
-    data class OnSwapCities(val journeyData: JourneyData): SearchJourneyAction()
-    data class OnSearchJourneyButtonClicked(val journeyPost: JourneyPost, val journeyData: JourneyData): SearchJourneyAction()
-    data class OnJourneyBackDataInit(val journeyData: JourneyData): SearchJourneyAction()
+    data class FromCityValueInit(val city: City): SearchJourneyAction()
+    data class ToCityValueInit(val city: City): SearchJourneyAction()
+    data class PassPassengersData(val passengersData: PassengerData): SearchJourneyAction()
+    data class OnSearchJourneyButtonClicked(val journeyPost: JourneyPost): SearchJourneyAction()
+    object OnSwapCities: SearchJourneyAction()
+    object SimilarCitiesInit: SearchJourneyAction()
 }

@@ -34,9 +34,18 @@
             android:name="fromOrToCity"
             app:argType="string"/>
 
+    </dialog>
+
+    <dialog
+        android:id="@+id/navigation_quantity_dialog"
+        android:name="kz.busjol.ui.passenger_quantity.PassengerQuantityDialog"
+        tools:layout="@layout/dialog_passenger_quantity"
+        android:label="PassengerQuantityDialog">
+
         <argument
-            android:name="journeyData"
-            app:argType="kz.busjol.domain.model.JourneyData" />
+            android:name="passengerData"
+            app:argType="kz.busjol.domain.model.PassengerData"
+            app:nullable="true"/>
 
     </dialog>
 
@@ -59,19 +68,6 @@
             app:exitAnim="@anim/slide_out_left"/>
 
     </fragment>
-
-    <dialog
-        android:id="@+id/navigation_quantity_dialog"
-        android:name="kz.busjol.ui.passenger_quantity.PassengerQuantityDialog"
-        tools:layout="@layout/dialog_passenger_quantity"
-        android:label="PassengerQuantityDialog">
-
-        <argument
-            android:name="journeyData"
-            app:argType="kz.busjol.domain.model.JourneyData"
-            app:nullable="true"/>
-
-    </dialog>
 
     <fragment
         android:id="@+id/navigation_bus_plan"

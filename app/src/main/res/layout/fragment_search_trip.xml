@@ -193,11 +193,13 @@
 
     <kz.busjol.ui.custom_views.CustomLoadingButton
         android:id="@+id/search_trip_button"
-        android:layout_width="@dimen/_281sdp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:layout_marginBottom="@dimen/_25sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/search_banner"
-        app:layout_constraintStart_toStartOf="@id/search_banner" />
+        app:layout_constraintStart_toStartOf="@id/search_banner"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

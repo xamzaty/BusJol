@@ -8,7 +8,7 @@ import retrofit2.http.POST
 
 interface JourneyDataSource {
 
-    @POST("journeys/search")
+    @POST("search")
     suspend fun getJourneyList(
         @Body body: JourneyPost
     ): Response<List<JourneyResponse>>
