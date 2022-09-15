@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -60,4 +61,7 @@ abstract class BaseBottomFragmentDialog <VB : ViewBinding>(
         val toast = Toast.makeText(requireContext(), getString(R.string.error_server), Toast.LENGTH_SHORT)
         toast.show()
     }
+
+    fun backstackData(key: String, value: Any) =
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(key, value)
 }

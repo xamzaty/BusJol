@@ -78,11 +78,11 @@ class SearchJourneyFragment :
             }
 
             fromCity.observe(viewLifecycleOwner) {
-                binding.fromCityEt.setText(it.name)
+                binding.fromCityEt.setText(it?.name)
             }
 
             toCity.observe(viewLifecycleOwner) {
-                binding.toCityEt.setText(it.name)
+                binding.toCityEt.setText(it?.name)
             }
 
             passengerData.observe(viewLifecycleOwner) {

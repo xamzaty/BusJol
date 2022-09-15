@@ -23,12 +23,12 @@ class SearchJourneyViewModel(
     private val _viewState = MutableLiveData<ViewState<SearchJourneyViewState>>()
     val viewState: LiveData<ViewState<SearchJourneyViewState>> = _viewState
 
-    private val _fromCity = MutableLiveData<City>()
-    private val _toCity = MutableLiveData<City>()
+    private val _fromCity = MutableLiveData<City?>()
+    private val _toCity = MutableLiveData<City?>()
     private val _passengerData = MutableLiveData(PassengerData(adultQuantity = 1, childQuantity = 0, disabledQuantity = 0))
 
-    val fromCity: LiveData<City> = _fromCity
-    val toCity: LiveData<City> = _toCity
+    val fromCity: LiveData<City?> = _fromCity
+    val toCity: LiveData<City?> = _toCity
     val passengerData: LiveData<PassengerData> = _passengerData
 
     init {

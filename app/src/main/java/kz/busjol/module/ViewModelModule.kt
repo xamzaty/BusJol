@@ -9,6 +9,8 @@ import kz.busjol.ui.city_picker.CityPickerViewModel
 import kz.busjol.ui.driver_scanner.DriverScannerViewModel
 import kz.busjol.ui.journey.JourneyFragmentArgs
 import kz.busjol.ui.journey.JourneyViewModel
+import kz.busjol.ui.passenger_quantity.PassengerQuantityDialogArgs
+import kz.busjol.ui.passenger_quantity.PassengerQuantityViewModel
 import kz.busjol.ui.search_journey.SearchJourneyViewModel
 import kz.busjol.ui.tickets.TicketsViewModel
 import kz.busjol.ui.user.UserViewModel
@@ -23,6 +25,9 @@ val viewModelModule = module {
         JourneyViewModel(args = args)
     }
     viewModel { CityPickerViewModel(repository = get()) }
+    viewModel { (args: PassengerQuantityDialogArgs) ->
+        PassengerQuantityViewModel(args = args)
+    }
     viewModel { BusPlanViewModel() }
     viewModel { UserViewModel(userPreferences = get()) }
     viewModel { LoginUserViewModel(userPreferences = get()) }
