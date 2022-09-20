@@ -42,4 +42,15 @@ class CustomLoadingButton @JvmOverloads constructor(
             }
         }
     }
+
+    fun buttonAvailability(isAvailable: Boolean, listener: () -> Unit): Boolean {
+        return if (!isAvailable) {
+            binding.button.alpha = 0.6f
+            false
+        } else {
+            binding.button.alpha = 1f
+            onSetClickListener { listener() }
+            true
+        }
+    }
 }

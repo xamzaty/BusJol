@@ -14,11 +14,11 @@ class JourneyViewHolder(private val binding: ItemJourneyBinding, private val lis
         binding.apply {
             tripLayout.setOnClickListener { listener.onCityClicked(journey) }
             tripNumber.text = itemView.context.getString(R.string.trip_number, journeyItem?.code)
-//            fromCity.text = "asd"
-//            toCity.text = "sdf"
-//            tripType.text = itemView.context.getString(R.string.seat_type, journey.type)
-            tripFreeSeats.text = itemView.context.getString(R.string.free_seats, journey.numberOfFreePlaces, journey.numberOfPlaces)
-//            tripFerryman.text = journey.carrier
+            fromCity.text = journey.cityFrom
+            toCity.text = journey.cityTo
+            tripType.text = itemView.context.getString(R.string.seat_type, journey.journey?.name)
+            tripFreeSeats.text = itemView.context.getString(R.string.free_seats, journey.numberOfFreePlaces.toString(), journey.numberOfPlaces.toString())
+            tripFerryman.text = journey.stopName
             tripPrice.text = journey.displayAmount()
         }
     }

@@ -12,7 +12,10 @@ data class Journey(
     val arrivalTime: String?,
     val amount: Int?,
     val numberOfPlaces: Int?,
-    val numberOfFreePlaces: Int?
+    val numberOfFreePlaces: Int?,
+    val stopName: String?,
+    val cityFrom: String?,
+    val cityTo: String?
 ): Parcelable {
 
     fun displayAmount() = amount?.formatWithCurrency()

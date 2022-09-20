@@ -78,11 +78,11 @@ class SearchJourneyFragment :
             }
 
             fromCity.observe(viewLifecycleOwner) {
-                binding.fromCityEt.setText(it?.name)
+                binding.fromCityEt.setText(it?.name ?: "")
             }
 
             toCity.observe(viewLifecycleOwner) {
-                binding.toCityEt.setText(it?.name)
+                binding.toCityEt.setText(it?.name ?: "")
             }
 
             passengerData.observe(viewLifecycleOwner) {
@@ -151,15 +151,15 @@ class SearchJourneyFragment :
     }
 
     private fun onJourneySearchClickListener() {
-        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
         val todayDate = sdf.format(Date()).reformatDateToBackend(false) ?: ""
-        val toDate = binding.dateLayout.getText().reformatDateToBackend(true) ?: ""
+        val nextDate = binding.dateLayout.getText().reformatDateToBackend(true) ?: ""
 
         val postJourneyData = JourneyPost(
             cityFrom = viewModel.fromCity.value!!.id,
             cityTo = viewModel.toCity.value!!.id,
             dateFrom = todayDate,
-            dateTo = toDate
+            dateTo = nextDate
         )
 
         viewModel.onAction(SearchJourneyAction.OnSearchJourneyButtonClicked(postJourneyData))

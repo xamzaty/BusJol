@@ -3,9 +3,7 @@ package kz.busjol.ui.journey
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kz.busjol.base.BaseViewModel
-import kz.busjol.domain.model.Journey
 import kz.busjol.domain.model.JourneyData
-import kz.busjol.domain.model.JourneyItem
 import kz.busjol.utils.state.ViewState
 
 class JourneyViewModel(
@@ -27,52 +25,12 @@ class JourneyViewModel(
                         passengerData = args.journeyData.passengerData,
                         fromCity = args.journeyData.fromCity,
                         toCity = args.journeyData.toCity,
-                        journeyList()
+                        journeyList = args.journeyData.journeyList
                     )
                 )
             )
         )
     }
-
-    private fun journeyList() = listOf(
-        Journey(
-            journey = JourneyItem(
-                id = 0,
-                created = "sdf",
-                status = 0,
-                name = "asdf",
-                departsOn = "sadf",
-                routeId = 0,
-                carrierId = 0,
-                transportId = 0,
-                code = "0"
-            ),
-            departureTime = "asd",
-            arrivalTime = "asd",
-            amount = 123,
-            numberOfPlaces = 20,
-            numberOfFreePlaces = 2
-        ),
-
-        Journey(
-            journey = JourneyItem(
-                id = 0,
-                created = "sdf",
-                status = 0,
-                name = "asdf",
-                departsOn = "sadf",
-                routeId = 0,
-                carrierId = 0,
-                transportId = 0,
-                code = "0"
-            ),
-            departureTime = "asdasd",
-            arrivalTime = "asd",
-            amount = 123,
-            numberOfPlaces = 20,
-            numberOfFreePlaces = 2
-        ),
-    )
 
     private fun filterListByType(isAllPlaces: Boolean, seatType: String) {
         if (isAllPlaces) filterListByAllType()
@@ -90,15 +48,18 @@ class JourneyViewModel(
     }
 
     private fun filterListByType(seatType: String) {
-//        _viewState.postValue(
-//            ViewState.Data(
-//                JourneyViewState.JourneyDataInit(
-//                    JourneyData(
-//                        journeyList = args.journeyData.journeyList?.filter { it.name.contains(seatType) }
-//                    )
-//                )
-//            )
-//        )
+        _viewState.postValue(
+            ViewState.Data(
+                JourneyViewState.JourneyDataInit(
+                    JourneyData(
+                        passengerData = args.journeyData.passengerData,
+                        fromCity = args.journeyData.fromCity,
+                        toCity = args.journeyData.toCity,
+                        journeyList = args.journeyData.journeyList?.filter { it.journey?.name!!.contains(seatType) }
+                    )
+                )
+            )
+        )
     }
 
     fun onAction(action: JourneyAction) {

@@ -6,7 +6,8 @@ class JourneyResponse(
     val arrivalTime: String?,
     val amount: Int?,
     val numberOfPlaces: Int?,
-    val numberOfFreePlaces: Int?
+    val numberOfFreePlaces: Int?,
+    val stopName: String?
 )
 
 class JourneyResponseItem(

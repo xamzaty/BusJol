@@ -15,7 +15,10 @@ class JourneyListMapper : Mapper<List<JourneyResponse>, List<Journey>>() {
                 arrivalTime = journeyResponse.arrivalTime,
                 amount = journeyResponse.amount,
                 numberOfPlaces = journeyResponse.numberOfPlaces,
-                numberOfFreePlaces = journeyResponse.numberOfFreePlaces
+                numberOfFreePlaces = journeyResponse.numberOfFreePlaces,
+                stopName = journeyResponse.stopName,
+                cityFrom = null,
+                cityTo = null
             )
         }
     }
