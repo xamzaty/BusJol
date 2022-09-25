@@ -44,6 +44,15 @@ class MainActivity : AppCompatActivity() {
 
         setupNavView()
         statusBarColor(R.color.white, true)
+
+        if (savedInstanceState == null) {
+            setupNavView()
+        }
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        setupNavView()
     }
 
     override fun onResume() {

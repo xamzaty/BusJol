@@ -25,9 +25,10 @@ class JourneyViewModel(
                 JourneyViewState.JourneyDataInit(
                     journeyData = JourneyData(
                         passengerData = args.journeyData.passengerData,
+                        passengerListData = args.journeyData.passengerListData,
                         fromCity = args.journeyData.fromCity,
                         toCity = args.journeyData.toCity,
-                        journeyList()
+                        journeyList = journeyList()
                     )
                 )
             )

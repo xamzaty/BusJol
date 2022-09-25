@@ -12,6 +12,7 @@ import kz.busjol.domain.model.JourneyPost
 import kz.busjol.domain.model.PassengerData
 import kz.busjol.ext.reformatDateToBackend
 import kz.busjol.ext.setOnSafeClickListener
+import kz.busjol.ui.passenger_quantity.Passenger
 import kz.busjol.utils.state.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
@@ -135,6 +136,10 @@ class SearchJourneyFragment :
 
         onBackStackEntry<PassengerData>("data") {
             viewModel.onAction(SearchJourneyAction.PassPassengersData(it))
+        }
+
+        onBackStackEntry<List<Passenger>>("passengerList") {
+            viewModel.onAction(SearchJourneyAction.PassPassengerListData(it))
         }
     }
 

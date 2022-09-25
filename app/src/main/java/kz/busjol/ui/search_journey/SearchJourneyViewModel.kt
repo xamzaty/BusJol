@@ -11,6 +11,7 @@ import kz.busjol.data.network.model.Response
 import kz.busjol.domain.model.*
 import kz.busjol.domain.repository.CityRepository
 import kz.busjol.domain.repository.JourneyRepository
+import kz.busjol.ui.passenger_quantity.Passenger
 import kz.busjol.utils.state.LoadingType
 import kz.busjol.utils.state.ViewState
 
@@ -26,10 +27,12 @@ class SearchJourneyViewModel(
     private val _fromCity = MutableLiveData<City?>()
     private val _toCity = MutableLiveData<City?>()
     private val _passengerData = MutableLiveData(PassengerData(adultQuantity = 1, childQuantity = 0, disabledQuantity = 0))
+    private val _passengerList = MutableLiveData<List<Passenger>>()
 
     val fromCity: LiveData<City?> = _fromCity
     val toCity: LiveData<City?> = _toCity
     val passengerData: LiveData<PassengerData> = _passengerData
+    val passengerList: LiveData<List<Passenger>> = _passengerList
 
     init {
         initDataWithCities()
@@ -66,6 +69,10 @@ class SearchJourneyViewModel(
         _passengerData.postValue(passengerData)
     }
 
+    private fun initPassengerListValue(passengerListData: List<Passenger>) {
+        _passengerList.postValue(passengerListData)
+    }
+
     private fun searchJourney(journeyPost: JourneyPost) {
         _viewState.postValue(ViewState.Loading(LoadingType.Progress))
         viewModelScope.launch(ioContext) {
@@ -79,9 +86,10 @@ class SearchJourneyViewModel(
     private fun onJourneyListDataFetched(journeyList: List<Journey>) {
         val journeyData = JourneyData(
             passengerData = _passengerData.value,
+            passengerListData = _passengerList.value,
             fromCity = _fromCity.value,
             toCity = _toCity.value,
-            journeyList
+            journeyList = journeyList
         )
 
         _viewState.postValue(
@@ -105,6 +113,7 @@ class SearchJourneyViewModel(
             is SearchJourneyAction.FromCityValueInit -> fromCityInit(action.city)
             is SearchJourneyAction.ToCityValueInit -> toCityInit(action.city)
             is SearchJourneyAction.PassPassengersData -> initPassengerValue(action.passengersData)
+            is SearchJourneyAction.PassPassengerListData -> initPassengerListValue(action.passengerList)
             is SearchJourneyAction.OnSwapCities -> onSwapCities()
             is SearchJourneyAction.OnSearchJourneyButtonClicked -> searchJourney(action.journeyPost)
             is SearchJourneyAction.SimilarCitiesInit -> onSimilarCitiesInit()
