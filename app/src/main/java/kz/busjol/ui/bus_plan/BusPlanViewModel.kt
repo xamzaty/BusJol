@@ -33,6 +33,9 @@ class BusPlanViewModel : BaseViewModel() {
             listBus.add(BusPlan(15, false))
             listBus.add(BusPlan(16, false))
             listBus.add(BusPlan(17, false))
+            listBus.add(BusPlan(18, false))
+            listBus.add(BusPlan(19, false))
+            listBus.add(BusPlan(20, false))
             seatList.postValue(listBus)
         }
     }

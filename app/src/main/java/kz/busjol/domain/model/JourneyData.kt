@@ -10,5 +10,6 @@ data class JourneyData(
     val passengerListData: List<Passenger>?,
     val fromCity: City?,
     val toCity: City?,
+    val journey: Journey?,
     val journeyList: List<Journey>?
 ): Parcelable

@@ -163,6 +163,7 @@
     <string name="title_user">Профиль</string>
     <string name="title_ticket_scanner">Сканирование билета</string>
     <string name="trip_time">%1$sч %2$мин в пути</string>
+    <string name="journey_time_left">%1$sч %2$мин</string>
     <string name="all_seats">Все</string>
     <string name="lying_seats">Лежачий</string>
     <string name="seating_seats">Сидячий</string>

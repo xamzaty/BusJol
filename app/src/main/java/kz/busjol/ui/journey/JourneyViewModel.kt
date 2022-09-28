@@ -28,6 +28,7 @@ class JourneyViewModel(
                         passengerListData = args.journeyData.passengerListData,
                         fromCity = args.journeyData.fromCity,
                         toCity = args.journeyData.toCity,
+                        journey = null,
                         journeyList = journeyList()
                     )
                 )
@@ -50,7 +51,7 @@ class JourneyViewModel(
             ),
             departureTime = "asd",
             arrivalTime = "asd",
-            amount = 123,
+            amount = 3000,
             numberOfPlaces = 20,
             numberOfFreePlaces = 2
         ),
@@ -69,7 +70,7 @@ class JourneyViewModel(
             ),
             departureTime = "asdasd",
             arrivalTime = "asd",
-            amount = 123,
+            amount = 3000,
             numberOfPlaces = 20,
             numberOfFreePlaces = 2
         ),

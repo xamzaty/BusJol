@@ -27,7 +27,7 @@ class SearchJourneyViewModel(
     private val _fromCity = MutableLiveData<City?>()
     private val _toCity = MutableLiveData<City?>()
     private val _passengerData = MutableLiveData(PassengerData(adultQuantity = 1, childQuantity = 0, disabledQuantity = 0))
-    private val _passengerList = MutableLiveData<List<Passenger>>()
+    private val _passengerList = MutableLiveData(listOf(Passenger(type = Passenger.PassengerType.ADULT)))
 
     val fromCity: LiveData<City?> = _fromCity
     val toCity: LiveData<City?> = _toCity
@@ -89,6 +89,7 @@ class SearchJourneyViewModel(
             passengerListData = _passengerList.value,
             fromCity = _fromCity.value,
             toCity = _toCity.value,
+            journey = null,
             journeyList = journeyList
         )
 

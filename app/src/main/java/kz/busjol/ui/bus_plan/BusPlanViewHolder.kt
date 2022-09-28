@@ -20,8 +20,11 @@ class BusPlanViewHolder(
 
         binding.seatCb.setOnCheckedChangeListener { compoundButton, _ ->
             if (compoundButton.isChecked && !seat.isSeatBusy) {
+                val list = arrayListOf<BusPlan>()
+                list.add(seat)
+                listener.onSeatClicked(list)
+
                 binding.seatCb.setTextColor(Color.WHITE)
-                listener.onSeatClicked(seat)
             } else {
                 binding.seatCb.setTextColor(Color.BLACK)
             }
