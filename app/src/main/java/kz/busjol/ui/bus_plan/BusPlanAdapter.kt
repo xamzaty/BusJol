@@ -2,6 +2,7 @@ package kz.busjol.ui.bus_plan
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import kz.busjol.R
@@ -35,10 +36,10 @@ class BusPlanAdapter(
             oldItem.place == newItem.place
 
         override fun areContentsTheSame(oldItem: BusPlan, newItem: BusPlan) =
-            oldItem == newItem
+            oldItem.place == newItem.place
     }
 
     interface OnItemClickListener {
-        fun onSeatClicked(seat: BusPlan)
+        fun onSeatClicked(seatList: List<BusPlan>)
     }
 }

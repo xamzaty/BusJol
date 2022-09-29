@@ -26,9 +26,15 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
         setupRecyclerView()
     }
 
-    override fun onSeatClicked(seat: BusPlan) {
-        checkedSeat = seat
-        binding.selectedSeats.text = seat.place.toString()
+    override fun onSeatClicked(seatList: List<BusPlan>) {
+        seatList.forEach {
+            checkedSeat = it
+            if (seatList.lastIndex == seatList.size - 1) {
+                binding.selectedSeats.text = it.place.toString()
+            } else {
+                binding.selectedSeats.text = "${it.place}/"
+            }
+        }
     }
 
     private fun setupButtons() {
@@ -38,7 +44,8 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
             }
 
             continueButton.setOnClickListener {
-                findNavController().navigate(R.id.action_navigation_bus_plan_to_passengerDataFragment)
+                val action = BusPlanFragmentDirections.actionNavigationBusPlanToPassengerDataFragment(args.journeyData)
+                findNavController().navigate(action)
             }
         }
     }
@@ -56,8 +63,8 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
 
     private fun setupObservers() {
         viewModel.apply {
-            seatList.observe(viewLifecycleOwner) { citiesList ->
-                seatAdapter.submitList(citiesList)
+            seatList.observe(viewLifecycleOwner) { seatList ->
+                seatAdapter.submitList(seatList)
             }
         }
     }

@@ -27,14 +27,29 @@ class JourneyFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
+        setAdapterValues()
         backWithData(args.journeyData)
     }
 
     override fun onCityClicked(journeyResponse: Journey) {
+        val journeyData = JourneyData(
+            passengerData = args.journeyData.passengerData,
+            passengerListData = args.journeyData.passengerListData,
+            fromCity = args.journeyData.fromCity,
+            toCity = args.journeyData.toCity,
+            journey =  journeyResponse,
+            journeyList = null
+        )
+
         val action = JourneyFragmentDirections
-            .actionNavigationJourneyFragmentToNavigationBusPlan(args.journeyData)
+            .actionNavigationJourneyFragmentToNavigationBusPlan(journeyData)
 
         findNavController().navigate(action)
+    }
+
+    private fun setAdapterValues() {
+        tripAdapter.fromCityValue(args.journeyData.fromCity?.name)
+        tripAdapter.toCityValue(args.journeyData.toCity?.name)
     }
 
     private fun backWithData(journeyData: JourneyData) {

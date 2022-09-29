@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentActivity
 import kotlinx.android.synthetic.main.custom_edit_text.view.*
 import kz.busjol.R
 import kz.busjol.databinding.CustomFormBinding
+import kz.busjol.ui.passenger_quantity.Passenger
 
 class CustomForm @JvmOverloads constructor(
     context: Context,
@@ -28,6 +29,7 @@ class CustomForm @JvmOverloads constructor(
     fun setupFields(
         activity: FragmentActivity?,
         isChildType: Boolean = false,
+        isDisabled: Boolean = false,
         passengerNumber: Int,
     ) {
         binding.apply {
@@ -48,6 +50,8 @@ class CustomForm @JvmOverloads constructor(
             if (isChildType) {
                 datePicker.visibility = View.VISIBLE
                 passengerTypeText.setText(R.string.child)
+            } else if(isDisabled) {
+                passengerTypeText.setText(R.string.passengers_tariffs_disable_person)
             } else {
                 passengerTypeText.setText(R.string.adult)
             }

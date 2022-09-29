@@ -64,4 +64,8 @@ abstract class BaseBottomFragmentDialog <VB : ViewBinding>(
 
     fun backstackData(key: String, value: Any) =
         findNavController().previousBackStackEntry?.savedStateHandle?.set(key, value)
+
+    fun <T> merge(first: List<T>, second: List<T>, third: List<T>): List<T> {
+        return first + second + third
+    }
 }

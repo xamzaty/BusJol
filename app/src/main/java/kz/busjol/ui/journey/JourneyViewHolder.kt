@@ -5,8 +5,12 @@ import kz.busjol.R
 import kz.busjol.databinding.ItemJourneyBinding
 import kz.busjol.domain.model.Journey
 
-class JourneyViewHolder(private val binding: ItemJourneyBinding, private val listener: JourneyListAdapter.OnItemClickListener) :
-    RecyclerView.ViewHolder(binding.root) {
+class JourneyViewHolder(
+    private val binding: ItemJourneyBinding,
+    private val listener: JourneyListAdapter.OnItemClickListener,
+    private val fromCityValue: String,
+    private val toCityValue: String
+    ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(journey: Journey) {
         val journeyItem = journey.journey
@@ -14,11 +18,14 @@ class JourneyViewHolder(private val binding: ItemJourneyBinding, private val lis
         binding.apply {
             tripLayout.setOnClickListener { listener.onCityClicked(journey) }
             tripNumber.text = itemView.context.getString(R.string.trip_number, journeyItem?.code)
-            fromCity.text = journey.cityFrom
-            toCity.text = journey.cityTo
-            tripType.text = itemView.context.getString(R.string.seat_type, journey.journey?.name)
-            tripFreeSeats.text = itemView.context.getString(R.string.free_seats, journey.numberOfFreePlaces.toString(), journey.numberOfPlaces.toString())
-            tripFerryman.text = journey.stopName
+            tripStartTime.text = "9:00"
+            tripEndTime.text = "13:00"
+            fromCity.text = fromCityValue
+            tripTimeLeft.text = "13ч 20мин"
+            toCity.text = toCityValue
+            tripType.text = itemView.context.getString(R.string.seat_type, "Сидячий")
+            tripFreeSeats.text = itemView.context.getString(R.string.free_seats, journey.numberOfFreePlaces, journey.numberOfPlaces)
+            tripFerryman.text = "Автовокзал"
             tripPrice.text = journey.displayAmount()
         }
     }

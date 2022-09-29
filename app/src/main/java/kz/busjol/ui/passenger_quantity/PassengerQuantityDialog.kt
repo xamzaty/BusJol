@@ -3,7 +3,6 @@ package kz.busjol.ui.passenger_quantity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kz.busjol.R
 import kz.busjol.base.BaseBottomFragmentDialog
@@ -40,7 +39,7 @@ class PassengerQuantityDialog :
             }
 
             disabledQuantity.observe(viewLifecycleOwner) { disabledQuantity ->
-                    binding.textDisableQuantity.text = disabledQuantity.toString()
+                binding.textDisableQuantity.text = disabledQuantity.toString()
             }
         }
     }
@@ -86,15 +85,27 @@ class PassengerQuantityDialog :
     private fun passBackstackData() {
         val allQuantity = "quantity"
         val data = "journeyData"
+        val passengerList = "passengerList"
+
+        val adultQuantity = binding.textAdultQuantity.text.toString().toInt()
+        val childQuantity = binding.textChildQuantity.text.toString().toInt()
+        val disabledQuantity = binding.textDisableQuantity.text.toString().toInt()
+
+        val adultList = List(adultQuantity) { listOf(Passenger(Passenger.PassengerType.ADULT)) }.flatten()
+        val childList = List(childQuantity) { listOf(Passenger(Passenger.PassengerType.CHILD)) }.flatten()
+        val disabledList = List(disabledQuantity) { listOf(Passenger(Passenger.PassengerType.DISABLED)) }.flatten()
+
+        val listOfAllPassengers : List<Passenger> = merge(adultList, childList, disabledList)
 
         if (countPassengers() > 0) {
             backstackData(allQuantity, passengersQuantityText())
             backstackData(data, args.passengerData!!)
+            backstackData(passengerList, listOfAllPassengers)
         }
     }
 
     private fun passengersQuantityText() = when (viewModel.returnTextType()) {
-            BackStackTextType.FIRST_CASE -> "${countPassengers()} ${getString(R.string.one_person)}"
-            BackStackTextType.SECOND_CASE -> "${countPassengers()} ${getString(R.string.two_person)}"
+        BackStackTextType.FIRST_CASE -> "${countPassengers()} ${getString(R.string.one_person)}"
+        BackStackTextType.SECOND_CASE -> "${countPassengers()} ${getString(R.string.two_person)}"
     }
 }
