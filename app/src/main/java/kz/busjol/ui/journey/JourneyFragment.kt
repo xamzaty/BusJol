@@ -91,7 +91,7 @@ class JourneyFragment :
                 adapter = tripAdapter
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
-                addItemDecoration(JourneytemDecoration())
+                addItemDecoration(JourneyItemDecoration())
             }
         }
     }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import kz.busjol.databinding.ItemPassengerFormBinding
 import kz.busjol.ui.passenger_quantity.Passenger
 
-class PassengerDataAdapter : ListAdapter<Passenger, PassengerDataViewHolder>(BookingComparator()) {
+class PassengerDataAdapter : ListAdapter<Passenger, PassengerDataViewHolder>(PassengerComparator()) {
 
     private lateinit var activity: FragmentActivity
 
@@ -29,7 +29,7 @@ class PassengerDataAdapter : ListAdapter<Passenger, PassengerDataViewHolder>(Boo
         activity = value
     }
 
-    class BookingComparator : DiffUtil.ItemCallback<Passenger>() {
+    class PassengerComparator : DiffUtil.ItemCallback<Passenger>() {
         override fun areItemsTheSame(oldItem: Passenger, newItem: Passenger) =
             oldItem.type == newItem.type
 

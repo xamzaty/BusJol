@@ -38,10 +38,10 @@ class CustomForm @JvmOverloads constructor(
             iinEt.enableIinField()
 
             lastnameEt.title.setText(R.string.last_name)
-            lastnameEt.getMainField().setHint(R.string.last_name)
+            lastnameEt.getMainField().setHint(R.string.last_name_hint)
 
             firstnameEt.title.setText(R.string.first_name)
-            firstnameEt.getMainField().setHint(R.string.first_name)
+            firstnameEt.getMainField().setHint(R.string.first_name_hint)
 
             datePicker.title.setText(R.string.birthday_date)
             datePicker.getMainField().setHint(R.string.birthday_date)

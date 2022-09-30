@@ -47,9 +47,7 @@
             android:layout_marginTop="@dimen/_9sdp"
             app:layout_constraintTop_toBottomOf="@id/passenger_number_text"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginEnd="@dimen/_12sdp">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/all_button"

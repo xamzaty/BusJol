@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentPassengerDataBinding
+import kz.busjol.ext.FragmentExt.navigate
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PassengerDataFragment :
@@ -43,6 +44,16 @@ class PassengerDataFragment :
         binding.apply {
             backButton.setOnClickListener {
                 findNavController().popBackStack()
+            }
+
+            tripDetailsButton.setOnClickListener {
+                val action = PassengerDataFragmentDirections.actionPassengerDataFragmentToTripDetailsDialog(args.journeyData)
+                findNavController().navigate(action)
+            }
+
+            continueButton.setOnClickListener {
+                val action = PassengerDataFragmentDirections.actionPassengerDataFragmentToBookingFragment(args.journeyData)
+                findNavController().navigate(action)
             }
         }
     }

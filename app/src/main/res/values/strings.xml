@@ -142,7 +142,7 @@
     <string name="trip_details">Детали рейса</string>
 
     <string name="title_booking">Бронирование</string>
-    <string name="booking_expires">Бронь истекает:</string>
+    <string name="booking_expires">Оплатите бронь в течение</string>
     <string name="with_bank_cards">Банковскими картами</string>
     <string name="proceed_to_checkout_button">Перейти к оплате</string>
     <string name="kaspi">Kaspi.kz</string>

@@ -53,7 +53,10 @@ class JourneyViewModel(
             arrivalTime = "asd",
             amount = 3000,
             numberOfPlaces = 20,
-            numberOfFreePlaces = 2
+            stopName = "Автобусная Станция",
+            numberOfFreePlaces = 2,
+            cityFrom = args.journeyData.fromCity?.name,
+            cityTo = args.journeyData.toCity?.name,
         ),
 
         Journey(
@@ -68,11 +71,14 @@ class JourneyViewModel(
                 transportId = 0,
                 code = "0"
             ),
-            departureTime = "asdasd",
+            departureTime = "asd",
             arrivalTime = "asd",
             amount = 3000,
             numberOfPlaces = 20,
-            numberOfFreePlaces = 2
+            stopName = "Автобусная Станция",
+            numberOfFreePlaces = 2,
+            cityFrom = args.journeyData.fromCity?.name,
+            cityTo = args.journeyData.toCity?.name,
         ),
     )
 

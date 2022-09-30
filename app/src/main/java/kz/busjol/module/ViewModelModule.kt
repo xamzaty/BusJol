@@ -1,6 +1,7 @@
 package kz.busjol.module
 
 import kz.busjol.MainViewModel
+import kz.busjol.ui.booking.BookingViewModel
 import kz.busjol.ui.bus_plan.BusPlanViewModel
 import kz.busjol.ui.change_language.ChangeLanguageViewModel
 import kz.busjol.ui.login_user.LoginUserViewModel
@@ -29,6 +30,7 @@ val viewModelModule = module {
         PassengerQuantityViewModel(args = args)
     }
     viewModel { BusPlanViewModel() }
+    viewModel { BookingViewModel() }
     viewModel { UserViewModel(userPreferences = get()) }
     viewModel { LoginUserViewModel(userPreferences = get()) }
     viewModel { TicketsViewModel(userPreferences = get()) }

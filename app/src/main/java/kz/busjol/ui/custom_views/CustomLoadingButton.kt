@@ -25,6 +25,10 @@ class CustomLoadingButton @JvmOverloads constructor(
         binding.title.setText(textId)
     }
 
+    fun setTitle(text: String) {
+        binding.title.text = text
+    }
+
     fun onSetClickListener(listener: () -> Unit) {
         binding.button.setOnClickListener {
             listener()
