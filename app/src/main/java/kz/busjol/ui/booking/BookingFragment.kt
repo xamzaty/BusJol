@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentBookingBinding
+import kz.busjol.ext.FragmentExt.navigate
 import kz.busjol.ui.passenger_data.PassengerDataAdapter
 import kz.busjol.ui.passenger_data.PassengerDataFragmentDirections
 import kz.busjol.utils.formatWithCurrency
@@ -16,11 +17,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBinding::inflate), BookingAdapter.OnItemClickListener {
 
+    private var isBankCardsChosen: Boolean = true
+
     private val viewModel: BookingViewModel by viewModel()
     private val adapter = BookingAdapter(this)
     private val args: BookingFragmentArgs by navArgs()
-
-    private var isBankCardsChosen: Boolean = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,10 +29,12 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBind
         initButtons()
         initTextFields()
         initRv()
+        adapter.isBankCardChosen(isBankCardsChosen)
     }
 
     override fun onPaymentButtonClicked(payment: Payment) {
-
+        val action = BookingFragmentDirections.actionBookingFragmentToPaymentOrderFragment(payment, args.journeyData)
+        findNavController().navigate(action)
     }
 
     private fun initButtons() {
@@ -59,8 +62,8 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBind
 
     private fun initRv() {
         val list = listOf(
-            Payment(type = Payment.PaymentType.BANK_CARDS, url = "bank_cards", isChosen = true),
-            Payment(type = Payment.PaymentType.KASPI, url = "kaspi_cards")
+            Payment(type = Payment.PaymentType.BANK_CARDS, url = "bank_cards", isChosen = isBankCardsChosen),
+            Payment(type = Payment.PaymentType.KASPI, url = "kaspi_cards", isChosen = !isBankCardsChosen)
         )
 
         adapter.submitList(list)

@@ -136,7 +136,7 @@
     <string name="phone_number">Номер телефона</string>
     <string name="phone_number_hint">Введите номер телефона</string>
     <string name="rules_title">Правила тарифа и оферта</string>
-    <string name="read_the_rules">Ознакомьтесь с <a href="https://google.com">правилами обмена и\nвозврата</a> и <a href="https://google.com">публичной оферты</a></string>
+    <string name="read_the_rules">Ознакомьтесь с <a href="https://google.com">правилами обмена и возврата</a> и\n<a href="https://google.com">публичной оферты</a></string>
     <string name="accept_the_rules">Я принимаю правила тарифа и оферту</string>
 
     <string name="trip_details">Детали рейса</string>

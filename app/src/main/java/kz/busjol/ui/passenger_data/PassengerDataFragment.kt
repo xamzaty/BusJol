@@ -22,6 +22,7 @@ class PassengerDataFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initTextViews()
+        setupTextFields()
         setupButtons()
         initData()
         initRv()
@@ -37,6 +38,13 @@ class PassengerDataFragment :
             tripNumber.text = getString(R.string.trip_number, "1")
             tripDestination.text = "${args.journeyData.fromCity?.name} - ${args.journeyData.toCity?.name}"
             tripDate.text = args.journeyData.journey?.departureTime
+        }
+    }
+
+    private fun setupTextFields() {
+        binding.apply {
+            etEmail.enableMailField()
+            etPhone.enablePhoneField()
         }
     }
 
@@ -63,7 +71,7 @@ class PassengerDataFragment :
     }
 
     private fun initRv() {
-        binding.passengersList.apply {
+        binding.rv.apply {
             adapter = listAdapter
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)

@@ -7,17 +7,18 @@ import kz.busjol.databinding.ItemPaymentBinding
 
 class BookingViewHolder(
     private val binding: ItemPaymentBinding,
-    private val listener: BookingAdapter.OnItemClickListener
+    private val listener: BookingAdapter.OnItemClickListener,
+    private var isBankCardChosen: Boolean
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(payment: Payment) {
         binding.apply {
-            if (!payment.isChosen) {
+            if (isBankCardChosen) {
                 button.visibility = View.GONE
-                selectorImage.setImageResource(R.drawable.ic_selector_selected)
+                selectorImage.setImageResource(R.drawable.ic_selector_unselected)
             } else {
                 button.visibility = View.VISIBLE
-                selectorImage.setImageResource(R.drawable.radio_button_unselected)
+                selectorImage.setImageResource(R.drawable.ic_selector_selected)
             }
 
             if (payment.type == Payment.PaymentType.BANK_CARDS) {
@@ -26,10 +27,6 @@ class BookingViewHolder(
             } else {
                 title.text = itemView.context.getString(R.string.kaspi)
                 image.setImageResource(R.drawable.kaspi_logo)
-            }
-
-            selectorImage.setOnClickListener {
-                payment.isChosen = !payment.isChosen
             }
 
             button.apply {

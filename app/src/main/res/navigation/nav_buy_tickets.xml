@@ -127,9 +127,11 @@
             app:popExitAnim="@anim/slide_out_right"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"/>
+
         <action
             android:id="@+id/action_bookingFragment_to_tripDetailsDialog"
             app:destination="@id/tripDetailsDialog" />
+
     </fragment>
 
     <fragment
@@ -137,6 +139,10 @@
         android:name="kz.busjol.ui.payment_order.PaymentOrderFragment"
         android:label="PaymentOrderFragment"
         tools:layout="@layout/fragment_payment_order">
+
+        <argument
+            android:name="paymentType"
+            app:argType="kz.busjol.ui.booking.Payment"/>
 
         <argument
             android:name="journeyData"
@@ -155,7 +161,13 @@
         android:id="@+id/paymentOrderResultFragment"
         android:name="kz.busjol.ui.payment_order_result.PaymentOrderResultFragment"
         android:label="PaymentOrderResultFragment"
-        tools:layout="@layout/fragment_payment_order_result"/>
+        tools:layout="@layout/fragment_payment_order_result">
+
+        <argument
+            android:name="journeyData"
+            app:argType="kz.busjol.domain.model.JourneyData"/>
+
+    </fragment>
 
     <dialog
         android:id="@+id/tripDetailsDialog"
