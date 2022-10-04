@@ -45,7 +45,7 @@ class CustomForm @JvmOverloads constructor(
 
             datePicker.title.setText(R.string.birthday_date)
             datePicker.getMainField().setHint(R.string.birthday_date)
-            datePicker.enableCalendarView(activity, isLimitedDate = false)
+            datePicker.enableDateField()
 
             if (isChildType) {
                 datePicker.visibility = View.VISIBLE
@@ -58,11 +58,11 @@ class CustomForm @JvmOverloads constructor(
         }
     }
 
-    fun getIinText() = binding.iinEt.getText()
+    fun iinText() = binding.iinEt.getText()
 
-    fun getLastNameText() = binding.lastnameEt.getText()
+    fun lastNameText() = binding.lastnameEt.getText()
 
-    fun getFirstNameText() = binding.firstnameEt.getText()
+    fun firstNameText() = binding.firstnameEt.getText()
 
-    fun getBirthdateText() = binding.datePicker.getText()
+    fun birthdateText() = binding.datePicker.getText()
 }

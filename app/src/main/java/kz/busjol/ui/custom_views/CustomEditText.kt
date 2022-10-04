@@ -166,6 +166,16 @@ class CustomEditText @JvmOverloads constructor(
         getMainField().inputType = InputType.TYPE_CLASS_PHONE
     }
 
+    fun enableDateField() {
+        val slots = UnderscoreDigitSlotsParser().parseSlots("__.__.____")
+        val formatWatcher = MaskFormatWatcher(MaskImpl.createTerminated(slots))
+        formatWatcher.installOn(getMainField())
+
+        setTitle(R.string.birthday_date)
+        setHint(R.string.birthday_date_hint)
+        getMainField().inputType = InputType.TYPE_DATETIME_VARIATION_TIME
+    }
+
     fun enableIinField() {
         val slots = UnderscoreDigitSlotsParser().parseSlots("___ ___ ___ ___")
         val formatWatcher = MaskFormatWatcher(MaskImpl.createTerminated(slots))

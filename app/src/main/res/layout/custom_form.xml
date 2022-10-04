@@ -51,7 +51,7 @@
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/all_button"
-                android:layout_width="@dimen/_135sdp"
+                android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:text="@string/men"
                 android:textColor="@drawable/radio_button_text_color"
@@ -62,7 +62,7 @@
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/seat_place_button"
-                android:layout_width="@dimen/_135sdp"
+                android:layout_width="@dimen/_130sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:text="@string/women"
                 android:textColor="@drawable/radio_button_text_color"
@@ -107,7 +107,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <kz.busjol.ui.custom_views.CustomClickableView
+        <kz.busjol.ui.custom_views.CustomEditText
             android:id="@+id/date_picker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

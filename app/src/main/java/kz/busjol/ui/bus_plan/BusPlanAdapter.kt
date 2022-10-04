@@ -13,11 +13,6 @@ class BusPlanAdapter(
     private val listener: OnItemClickListener
 ) : ListAdapter<BusPlan, BusPlanViewHolder>(SeatComparator()) {
 
-    companion object {
-        const val VIEW_TYPE_WHEEL = R.layout.item_wheel
-        const val VIEW_TYPE_SEATS = R.layout.item_seat
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BusPlanViewHolder {
         val binding = ItemSeatBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return BusPlanViewHolder(binding, listener)
