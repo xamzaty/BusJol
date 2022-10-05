@@ -25,7 +25,7 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBind
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setupObservers()
         initButtons()
         initTextFields()
         initRv()
@@ -35,6 +35,14 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBind
     override fun onPaymentButtonClicked(payment: Payment) {
         val action = BookingFragmentDirections.actionBookingFragmentToPaymentOrderFragment(payment, args.journeyData)
         findNavController().navigate(action)
+    }
+
+    private fun setupObservers() {
+        viewModel.apply {
+            timeExp.observe(viewLifecycleOwner) {
+                binding.bookingExpiresTimer.text = it
+            }
+        }
     }
 
     private fun initButtons() {

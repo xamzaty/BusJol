@@ -13,12 +13,13 @@ class BookingViewHolder(
 
     fun bind(payment: Payment) {
         binding.apply {
-            if (isBankCardChosen) {
-                button.visibility = View.GONE
-                selectorImage.setImageResource(R.drawable.ic_selector_unselected)
-            } else {
-                button.visibility = View.VISIBLE
-                selectorImage.setImageResource(R.drawable.ic_selector_selected)
+
+            selector.setOnCheckedChangeListener { compoundButton, _ ->
+                if (!compoundButton.isChecked) {
+                    button.visibility = View.GONE
+                } else {
+                    button.visibility = View.VISIBLE
+                }
             }
 
             if (payment.type == Payment.PaymentType.BANK_CARDS) {
@@ -30,6 +31,7 @@ class BookingViewHolder(
             }
 
             button.apply {
+                visibility = View.GONE
                 setTitle(R.string.proceed_to_checkout_button)
                 onSetClickListener {
                     listener.onPaymentButtonClicked(payment)

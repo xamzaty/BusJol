@@ -21,18 +21,25 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeViewModel()
         setupButtons()
         setupObservers()
         setupRecyclerView()
     }
 
-    override fun onSeatClicked(seatList: List<BusPlan>) {
-        seatList.forEach {
-            checkedSeat = it
-            if (seatList.lastIndex == seatList.size - 1) {
-                binding.selectedSeats.text = it.place.toString()
-            } else {
-                binding.selectedSeats.text = "${it.place}/"
+    override fun onSeatClicked(seat: BusPlan) {
+        viewModel.onAction(BusPlanAction.AddItemsToBusPlanList(seat.place))
+//        list.forEach {
+
+//        }
+    }
+
+    private fun observeViewModel() {
+        viewModel.apply {
+            selectedSeats.observe(viewLifecycleOwner) {
+                it.forEach { seat ->
+                    binding.selectedSeats.append("$seat/")
+                }
             }
         }
     }
