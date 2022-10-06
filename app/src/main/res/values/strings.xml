@@ -208,4 +208,8 @@
     <string name="i_don_not_like_it">Не особо</string>
 
     <string name="qr_camera_scan">Наведите камеру на\nQR-код</string>
+
+    <string name="alert_not_fields_is_filled">Заполните все поля!</string>
+    <string name="alert_contact_fields_is_empty">Заполните поля контакта!</string>
+    <string name="alert_check_agreement">Необходимо принять соглашение!</string>
 </resources>

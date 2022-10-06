@@ -19,6 +19,7 @@ import androidx.navigation.ui.setupWithNavController
 import kz.busjol.databinding.ActivityMainBinding
 import kz.busjol.ext.ActivityExt.statusBarColor
 import kz.busjol.preferences.UserPreferences
+import kz.busjol.utils.IOnBackPressed
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

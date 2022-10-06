@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/details"
                 android:textColor="@color/blue_text"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_11sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/route_cities"
                 app:layout_constraintEnd_toEndOf="@+id/booking_details_layout"

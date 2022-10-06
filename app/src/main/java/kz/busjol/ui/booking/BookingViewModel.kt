@@ -10,14 +10,25 @@ import java.util.concurrent.TimeUnit
 
 class BookingViewModel : BaseViewModel() {
 
+    private val _paymentList = MutableLiveData<List<Payment>>()
     private val _timeExp = MutableLiveData<String>()
     private val _isTimeExpired = MutableLiveData(false)
 
+    val paymentList: LiveData<List<Payment>> = _paymentList
     val timeExp: LiveData<String> = _timeExp
     val isTimeExpired: LiveData<Boolean> = _isTimeExpired
 
     init {
+        initPaymentList()
         countDown()
+    }
+
+    private fun initPaymentList() {
+        val list = listOf(
+            Payment(type = Payment.PaymentType.BANK_CARDS, url = "bank_cards"),
+            Payment(type = Payment.PaymentType.KASPI, url = "kaspi_cards")
+        )
+        _paymentList.value = list
     }
 
     private fun countDown() {
@@ -37,7 +48,7 @@ class BookingViewModel : BaseViewModel() {
             }
 
             override fun onFinish() {
-                println("Time up")
+                _isTimeExpired.value = true
             }
         }
         countDownTimer.start()

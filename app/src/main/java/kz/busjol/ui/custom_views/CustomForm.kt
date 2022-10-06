@@ -2,10 +2,13 @@ package kz.busjol.ui.custom_views
 
 import android.content.Context
 import android.provider.Settings.Global.getString
+import android.text.Editable
 import android.text.InputType
+import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import kotlinx.android.synthetic.main.custom_edit_text.view.*
@@ -24,6 +27,49 @@ class CustomForm @JvmOverloads constructor(
 
     init {
         _binding = CustomFormBinding.inflate(LayoutInflater.from(context), this, true)
+    }
+
+    fun isAllFieldsFilled(): Boolean {
+        var iinTextIsFilled = false
+        var lastNameIsFilled = false
+        var firstNameIsFilled = false
+        var dateIsFilled = false
+
+        var isAllFieldsFilled = true
+
+        binding.iinEt.getMainField().initTextWatcher { text ->
+            run {
+                iinTextIsFilled = text.isNotEmpty()
+            }
+        }
+
+        binding.lastnameEt.getMainField().initTextWatcher { text ->
+            run {
+                lastNameIsFilled = text.isNotEmpty()
+            }
+        }
+
+        binding.firstnameEt.getMainField().initTextWatcher { text ->
+            run {
+                firstNameIsFilled = text.isNotEmpty()
+            }
+        }
+
+        binding.datePicker.getMainField().initTextWatcher { text ->
+            run {
+                dateIsFilled = text.isNotEmpty()
+            }
+        }
+
+        return isAllFieldsFilled
+    }
+
+    private fun AppCompatEditText.initTextWatcher(body: (text: String) -> Unit) {
+        this.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { body(p0!!.toString()) }
+            override fun afterTextChanged(p0: Editable?) {}
+        })
     }
 
     fun setupFields(

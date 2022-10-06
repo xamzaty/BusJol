@@ -6,9 +6,9 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Payment(
     val type: PaymentType,
-    val url: String,
-    var isChosen: Boolean = false
+    val url: String
 ) : Parcelable {
+
     enum class PaymentType {
         BANK_CARDS, KASPI
     }

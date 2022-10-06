@@ -2,22 +2,31 @@ package kz.busjol.ui.passenger_data
 
 import android.os.Bundle
 import android.view.View
-import android.view.View.inflate
+import androidx.core.view.isNotEmpty
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentPassengerDataBinding
-import kz.busjol.ext.FragmentExt.navigate
+import kz.busjol.ext.EditTextExt.initTextWatcher
+import kz.busjol.ext.FragmentExt.showIrrevocableAlertDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class PassengerDataFragment :
-    BaseFragment<FragmentPassengerDataBinding>(FragmentPassengerDataBinding::inflate) {
+    BaseFragment<FragmentPassengerDataBinding>(FragmentPassengerDataBinding::inflate),
+    PassengerDataAdapter.CheckFields {
 
-    private val viewModel: PassengerDataViewModel by viewModel()
-    private val listAdapter = PassengerDataAdapter()
+    private val viewModel: PassengerDataViewModel by viewModel {
+        parametersOf(args)
+    }
+    private val listAdapter = PassengerDataAdapter(this)
     private val args: PassengerDataFragmentArgs by navArgs()
+
+    private var isAllFieldsFilled = false
+    private var isAgreementChecked = false
+    private var isContactsLayoutAvailable = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,11 +35,11 @@ class PassengerDataFragment :
         setupButtons()
         initData()
         initRv()
-        setActivityToAdapter()
+        listAdapter.getActivity(activity!!)
     }
 
-    private fun setActivityToAdapter() {
-        listAdapter.getActivity(activity!!)
+    override fun checkIfAllFieldsFilled(isAllFilled: Boolean) {
+        isAllFieldsFilled = isAllFilled
     }
 
     private fun initTextViews() {
@@ -59,15 +68,53 @@ class PassengerDataFragment :
                 findNavController().navigate(action)
             }
 
-            continueButton.setOnClickListener {
-                val action = PassengerDataFragmentDirections.actionPassengerDataFragmentToBookingFragment(args.journeyData)
-                findNavController().navigate(action)
+            binding.continueButton.setOnClickListener {
+                if (!isAllFieldsFilled) showIrrevocableAlertDialog(title = getString(R.string.alert_not_fields_is_filled))
+                else if (!isAgreementChecked) showIrrevocableAlertDialog(title = getString(R.string.alert_check_agreement))
+                else navigateToTheNextScreen()
+            }
+
+            setupCheckBox()
+        }
+    }
+
+    private fun isContactFieldsEmpty(): Boolean {
+        binding.apply {
+            var isEmailFilled = false
+            var isPhoneFilled = false
+
+            etEmail.getMainField().initTextWatcher {
+                isEmailFilled = it.trim().isNotBlank()
+            }
+
+            etPhone.getMainField().initTextWatcher {
+                isPhoneFilled = it.trim().isNotBlank()
+            }
+
+            return isEmailFilled && isPhoneFilled
+        }
+    }
+
+    private fun setupCheckBox() {
+        binding.apply {
+            checkbox.setOnCheckedChangeListener { _, isChecked ->
+                isAgreementChecked = isChecked
+                println(isChecked)
             }
         }
     }
 
+    private fun navigateToTheNextScreen() {
+        val action = PassengerDataFragmentDirections.actionPassengerDataFragmentToBookingFragment(args.journeyData)
+        findNavController().navigate(action)
+    }
+
     private fun initData() {
-        listAdapter.submitList(args.journeyData.passengerListData)
+        viewModel.apply {
+            passengerList.observe(viewLifecycleOwner) {
+                listAdapter.submitList(it)
+            }
+        }
     }
 
     private fun initRv() {

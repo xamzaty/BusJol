@@ -10,11 +10,9 @@ class BookingAdapter(
     private val listener: OnItemClickListener
 ) : ListAdapter<Payment, BookingViewHolder>(BookingComparator()) {
 
-    private var isBankCardChosen = false
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookingViewHolder {
         val binding = ItemPaymentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return BookingViewHolder(binding, listener, isBankCardChosen)
+        return BookingViewHolder(binding, listener)
     }
 
     override fun onBindViewHolder(holder: BookingViewHolder, position: Int) {
@@ -31,10 +29,6 @@ class BookingAdapter(
 
         override fun areContentsTheSame(oldItem: Payment, newItem: Payment) =
             oldItem.type == newItem.type
-    }
-
-    fun isBankCardChosen(value: Boolean) {
-        isBankCardChosen = value
     }
 
     interface OnItemClickListener {

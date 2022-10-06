@@ -12,6 +12,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -25,6 +26,7 @@ import com.google.android.material.snackbar.Snackbar
 import kz.busjol.BuildConfig
 import kz.busjol.R
 import kz.busjol.ext.FragmentExt.navigate
+import kz.busjol.ext.FragmentExt.showAlertDialog
 import java.lang.Exception
 
 object FragmentExt {
@@ -76,7 +78,28 @@ object FragmentExt {
             .setMessage(message)
             .setCancelable(!modal)
             .setPositiveButton(getString(R.string.ok), clickListener)
+            .setNegativeButton("Cancel", null)
             .show()
+    }
+
+    fun Fragment.showIrrevocableAlertDialog(
+        title: String? = null, message: String? = null,
+        modal: Boolean = false,
+        clickListener: DialogInterface.OnClickListener? = null
+    ) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(title)
+            .setMessage(message)
+            .setCancelable(false)
+            .setPositiveButton(getString(R.string.ok), clickListener)
+            .show()
+    }
+
+    fun Fragment.showOnBackKeyAlert(clickListener: () -> Unit) {
+        showAlertDialog(title = "Exit", message = "Are you sure you want to exit?",
+            modal = false, clickListener = { _, _ ->
+                clickListener()
+            })
     }
 
     fun Fragment.setVisibility(setVisible: Boolean, views: Array<View>) {
@@ -93,6 +116,16 @@ object FragmentExt {
 
     fun Fragment.navigate(resId: Int) {
         findNavController().navigate(resId)
+    }
+
+    fun Fragment.onBackKeyListener(clickListener: () -> Unit) {
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    clickListener()
+                }
+            })
     }
 
     fun Fragment.observeNavigationResult(

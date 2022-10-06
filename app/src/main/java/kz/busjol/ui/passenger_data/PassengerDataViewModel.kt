@@ -6,8 +6,10 @@ import kz.busjol.base.BaseViewModel
 import kz.busjol.data.network.model.UserForm
 import kz.busjol.ui.passenger_quantity.Passenger
 
-class PassengerDataViewModel : BaseViewModel() {
+class PassengerDataViewModel(
+    private val args: PassengerDataFragmentArgs
+) : BaseViewModel() {
 
-    private val _passengerList = MutableLiveData<List<Passenger>>()
+    private val _passengerList = MutableLiveData<List<Passenger>>(args.journeyData.passengerListData)
     val passengerList: LiveData<List<Passenger>> = _passengerList
 }

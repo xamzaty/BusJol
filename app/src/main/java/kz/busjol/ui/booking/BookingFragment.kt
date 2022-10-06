@@ -1,23 +1,23 @@
 package kz.busjol.ui.booking
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import kz.busjol.R
 import kz.busjol.base.BaseFragment
 import kz.busjol.databinding.FragmentBookingBinding
-import kz.busjol.ext.FragmentExt.navigate
-import kz.busjol.ui.passenger_data.PassengerDataAdapter
-import kz.busjol.ui.passenger_data.PassengerDataFragmentDirections
+import kz.busjol.ext.FragmentExt.onBackKeyListener
+import kz.busjol.ext.FragmentExt.showIrrevocableAlertDialog
+import kz.busjol.ext.FragmentExt.showOnBackKeyAlert
 import kz.busjol.utils.formatWithCurrency
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBinding::inflate), BookingAdapter.OnItemClickListener {
-
-    private var isBankCardsChosen: Boolean = true
+class BookingFragment :
+    BaseFragment<FragmentBookingBinding>(FragmentBookingBinding::inflate),
+    BookingAdapter.OnItemClickListener {
 
     private val viewModel: BookingViewModel by viewModel()
     private val adapter = BookingAdapter(this)
@@ -29,7 +29,6 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBind
         initButtons()
         initTextFields()
         initRv()
-        adapter.isBankCardChosen(isBankCardsChosen)
     }
 
     override fun onPaymentButtonClicked(payment: Payment) {
@@ -39,16 +38,41 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBind
 
     private fun setupObservers() {
         viewModel.apply {
+
+            paymentList.observe(viewLifecycleOwner) {
+                adapter.submitList(it)
+            }
+
             timeExp.observe(viewLifecycleOwner) {
                 binding.bookingExpiresTimer.text = it
+            }
+
+            isTimeExpired.observe(viewLifecycleOwner) {
+                if (it) showDialog()
             }
         }
     }
 
+    private fun showDialog() {
+        showIrrevocableAlertDialog(title = "Time is up!", message = "Exit to continue",
+            clickListener = DialogInterface.OnClickListener { _, _ ->
+                findNavController().navigate(R.id.action_bookingFragment_to_navigation_search)
+            })
+    }
+
     private fun initButtons() {
         binding.apply {
+
+            onBackKeyListener {
+                showOnBackKeyAlert {
+                    findNavController().navigate(R.id.action_bookingFragment_to_navigation_search)
+                }
+            }
+
             backButton.setOnClickListener {
-                findNavController().popBackStack()
+                showOnBackKeyAlert {
+                    findNavController().navigate(R.id.action_bookingFragment_to_navigation_search)
+                }
             }
 
             buttonBookingDetails.setOnClickListener {
@@ -69,12 +93,6 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBind
     }
 
     private fun initRv() {
-        val list = listOf(
-            Payment(type = Payment.PaymentType.BANK_CARDS, url = "bank_cards", isChosen = isBankCardsChosen),
-            Payment(type = Payment.PaymentType.KASPI, url = "kaspi_cards", isChosen = !isBankCardsChosen)
-        )
-
-        adapter.submitList(list)
         binding.rv.adapter = adapter
         binding.rv.apply {
             layoutManager = LinearLayoutManager(context)

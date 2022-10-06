@@ -10,8 +10,10 @@ import kz.busjol.ui.city_picker.CityPickerViewModel
 import kz.busjol.ui.driver_scanner.DriverScannerViewModel
 import kz.busjol.ui.journey.JourneyFragmentArgs
 import kz.busjol.ui.journey.JourneyViewModel
+import kz.busjol.ui.passenger_data.PassengerDataFragmentArgs
 import kz.busjol.ui.passenger_quantity.PassengerQuantityDialogArgs
 import kz.busjol.ui.passenger_quantity.PassengerQuantityViewModel
+import kz.busjol.ui.payment_order_result.PaymentOrderResultViewModel
 import kz.busjol.ui.search_journey.SearchJourneyViewModel
 import kz.busjol.ui.tickets.TicketsViewModel
 import kz.busjol.ui.user.UserViewModel
@@ -30,12 +32,15 @@ val viewModelModule = module {
         PassengerQuantityViewModel(args = args)
     }
     viewModel { BusPlanViewModel() }
+    viewModel { (args: PassengerDataFragmentArgs) ->
+        PassengerDataViewModel(args)
+    }
     viewModel { BookingViewModel() }
+    viewModel { PaymentOrderResultViewModel() }
     viewModel { UserViewModel(userPreferences = get()) }
     viewModel { LoginUserViewModel(userPreferences = get()) }
     viewModel { TicketsViewModel(userPreferences = get()) }
     viewModel { ChangeLanguageViewModel(userPreferences = get()) }
-    viewModel { PassengerDataViewModel() }
     viewModel { DriverScannerViewModel() }
     viewModel { UserDataViewModel() }
 }

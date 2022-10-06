@@ -7,8 +7,7 @@ import kz.busjol.databinding.ItemPaymentBinding
 
 class BookingViewHolder(
     private val binding: ItemPaymentBinding,
-    private val listener: BookingAdapter.OnItemClickListener,
-    private var isBankCardChosen: Boolean
+    private val listener: BookingAdapter.OnItemClickListener
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(payment: Payment) {

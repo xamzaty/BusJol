@@ -8,13 +8,15 @@ import androidx.recyclerview.widget.DiffUtil
 import kz.busjol.databinding.ItemPassengerFormBinding
 import kz.busjol.ui.passenger_quantity.Passenger
 
-class PassengerDataAdapter : ListAdapter<Passenger, PassengerDataViewHolder>(PassengerComparator()) {
+class PassengerDataAdapter(
+    private val listener: CheckFields
+) : ListAdapter<Passenger, PassengerDataViewHolder>(PassengerComparator()) {
 
     private lateinit var activity: FragmentActivity
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PassengerDataViewHolder {
         val binding = ItemPassengerFormBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return PassengerDataViewHolder(binding, activity)
+        return PassengerDataViewHolder(binding, activity, listener)
     }
 
     override fun onBindViewHolder(holder: PassengerDataViewHolder, position: Int) {
@@ -35,5 +37,9 @@ class PassengerDataAdapter : ListAdapter<Passenger, PassengerDataViewHolder>(Pas
 
         override fun areContentsTheSame(oldItem: Passenger, newItem: Passenger) =
             oldItem.type == newItem.type
+    }
+
+    interface CheckFields {
+        fun checkIfAllFieldsFilled(isAllFilled: Boolean)
     }
 }

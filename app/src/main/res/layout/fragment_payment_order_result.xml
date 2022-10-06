@@ -37,7 +37,7 @@
                 android:id="@+id/title_payment_order_result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/title_payment_order_result"
+                tools:text="@string/title_payment_order_result"
                 app:layout_constraintStart_toEndOf="@id/back_button"
                 app:layout_constraintTop_toTopOf="@id/back_button"
                 app:layout_constraintBottom_toBottomOf="@id/back_button"
@@ -51,8 +51,8 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ticket_layout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_425sdp"
-            android:layout_marginHorizontal="@dimen/_26sdp"
+            android:layout_height="@dimen/_360sdp"
+            android:layout_marginHorizontal="@dimen/_35sdp"
             app:srcCompat="@drawable/ic_ticket_layout"
             android:scaleType="fitXY"
             android:layout_marginTop="@dimen/_25sdp"
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_25sdp"
-            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:text="@string/title_client_data"
             android:textColor="@color/bolder_text"
             android:textSize="@dimen/_10sdp"
@@ -119,7 +119,7 @@
             android:id="@+id/view4"
             android:layout_width="@dimen/_13sdp"
             android:layout_height="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/ic_circle_ticket"
             app:layout_constraintStart_toStartOf="@+id/appCompatTextView6"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView6" />
@@ -127,7 +127,7 @@
         <View
             android:id="@+id/view6"
             android:layout_width="1dp"
-            android:layout_height="@dimen/_65sdp"
+            android:layout_height="@dimen/_50sdp"
             android:background="@drawable/payment_order_result_line"
             app:layout_constraintEnd_toEndOf="@+id/view4"
             app:layout_constraintStart_toStartOf="@+id/view4"
@@ -160,8 +160,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/bolder_text"
-            android:textSize="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_6sdp"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_4sdp"
             app:layout_constraintStart_toStartOf="@+id/ticket_time_from"
             app:layout_constraintTop_toBottomOf="@+id/ticket_time_from"
             tools:text="Алматы"/>
@@ -170,7 +170,7 @@
             android:id="@+id/ticket_station_from"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_4sdp"
             android:textColor="@color/bolder_text"
             android:textSize="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="@+id/ticket_city_from"
@@ -194,8 +194,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/bolder_text"
-            android:textSize="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_6sdp"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_4sdp"
             app:layout_constraintStart_toStartOf="@+id/ticket_time_to"
             app:layout_constraintTop_toBottomOf="@+id/ticket_time_to"
             tools:text="Караганда"/>
@@ -204,21 +204,25 @@
             android:id="@+id/ticket_station_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_4sdp"
             android:textColor="@color/bolder_text"
             android:textSize="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="@+id/ticket_city_to"
             app:layout_constraintTop_toBottomOf="@+id/ticket_city_to"
             tools:text="Автовокзал Караганда" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/qr_image_view"
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_130sdp"
-            android:layout_marginBottom="@dimen/_33sdp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@+id/ticket_station_to"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="@id/ticket_layout"
+            app:layout_constraintEnd_toEndOf="@id/ticket_layout"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
