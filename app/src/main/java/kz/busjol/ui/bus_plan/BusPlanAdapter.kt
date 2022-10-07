@@ -35,6 +35,7 @@ class BusPlanAdapter(
     }
 
     interface OnItemClickListener {
-        fun onSeatClicked(seat: BusPlan)
+        fun addSeat(seat: BusPlan)
+        fun removeSeat(seat: BusPlan)
     }
 }

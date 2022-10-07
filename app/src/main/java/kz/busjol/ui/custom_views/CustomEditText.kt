@@ -7,6 +7,7 @@ import android.text.InputType
 import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.DrawableRes
@@ -111,7 +112,8 @@ class CustomEditText @JvmOverloads constructor(
     }
 
     fun setText(value: String?) {
-        binding.editText.text = Editable.Factory.getInstance().newEditable(value ?: "")
+        binding.editText.setText(value)
+        Log.d("TEXT", "setText: $value, title: ${binding.title.text.toString()}")
     }
 
     fun getText() = binding.editText.text.toString()

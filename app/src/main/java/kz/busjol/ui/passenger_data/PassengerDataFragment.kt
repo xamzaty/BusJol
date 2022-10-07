@@ -69,6 +69,10 @@ class PassengerDataFragment :
             }
 
             binding.continueButton.setOnClickListener {
+                val a = binding.rv.findViewHolderForAdapterPosition(0)
+                if (a is PassengerDataViewHolder) {
+                    a.v()
+                }
                 if (!isAllFieldsFilled) showIrrevocableAlertDialog(title = getString(R.string.alert_not_fields_is_filled))
                 else if (!isAgreementChecked) showIrrevocableAlertDialog(title = getString(R.string.alert_check_agreement))
                 else navigateToTheNextScreen()

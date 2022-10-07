@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
@@ -30,38 +31,21 @@ class CustomForm @JvmOverloads constructor(
     }
 
     fun isAllFieldsFilled(): Boolean {
+        Log.d("asd", "isAllFieldsFilled: ")
         var iinTextIsFilled = false
         var lastNameIsFilled = false
         var firstNameIsFilled = false
         var dateIsFilled = false
 
-        var isAllFieldsFilled = true
-
-        binding.iinEt.getMainField().initTextWatcher { text ->
-            run {
-                iinTextIsFilled = text.isNotEmpty()
-            }
+        binding.apply {
+            iinTextIsFilled = iinEt.getText().isNotEmpty()
+            lastNameIsFilled = lastnameEt.getText().isNotEmpty()
+            firstNameIsFilled = firstnameEt.getText().isNotEmpty()
+            dateIsFilled = datePicker.getText().isNotEmpty()
         }
 
-        binding.lastnameEt.getMainField().initTextWatcher { text ->
-            run {
-                lastNameIsFilled = text.isNotEmpty()
-            }
-        }
-
-        binding.firstnameEt.getMainField().initTextWatcher { text ->
-            run {
-                firstNameIsFilled = text.isNotEmpty()
-            }
-        }
-
-        binding.datePicker.getMainField().initTextWatcher { text ->
-            run {
-                dateIsFilled = text.isNotEmpty()
-            }
-        }
-
-        return isAllFieldsFilled
+        println(iinTextIsFilled && lastNameIsFilled && firstNameIsFilled)
+        return iinTextIsFilled && lastNameIsFilled && firstNameIsFilled
     }
 
     private fun AppCompatEditText.initTextWatcher(body: (text: String) -> Unit) {

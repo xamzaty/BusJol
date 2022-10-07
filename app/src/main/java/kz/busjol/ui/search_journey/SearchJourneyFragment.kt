@@ -32,6 +32,9 @@ class SearchJourneyFragment :
     }
 
     private fun initButtons() {
+        println("layoutId1: ${binding.dateLayout.id}")
+        println("layoutId2: ${binding.passengerNumberLayout.id}")
+
         binding.apply {
             dateLayout.apply {
                 setTitle(R.string.date)

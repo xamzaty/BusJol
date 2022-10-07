@@ -19,6 +19,9 @@ class PassengerDataAdapter(
         return PassengerDataViewHolder(binding, activity, listener)
     }
 
+    fun validate() {
+    }
+
     override fun onBindViewHolder(holder: PassengerDataViewHolder, position: Int) {
         val currentItem = getItem(position)
 

@@ -7,12 +7,15 @@ import kotlinx.coroutines.launch
 import kz.busjol.base.BaseViewModel
 import kz.busjol.data.network.model.BusPlan
 
-class BusPlanViewModel : BaseViewModel() {
-    val seatList = MutableLiveData<List<BusPlan>>()
-    val listBus = arrayListOf<BusPlan>()
+class BusPlanViewModel(
+    private val args: BusPlanFragmentArgs
+) : BaseViewModel() {
 
-    val _selectedSeats = MutableLiveData<List<Int>>()
-    val selectedSeats: LiveData<List<Int>> = _selectedSeats
+    private val listBus = arrayListOf<BusPlan>()
+    val seatList = MutableLiveData<List<BusPlan>>()
+
+    private val _selectedSeats = MutableLiveData<MutableSet<Int>>()
+    val selectedSeats: LiveData<MutableSet<Int>> = _selectedSeats
 
     init {
         postValue()
@@ -45,14 +48,27 @@ class BusPlanViewModel : BaseViewModel() {
     }
 
     private fun addItemsToBusPlanList(item: Int) {
-        val arrayList = arrayListOf<Int>()
-        arrayList.addAll(listOf(item))
-        _selectedSeats.value = arrayList
+        val set = _selectedSeats.value ?: mutableSetOf()
+        set.add(item)
+        _selectedSeats.value = set
+    }
+
+    private fun removeItemsFromBusPlanList(item: Int) {
+        val set = _selectedSeats.value ?: mutableSetOf()
+        val iterator = _selectedSeats.value?.iterator()
+
+        while (iterator?.hasNext() == true) {
+            if (iterator.next() == item) {
+                iterator.remove()
+            }
+        }
+        _selectedSeats.value = set
     }
 
     fun onAction(action: BusPlanAction) {
         when (action) {
             is BusPlanAction.AddItemsToBusPlanList -> addItemsToBusPlanList(action.item)
+            is BusPlanAction.RemoveItemsFromBusPlanList -> removeItemsFromBusPlanList(action.item)
         }
     }
 }

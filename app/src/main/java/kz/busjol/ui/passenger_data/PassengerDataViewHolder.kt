@@ -22,4 +22,8 @@ class PassengerDataViewHolder(
             }
         }
     }
+
+    fun v() {
+        listener.checkIfAllFieldsFilled(binding.form.isAllFieldsFilled())
+    }
 }

@@ -20,9 +20,10 @@ class BusPlanViewHolder(
 
         binding.seatCb.setOnCheckedChangeListener { compoundButton, _ ->
             if (compoundButton.isChecked && !seat.isSeatBusy) {
-                listener.onSeatClicked(seat)
+                listener.addSeat(seat)
                 binding.seatCb.setTextColor(Color.WHITE)
             } else {
+                listener.removeSeat(seat)
                 binding.seatCb.setTextColor(Color.BLACK)
             }
         }
