@@ -1,9 +1,11 @@
 package kz.busjol.ui.payment_order_result
 
-import android.widget.Toast
-import androidmads.library.qrgenearator.QRGContents
-import androidmads.library.qrgenearator.QRGEncoder
 import androidx.recyclerview.widget.RecyclerView
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.MultiFormatWriter
+import com.google.zxing.WriterException
+import com.journeyapps.barcodescanner.BarcodeEncoder
+import kz.busjol.R
 import kz.busjol.databinding.ItemPaymentOrderQrBinding
 
 class PaymentOrderViewHolder(
@@ -11,18 +13,14 @@ class PaymentOrderViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(qr: Qr) {
-//        if (qr.url.isEmpty()) {
-//            Toast.makeText(itemView.context, "No QR", Toast.LENGTH_SHORT).show()
-//        } else {
-//            val dimen = 400
-//            val qrEncoder = QRGEncoder(qr.url, null, QRGContents.URL_KEY, dimen)
-//
-//            try {
-//                val bitmap = qrEncoder.encodeAsBitmap()
-//                binding.qr.setImageBitmap(bitmap)
-//            } catch (e: Exception) {
-//                e.printStackTrace()
-//            }
-//        }
+        try {
+            val size = itemView.context.resources.getDimension(R.dimen._130sdp).toInt()
+            val matrix = MultiFormatWriter().encode(qr.url, BarcodeFormat.QR_CODE, size, size)
+            val bitmap = BarcodeEncoder().createBitmap(matrix)
+
+            binding.qr.setImageBitmap(bitmap)
+        } catch (e: WriterException) {
+            e.printStackTrace()
+        }
     }
 }

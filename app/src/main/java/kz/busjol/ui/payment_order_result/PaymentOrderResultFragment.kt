@@ -77,6 +77,7 @@ class PaymentOrderResultFragment :
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             setHasFixedSize(true)
             LinearSnapHelper().attachToRecyclerView(this)
+            addItemDecoration(LinePagerIndicatorDecoration())
         }
     }
 }

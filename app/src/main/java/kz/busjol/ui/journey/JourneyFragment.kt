@@ -27,7 +27,6 @@ class JourneyFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObservers()
-        setAdapterValues()
         backWithData(args.journeyData)
     }
 
@@ -45,11 +44,6 @@ class JourneyFragment :
             .actionNavigationJourneyFragmentToNavigationBusPlan(journeyData)
 
         findNavController().navigate(action)
-    }
-
-    private fun setAdapterValues() {
-        tripAdapter.fromCityValue(args.journeyData.fromCity?.name)
-        tripAdapter.toCityValue(args.journeyData.toCity?.name)
     }
 
     private fun backWithData(journeyData: JourneyData) {

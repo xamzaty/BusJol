@@ -48,14 +48,6 @@ class CustomForm @JvmOverloads constructor(
         return iinTextIsFilled && lastNameIsFilled && firstNameIsFilled
     }
 
-    private fun AppCompatEditText.initTextWatcher(body: (text: String) -> Unit) {
-        this.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { body(p0!!.toString()) }
-            override fun afterTextChanged(p0: Editable?) {}
-        })
-    }
-
     fun setupFields(
         activity: FragmentActivity?,
         isChildType: Boolean = false,

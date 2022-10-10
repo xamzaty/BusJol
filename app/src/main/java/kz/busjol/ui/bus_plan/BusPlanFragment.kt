@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import kz.busjol.base.BaseFragment
 import kz.busjol.data.network.model.BusPlan
 import kz.busjol.databinding.FragmentBusPlanBinding
+import kz.busjol.ext.FragmentExt.showAlertDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -22,7 +23,6 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
-        setupButtons()
         setupObservers()
         setupRecyclerView()
     }
@@ -38,36 +38,54 @@ class BusPlanFragment : BaseFragment<FragmentBusPlanBinding>(FragmentBusPlanBind
     private fun observeViewModel() {
         viewModel.apply {
             selectedSeats.observe(viewLifecycleOwner) {
-                val itemWithSeparator = it.toString()
-                    .replace(",", " /")
-                    .replace("[", "")
-                    .replace("]", "")
+                setItems(it)
+                setupButtons(it)
+            }
+        }
+    }
 
-                val itemWithoutSeparator = it.toString()
-                    .replace(",", "")
-                    .replace("[", "")
-                    .replace("]", "")
+    private fun setItems(set: MutableSet<Int>) {
+        val itemWithSeparator = set.toString()
+            .replace(",", " /")
+            .replace("[", "")
+            .replace("]", "")
 
-                if (it.lastOrNull() == it.size - 1) {
-                    binding.selectedSeats.text = itemWithoutSeparator
+        val itemWithoutSeparator = set.toString()
+            .replace(",", "")
+            .replace("[", "")
+            .replace("]", "")
+
+        if (set.lastOrNull() == set.size - 1) {
+            binding.selectedSeats.text = itemWithoutSeparator
+        } else {
+            binding.selectedSeats.text = itemWithSeparator
+        }
+    }
+
+    private fun setupButtons(set: MutableSet<Int>) {
+        binding.apply {
+            backButton.setOnClickListener {
+                findNavController().popBackStack()
+                viewModel.onAction(BusPlanAction.RemoveAllItemsFromBusPlanList)
+            }
+
+            continueButton.setOnClickListener {
+                val isAllPassengersIn =
+                    args.journeyData.passengerListData?.size == set.size
+
+                if (!isAllPassengersIn) {
+                    showAlertDialog(title = "Выберете достаточное количество пассажиров")
                 } else {
-                    binding.selectedSeats.text = itemWithSeparator
+                    continueButtonAction()
+                    viewModel.onAction(BusPlanAction.RemoveAllItemsFromBusPlanList)
                 }
             }
         }
     }
 
-    private fun setupButtons() {
-        binding.apply {
-            backButton.setOnClickListener {
-                findNavController().popBackStack()
-            }
-
-            continueButton.setOnClickListener {
-                val action = BusPlanFragmentDirections.actionNavigationBusPlanToPassengerDataFragment(args.journeyData)
-                findNavController().navigate(action)
-            }
-        }
+    private fun continueButtonAction() {
+        val action = BusPlanFragmentDirections.actionNavigationBusPlanToPassengerDataFragment(args.journeyData)
+        findNavController().navigate(action)
     }
 
     private fun setupRecyclerView() {

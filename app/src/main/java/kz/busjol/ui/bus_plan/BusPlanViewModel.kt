@@ -69,6 +69,7 @@ class BusPlanViewModel(
         when (action) {
             is BusPlanAction.AddItemsToBusPlanList -> addItemsToBusPlanList(action.item)
             is BusPlanAction.RemoveItemsFromBusPlanList -> removeItemsFromBusPlanList(action.item)
+            is BusPlanAction.RemoveAllItemsFromBusPlanList -> _selectedSeats.value?.clear()
         }
     }
 }

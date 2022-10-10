@@ -1,5 +1,7 @@
 package kz.busjol.data.network.model
 
+import kz.busjol.domain.model.City
+
 class JourneyResponse(
     val journey: JourneyResponseItem?,
     val departureTime: String?,
@@ -7,8 +9,10 @@ class JourneyResponse(
     val amount: Int?,
     val numberOfPlaces: Int?,
     val numberOfFreePlaces: Int?,
-    val stopName: String?
-)
+    val stopName: String?,
+    val cityFrom: City,
+    val cityTo: City
+    )
 
 class JourneyResponseItem(
     val id: Int?,

@@ -7,18 +7,18 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "kz.busjol"
         minSdk 21
-        targetSdk 31
+        targetSdk 33
         versionCode versionCodeDate()
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField 'String', 'BASE_URL', "\"http://45.76.87.246/\""
+        buildConfigField 'String', 'BASE_URL', "\"https://daneek.xyz/api/\""
     }
 
     buildTypes {
@@ -148,6 +148,8 @@ dependencies {
 
     //ScalableSize
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

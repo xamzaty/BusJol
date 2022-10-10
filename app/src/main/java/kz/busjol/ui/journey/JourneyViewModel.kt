@@ -12,6 +12,7 @@ class JourneyViewModel(
     private val args: JourneyFragmentArgs
 ) : BaseViewModel() {
 
+    private val journeyList = MutableLiveData<List<Journey>>()
     private val _viewState = MutableLiveData<ViewState<JourneyViewState>>()
     val viewState: LiveData<ViewState<JourneyViewState>> = _viewState
 
@@ -42,7 +43,7 @@ class JourneyViewModel(
                 id = 0,
                 created = "sdf",
                 status = 0,
-                name = "asdf",
+                name = "Лежачий",
                 departsOn = "24.02.2022",
                 routeId = 0,
                 carrierId = 0,
@@ -55,8 +56,8 @@ class JourneyViewModel(
             numberOfPlaces = 20,
             stopName = "Автобусная Станция",
             numberOfFreePlaces = 5,
-            cityFrom = args.journeyData.fromCity?.name,
-            cityTo = args.journeyData.toCity?.name,
+            cityFrom = args.journeyData.fromCity,
+            cityTo = args.journeyData.toCity,
         ),
 
         Journey(
@@ -64,7 +65,7 @@ class JourneyViewModel(
                 id = 0,
                 created = "sdf",
                 status = 0,
-                name = "asdf",
+                name = "Сидячий",
                 departsOn = "sadf",
                 routeId = 0,
                 carrierId = 0,
@@ -77,8 +78,8 @@ class JourneyViewModel(
             numberOfPlaces = 20,
             stopName = "Автобусная Станция",
             numberOfFreePlaces = 5,
-            cityFrom = args.journeyData.fromCity?.name,
-            cityTo = args.journeyData.toCity?.name,
+            cityFrom = args.journeyData.fromCity,
+            cityTo = args.journeyData.toCity,
         ),
     )
 
@@ -88,25 +89,56 @@ class JourneyViewModel(
     }
 
     private fun filterListByAllType() {
+        val result = ArrayList<Journey>()
+        args.journeyData.journeyList?.let { result.addAll(it) }
+
         _viewState.postValue(
             ViewState.Data(
                 JourneyViewState.JourneyDataInit(
-                    args.journeyData
-                )
+                    JourneyData(
+                        passengerData = args.journeyData.passengerData,
+                        passengerListData = args.journeyData.passengerListData,
+                        fromCity = args.journeyData.fromCity,
+                        toCity = args.journeyData.toCity,
+                        journey = args.journeyData.journey,
+                        journeyList = result
+                ))
             )
         )
     }
 
     private fun filterListByType(seatType: String) {
-//        _viewState.postValue(
-//            ViewState.Data(
-//                JourneyViewState.JourneyDataInit(
-//                    JourneyData(
-//                        journeyList = args.journeyData.journeyList?.filter { it.name.contains(seatType) }
-//                    )
-//                )
-//            )
-//        )
+        val result = ArrayList<Journey>()
+
+        if (seatType.isEmpty()) {
+            journeyList.value?.let { result.addAll(it) }
+        } else {
+            journeyList.value?.let {
+                searchText(
+                    text = seatType,
+                    it
+                )
+            }?.let {
+                result.addAll(
+                    it
+                )
+            }
+        }
+
+        _viewState.value = ViewState.Data(JourneyViewState.JourneyDataInit(journeyData = JourneyData(
+            passengerData = args.journeyData.passengerData,
+            passengerListData = args.journeyData.passengerListData,
+            fromCity = args.journeyData.fromCity,
+            toCity = args.journeyData.toCity,
+            journey = args.journeyData.journey,
+            journeyList = result
+        )
+        ))
+    }
+
+    private fun searchText(text: String, journeyList: List<Journey>) = journeyList.filter {
+        val journey = it.journey?.name?.lowercase().orEmpty()
+        journey.contains(text.lowercase()) ?: false
     }
 
     fun onAction(action: JourneyAction) {

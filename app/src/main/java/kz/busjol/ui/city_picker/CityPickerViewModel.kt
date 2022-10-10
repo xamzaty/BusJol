@@ -7,11 +7,9 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kz.busjol.base.BaseViewModel
-import kz.busjol.data.mapper.CityListMapper
 import kz.busjol.data.network.model.Response
 import kz.busjol.domain.model.City
 import kz.busjol.domain.repository.CityRepository
-import kz.busjol.ui.search_journey.SearchJourneyAction
 import kz.busjol.utils.state.LoadingType
 import kz.busjol.utils.state.ViewState
 
@@ -20,6 +18,7 @@ class CityPickerViewModel(
     private val ioContext: CoroutineDispatcher = Dispatchers.IO
 ) : BaseViewModel() {
 
+    private val cityList = MutableLiveData<List<City>>()
     private val _viewState = MutableLiveData<ViewState<CityListViewState>>(
         ViewState.Loading(
         LoadingType.Progress))
@@ -39,13 +38,25 @@ class CityPickerViewModel(
         }
     }
 
-    private fun cityValueChanged(text: String, cityList: List<City>) {
-        val result = ArrayList<City>(cityList)
+    private fun cityValueChanged(text: String) {
+        val result = ArrayList<City>()
 
-        if (text.isEmpty()) result.addAll(cityList)
-        else result.addAll(searchText(text, cityList))
+        if (text.isEmpty()) {
+            cityList.value?.let { result.addAll(it) }
+        } else {
+            cityList.value?.let {
+                searchText(
+                    text = text,
+                    it
+                )
+            }?.let {
+                result.addAll(
+                    it
+                )
+            }
+        }
 
-        onCityListDataFetched(result)
+        _viewState.value = ViewState.Data(CityListViewState.CityListDataInit(result))
     }
 
     private fun searchText(text: String, cityList: List<City>) = cityList.filter {
@@ -53,6 +64,7 @@ class CityPickerViewModel(
     }
 
     private fun onCityListDataFetched(city: List<City>) {
+        cityList.postValue(city)
         _viewState.postValue(ViewState.Data(CityListViewState.CityListDataInit(city)))
     }
 
@@ -62,7 +74,7 @@ class CityPickerViewModel(
 
     fun onAction(action: CityListAction) {
         when(action) {
-            is CityListAction.SearchCity -> cityValueChanged(action.text, action.cityList)
+            is CityListAction.SearchCity -> cityValueChanged(action.text)
         }
     }
 }
