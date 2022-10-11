@@ -69,6 +69,7 @@ class JourneyFragment :
     private fun handleViewState(state: JourneyViewState) {
         when (state) {
             is JourneyViewState.JourneyDataInit -> initData(state.journeyList)
+            is JourneyViewState.JourneyDataPass -> Unit
         }
     }
 
