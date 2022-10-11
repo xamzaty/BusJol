@@ -87,15 +87,13 @@ class CityPickerDialog :
     private fun setupFields(cityList: List<City>) {
         binding.apply {
             findCityEt.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     viewModel.onAction(CityListAction.SearchCity(p0.toString(), cityList))
                 }
 
-                override fun afterTextChanged(p0: Editable?) {
-                }
+                override fun afterTextChanged(p0: Editable?) {}
             })
         }
     }

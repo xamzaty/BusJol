@@ -44,18 +44,11 @@ class CityPickerViewModel(
         if (text.isEmpty()) {
             cityList.value?.let { result.addAll(it) }
         } else {
-            cityList.value?.let {
-                searchText(
-                    text = text,
-                    it
-                )
-            }?.let {
-                result.addAll(
-                    it
-                )
+            cityList.value
+                ?.let { searchText(text = text, it) }
+                ?.let { result.addAll(it)
             }
         }
-
         _viewState.value = ViewState.Data(CityListViewState.CityListDataInit(result))
     }
 

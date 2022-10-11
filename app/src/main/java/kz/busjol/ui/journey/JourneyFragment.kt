@@ -68,15 +68,26 @@ class JourneyFragment :
 
     private fun handleViewState(state: JourneyViewState) {
         when (state) {
-            is JourneyViewState.JourneyDataInit -> initData(state.journeyData)
+            is JourneyViewState.JourneyDataInit -> initData(state.journeyList)
         }
     }
 
-    private fun initData(journeyData: JourneyData) {
+    private fun initData(journeyList: List<Journey>) {
         loadData()
-        setTitle(journeyData)
-        tripAdapter.submitList(journeyData.journeyList)
+        setTitle()
+        tripAdapter.submitList(journeyList)
         setupButtons()
+        println(journeyList)
+
+        if (journeyList.isEmpty()) {
+            binding.rvJourney.visibility = View.GONE
+            binding.nothingFoundImage.visibility = View.VISIBLE
+            binding.nothingFoundText.visibility = View.VISIBLE
+        } else {
+            binding.rvJourney.visibility = View.VISIBLE
+            binding.nothingFoundImage.visibility = View.GONE
+            binding.nothingFoundText.visibility = View.GONE
+        }
     }
 
     private fun loadData() {
@@ -90,9 +101,9 @@ class JourneyFragment :
         }
     }
 
-    private fun setTitle(journeyData: JourneyData) {
-        val fromCity = journeyData.fromCity?.name
-        val toCity = journeyData.toCity?.name
+    private fun setTitle() {
+        val fromCity = args.journeyData.fromCity?.name
+        val toCity = args.journeyData.toCity?.name
         binding.titleTrip.text = "$fromCity - $toCity"
     }
 
@@ -105,15 +116,15 @@ class JourneyFragment :
             viewModel.apply {
                 radioGroup.setOnCheckedChangeListener { _, i ->
                     if (i == R.id.all_button) {
-                        viewModel.onAction(JourneyAction.FilterListByTypeButtonClicked(true))
-                    }
-
-                    if (i == R.id.lying_place_button) {
-                        viewModel.onAction(JourneyAction.FilterListByTypeButtonClicked(false, getString(R.string.lying_seats)))
+                        viewModel.onAction(JourneyAction.FilterListByTypeButtonClicked( ""))
                     }
 
                     if (i == R.id.seat_place_button) {
-                        viewModel.onAction(JourneyAction.FilterListByTypeButtonClicked(false, getString(R.string.seating_seats)))
+                        viewModel.onAction(JourneyAction.FilterListByTypeButtonClicked( getString(R.string.seating_seats)))
+                    }
+
+                    if (i == R.id.lying_place_button) {
+                        viewModel.onAction(JourneyAction.FilterListByTypeButtonClicked( getString(R.string.lying_seats)))
                     }
                 }
             }
